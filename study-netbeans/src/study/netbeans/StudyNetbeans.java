@@ -14,7 +14,9 @@ public class StudyNetbeans {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        NumberAddition frame = new NumberAddition();
+        //NumberAddition frame = new NumberAddition();
+        //ImageDisplay frame = new ImageDisplay();
+        ContactEditorUI frame = new ContactEditorUI();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
     }
