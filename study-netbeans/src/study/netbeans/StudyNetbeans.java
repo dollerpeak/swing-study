@@ -19,6 +19,7 @@ public class StudyNetbeans {
         ContactEditorUI frame = new ContactEditorUI();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
+        frame.setTitle("TEST");
     }
     
 }
