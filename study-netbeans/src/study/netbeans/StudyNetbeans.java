@@ -4,6 +4,9 @@
  */
 package study.netbeans;
 
+import study.netbeans.controls.FramePanelControls;
+import study.netbeans.etc.CelsiusConverter;
+
 /**
  *
  * @author P088454
@@ -16,10 +19,13 @@ public class StudyNetbeans {
     public static void main(String[] args) {
         //NumberAddition frame = new NumberAddition();
         //ImageDisplay frame = new ImageDisplay();
-        ContactEditorUI frame = new ContactEditorUI();
+        //ContactEditorUI frame = new ContactEditorUI();
+        //CelsiusConverter frame = new CelsiusConverter();
+        FramePanelControls frame = new FramePanelControls();
+        
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
-        frame.setTitle("TEST");
+        //frame.setTitle("TEST");
     }
     
 }
