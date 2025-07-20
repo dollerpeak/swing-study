@@ -4,7 +4,10 @@
  */
 package study.netbeans;
 
+import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
+import javax.swing.plaf.basic.BasicLookAndFeel;
+import study.netbeans.common.looandfeel.LookAndFeelManager;
 import study.netbeans.controls.FramePanelControls;
 import study.netbeans.etc.CelsiusConverter;
 
@@ -18,6 +21,8 @@ public class StudyNetbeans {
      * @param args the command line arguments
      */
     public static void main(String[] args) {        
+        LookAndFeelManager lookAndFeelMgr = new LookAndFeelManager();
+                
         //NumberAddition frame = new NumberAddition();
         //ImageDisplay frame = new ImageDisplay();
         //ContactEditorUI frame = new ContactEditorUI();
