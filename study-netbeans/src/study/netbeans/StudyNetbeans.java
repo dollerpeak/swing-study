@@ -4,6 +4,7 @@
  */
 package study.netbeans;
 
+import javax.swing.UIManager;
 import study.netbeans.controls.FramePanelControls;
 import study.netbeans.etc.CelsiusConverter;
 
@@ -16,7 +17,7 @@ public class StudyNetbeans {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) {        
         //NumberAddition frame = new NumberAddition();
         //ImageDisplay frame = new ImageDisplay();
         //ContactEditorUI frame = new ContactEditorUI();
