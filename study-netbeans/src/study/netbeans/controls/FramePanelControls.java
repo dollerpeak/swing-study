@@ -52,7 +52,8 @@ public class FramePanelControls extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        threeButtonGroup1 = new javax.swing.ButtonGroup();
+        radioButtonGroup1 = new javax.swing.ButtonGroup();
+        toggleButtonGroup1 = new javax.swing.ButtonGroup();
         onePanel = new javax.swing.JPanel();
         oneLabel = new javax.swing.JLabel();
         oneTextField = new javax.swing.JTextField();
@@ -73,10 +74,10 @@ public class FramePanelControls extends javax.swing.JFrame {
         fourCheckBox3 = new javax.swing.JCheckBox();
         fourCheckBox4 = new javax.swing.JCheckBox();
         jPanel3 = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
+        fiveToggleButton1 = new javax.swing.JToggleButton();
+        fiveToggleButton2 = new javax.swing.JToggleButton();
+        fiveToggleButton3 = new javax.swing.JToggleButton();
+        fiveToggleButton4 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FramePanelControls");
@@ -171,7 +172,7 @@ public class FramePanelControls extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("three"));
 
-        threeButtonGroup1.add(threeRadioButton1);
+        radioButtonGroup1.add(threeRadioButton1);
         threeRadioButton1.setSelected(true);
         threeRadioButton1.setText("jRadioButton1");
         threeRadioButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -180,7 +181,7 @@ public class FramePanelControls extends javax.swing.JFrame {
             }
         });
 
-        threeButtonGroup1.add(threeRadioButton2);
+        radioButtonGroup1.add(threeRadioButton2);
         threeRadioButton2.setText("jRadioButton2");
         threeRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,7 +189,7 @@ public class FramePanelControls extends javax.swing.JFrame {
             }
         });
 
-        threeButtonGroup1.add(threeRadioButton3);
+        radioButtonGroup1.add(threeRadioButton3);
         threeRadioButton3.setText("jRadioButton3");
         threeRadioButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,7 +197,7 @@ public class FramePanelControls extends javax.swing.JFrame {
             }
         });
 
-        threeButtonGroup1.add(threeRadioButton4);
+        radioButtonGroup1.add(threeRadioButton4);
         threeRadioButton4.setText("jRadioButton4");
         threeRadioButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -289,13 +290,37 @@ public class FramePanelControls extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("five"));
 
-        jToggleButton1.setText("jToggleButton1");
+        toggleButtonGroup1.add(fiveToggleButton1);
+        fiveToggleButton1.setText("jToggleButton1");
+        fiveToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fiveToggleButton1ActionPerformed(evt);
+            }
+        });
 
-        jToggleButton2.setText("jToggleButton2");
+        toggleButtonGroup1.add(fiveToggleButton2);
+        fiveToggleButton2.setText("jToggleButton2");
+        fiveToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fiveToggleButton2ActionPerformed(evt);
+            }
+        });
 
-        jToggleButton3.setText("jToggleButton3");
+        toggleButtonGroup1.add(fiveToggleButton3);
+        fiveToggleButton3.setText("jToggleButton3");
+        fiveToggleButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fiveToggleButton3ActionPerformed(evt);
+            }
+        });
 
-        jToggleButton4.setText("jToggleButton4");
+        toggleButtonGroup1.add(fiveToggleButton4);
+        fiveToggleButton4.setText("jToggleButton4");
+        fiveToggleButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fiveToggleButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -305,28 +330,28 @@ public class FramePanelControls extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jToggleButton1)
+                        .addComponent(fiveToggleButton1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jToggleButton2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jToggleButton3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jToggleButton4, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(fiveToggleButton2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(fiveToggleButton3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(fiveToggleButton4, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jToggleButton1)
+                .addComponent(fiveToggleButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton2)
+                .addComponent(fiveToggleButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton3)
+                .addComponent(fiveToggleButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton4)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addComponent(fiveToggleButton4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -344,32 +369,33 @@ public class FramePanelControls extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(onePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(twoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(138, 138, 138))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(twoPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(onePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void oneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneButtonActionPerformed
+        loggerMgr.getLogger().info("===> oneButtonActionPerformed()");
         oneLabel.setText(oneTextField.getText());
         //oneButton.setVisible(false);
         //oneTextField.setEnabled(false);
     }//GEN-LAST:event_oneButtonActionPerformed
 
     private void twoButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoButton1ActionPerformed
+        loggerMgr.getLogger().info("===> twoButton1ActionPerformed()");
         twoLabel.setText(twoButton1.getText());
         
         int result = JOptionPane.showConfirmDialog(null, "무엇인가?", "확인", JOptionPane.YES_NO_OPTION);
@@ -377,14 +403,17 @@ public class FramePanelControls extends javax.swing.JFrame {
     }//GEN-LAST:event_twoButton1ActionPerformed
 
     private void twoButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoButton2ActionPerformed
+        loggerMgr.getLogger().info("===> twoButton2ActionPerformed()");
         twoLabel.setText(twoButton2.getText());
     }//GEN-LAST:event_twoButton2ActionPerformed
 
     private void twoButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoButton3ActionPerformed
+        loggerMgr.getLogger().info("===> twoButton3ActionPerformed()");
         twoLabel.setText(twoButton3.getText());
     }//GEN-LAST:event_twoButton3ActionPerformed
 
     private void threeRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_threeRadioButton1ActionPerformed
+        loggerMgr.getLogger().info("===> threeRadioButton1ActionPerformed()");
         loggerMgr.getLogger().info("radiobutton1 1234= " + threeRadioButton1.isSelected());
         loggerMgr.getLogger().info("radiobutton2 abcd= " + threeRadioButton2.isSelected());
         loggerMgr.getLogger().info("radiobutton3 가나다라= " + threeRadioButton3.isSelected());
@@ -392,6 +421,7 @@ public class FramePanelControls extends javax.swing.JFrame {
     }//GEN-LAST:event_threeRadioButton1ActionPerformed
 
     private void threeRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_threeRadioButton2ActionPerformed
+        loggerMgr.getLogger().info("===> threeRadioButton2ActionPerformed()");
         loggerMgr.getLogger().info("radiobutton1 = " + threeRadioButton1.isSelected());
         loggerMgr.getLogger().info("radiobutton2 = " + threeRadioButton2.isSelected());
         loggerMgr.getLogger().info("radiobutton3 = " + threeRadioButton3.isSelected());
@@ -399,6 +429,7 @@ public class FramePanelControls extends javax.swing.JFrame {
     }//GEN-LAST:event_threeRadioButton2ActionPerformed
 
     private void threeRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_threeRadioButton3ActionPerformed
+        loggerMgr.getLogger().info("===> threeRadioButton3ActionPerformed()");
         loggerMgr.getLogger().info("radiobutton1 = " + threeRadioButton1.isSelected());
         loggerMgr.getLogger().info("radiobutton2 = " + threeRadioButton2.isSelected());
         loggerMgr.getLogger().info("radiobutton3 = " + threeRadioButton3.isSelected());
@@ -406,6 +437,7 @@ public class FramePanelControls extends javax.swing.JFrame {
     }//GEN-LAST:event_threeRadioButton3ActionPerformed
 
     private void threeRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_threeRadioButton4ActionPerformed
+        loggerMgr.getLogger().info("===> threeRadioButton4ActionPerformed()");
         loggerMgr.getLogger().info("radiobutton1 = " + threeRadioButton1.isSelected());
         loggerMgr.getLogger().info("radiobutton2 = " + threeRadioButton2.isSelected());
         loggerMgr.getLogger().info("radiobutton3 = " + threeRadioButton3.isSelected());
@@ -413,6 +445,7 @@ public class FramePanelControls extends javax.swing.JFrame {
     }//GEN-LAST:event_threeRadioButton4ActionPerformed
 
     private void fourCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fourCheckBox1ActionPerformed
+        loggerMgr.getLogger().info("===> fourCheckBox1ActionPerformed()");
         loggerMgr.getLogger().info("fourCheckBox1 = " + fourCheckBox1.isSelected());
         loggerMgr.getLogger().info("fourCheckBox2 = " + fourCheckBox2.isSelected());
         loggerMgr.getLogger().info("fourCheckBox3 = " + fourCheckBox3.isSelected());
@@ -420,6 +453,7 @@ public class FramePanelControls extends javax.swing.JFrame {
     }//GEN-LAST:event_fourCheckBox1ActionPerformed
 
     private void fourCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fourCheckBox2ActionPerformed
+        loggerMgr.getLogger().info("===> fourCheckBox2ActionPerformed()");
         loggerMgr.getLogger().info("fourCheckBox1 = " + fourCheckBox1.isSelected());
         loggerMgr.getLogger().info("fourCheckBox2 = " + fourCheckBox2.isSelected());
         loggerMgr.getLogger().info("fourCheckBox3 = " + fourCheckBox3.isSelected());
@@ -427,6 +461,7 @@ public class FramePanelControls extends javax.swing.JFrame {
     }//GEN-LAST:event_fourCheckBox2ActionPerformed
 
     private void fourCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fourCheckBox3ActionPerformed
+        loggerMgr.getLogger().info("===> fourCheckBox3ActionPerformed()");
         loggerMgr.getLogger().info("fourCheckBox1 = " + fourCheckBox1.isSelected());
         loggerMgr.getLogger().info("fourCheckBox2 = " + fourCheckBox2.isSelected());
         loggerMgr.getLogger().info("fourCheckBox3 = " + fourCheckBox3.isSelected());
@@ -434,11 +469,44 @@ public class FramePanelControls extends javax.swing.JFrame {
     }//GEN-LAST:event_fourCheckBox3ActionPerformed
 
     private void fourCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fourCheckBox4ActionPerformed
+        loggerMgr.getLogger().info("===> fourCheckBox4ActionPerformed()");
         loggerMgr.getLogger().info("fourCheckBox1 = " + fourCheckBox1.isSelected());
         loggerMgr.getLogger().info("fourCheckBox2 = " + fourCheckBox2.isSelected());
         loggerMgr.getLogger().info("fourCheckBox3 = " + fourCheckBox3.isSelected());
         loggerMgr.getLogger().info("fourCheckBox4 = " + fourCheckBox4.isSelected());
     }//GEN-LAST:event_fourCheckBox4ActionPerformed
+
+    private void fiveToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveToggleButton1ActionPerformed
+        loggerMgr.getLogger().info("===> fiveToggleButton1ActionPerformed()");
+        loggerMgr.getLogger().info("fiveToggleButton1 = " + fiveToggleButton1.isSelected());
+        loggerMgr.getLogger().info("fiveToggleButton2 = " + fiveToggleButton2.isSelected());
+        loggerMgr.getLogger().info("fiveToggleButton3 = " + fiveToggleButton3.isSelected());
+        loggerMgr.getLogger().info("fiveToggleButton4 = " + fiveToggleButton4.isSelected());
+    }//GEN-LAST:event_fiveToggleButton1ActionPerformed
+
+    private void fiveToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveToggleButton2ActionPerformed
+        loggerMgr.getLogger().info("===> fiveToggleButton2ActionPerformed()");
+        loggerMgr.getLogger().info("fiveToggleButton1 = " + fiveToggleButton1.isSelected());
+        loggerMgr.getLogger().info("fiveToggleButton2 = " + fiveToggleButton2.isSelected());
+        loggerMgr.getLogger().info("fiveToggleButton3 = " + fiveToggleButton3.isSelected());
+        loggerMgr.getLogger().info("fiveToggleButton4 = " + fiveToggleButton4.isSelected());
+    }//GEN-LAST:event_fiveToggleButton2ActionPerformed
+
+    private void fiveToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveToggleButton3ActionPerformed
+        loggerMgr.getLogger().info("===> fiveToggleButton3ActionPerformed()");
+        loggerMgr.getLogger().info("fiveToggleButton1 = " + fiveToggleButton1.isSelected());
+        loggerMgr.getLogger().info("fiveToggleButton2 = " + fiveToggleButton2.isSelected());
+        loggerMgr.getLogger().info("fiveToggleButton3 = " + fiveToggleButton3.isSelected());
+        loggerMgr.getLogger().info("fiveToggleButton4 = " + fiveToggleButton4.isSelected());
+    }//GEN-LAST:event_fiveToggleButton3ActionPerformed
+
+    private void fiveToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveToggleButton4ActionPerformed
+        loggerMgr.getLogger().info("===> fiveToggleButton4ActionPerformed()");
+        loggerMgr.getLogger().info("fiveToggleButton1 = " + fiveToggleButton1.isSelected());
+        loggerMgr.getLogger().info("fiveToggleButton2 = " + fiveToggleButton2.isSelected());
+        loggerMgr.getLogger().info("fiveToggleButton3 = " + fiveToggleButton3.isSelected());
+        loggerMgr.getLogger().info("fiveToggleButton4 = " + fiveToggleButton4.isSelected());
+    }//GEN-LAST:event_fiveToggleButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -481,6 +549,10 @@ public class FramePanelControls extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton fiveToggleButton1;
+    private javax.swing.JToggleButton fiveToggleButton2;
+    private javax.swing.JToggleButton fiveToggleButton3;
+    private javax.swing.JToggleButton fiveToggleButton4;
     private javax.swing.JCheckBox fourCheckBox1;
     private javax.swing.JCheckBox fourCheckBox2;
     private javax.swing.JCheckBox fourCheckBox3;
@@ -488,19 +560,16 @@ public class FramePanelControls extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JButton oneButton;
     private javax.swing.JLabel oneLabel;
     private javax.swing.JPanel onePanel;
     private javax.swing.JTextField oneTextField;
-    private javax.swing.ButtonGroup threeButtonGroup1;
+    private javax.swing.ButtonGroup radioButtonGroup1;
     private javax.swing.JRadioButton threeRadioButton1;
     private javax.swing.JRadioButton threeRadioButton2;
     private javax.swing.JRadioButton threeRadioButton3;
     private javax.swing.JRadioButton threeRadioButton4;
+    private javax.swing.ButtonGroup toggleButtonGroup1;
     private javax.swing.JButton twoButton1;
     private javax.swing.JButton twoButton2;
     private javax.swing.JButton twoButton3;
