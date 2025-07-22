@@ -78,6 +78,19 @@ public class FramePanelControls extends javax.swing.JFrame {
         fiveToggleButton2 = new javax.swing.JToggleButton();
         fiveToggleButton3 = new javax.swing.JToggleButton();
         fiveToggleButton4 = new javax.swing.JToggleButton();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        sixComboBox1 = new javax.swing.JComboBox<>();
+        sixUpdateButton = new javax.swing.JButton();
+        sixDeleteButton = new javax.swing.JButton();
+        sixAddButton = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        sevenList1 = new javax.swing.JList<>();
+        sevenAddButton = new javax.swing.JButton();
+        sevenTextField1 = new javax.swing.JTextField();
+        sevenDeleteButton = new javax.swing.JButton();
+        sevenClearButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FramePanelControls");
@@ -354,34 +367,168 @@ public class FramePanelControls extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 138, Short.MAX_VALUE)
+        );
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("six"));
+
+        sixComboBox1.setEditable(true);
+        sixComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "apple", "banana", "orange", "1234" }));
+        sixComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sixComboBox1ActionPerformed(evt);
+            }
+        });
+
+        sixUpdateButton.setText("UPDATE");
+        sixUpdateButton.setEnabled(false);
+
+        sixDeleteButton.setText("DELETE");
+        sixDeleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sixDeleteButtonActionPerformed(evt);
+            }
+        });
+
+        sixAddButton.setText("ADD");
+        sixAddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sixAddButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sixComboBox1, 0, 114, Short.MAX_VALUE)
+                    .addComponent(sixUpdateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sixDeleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sixAddButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(sixComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sixAddButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(sixUpdateButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sixDeleteButton)
+                .addContainerGap())
+        );
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("seven"));
+
+        sevenList1.setBorder(null);
+        sevenList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "list_1", "list_2", "list_3", "list_4", "list_5", "list_6", "list_7", "list_8", "list_9" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        sevenList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sevenList1MouseClicked(evt);
+            }
+        });
+        sevenList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                sevenList1ValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(sevenList1);
+
+        sevenAddButton.setText("ADD");
+
+        sevenDeleteButton.setText("DELETE");
+
+        sevenClearButton.setText("CLEAR");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sevenTextField1)
+                    .addComponent(sevenAddButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sevenDeleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sevenClearButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(sevenTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sevenAddButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sevenDeleteButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sevenClearButton)
+                        .addGap(0, 17, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(onePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(twoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(onePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(twoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(twoPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(onePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(164, Short.MAX_VALUE))
+                    .addComponent(onePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -508,6 +655,61 @@ public class FramePanelControls extends javax.swing.JFrame {
         loggerMgr.getLogger().info("fiveToggleButton4 = " + fiveToggleButton4.isSelected());
     }//GEN-LAST:event_fiveToggleButton4ActionPerformed
 
+    private void sixComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sixComboBox1ActionPerformed
+        loggerMgr.getLogger().info("===> sixComboBox1ActionPerformed()");
+        loggerMgr.getLogger().info("index = " + sixComboBox1.getSelectedIndex());
+        loggerMgr.getLogger().info("item = " + sixComboBox1.getSelectedItem());
+    }//GEN-LAST:event_sixComboBox1ActionPerformed
+
+    private void sixAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sixAddButtonActionPerformed
+        loggerMgr.getLogger().info("===> sixAddButtonActionPerformed()");
+        sixComboBox1.addItem((String)sixComboBox1.getSelectedItem());        
+    }//GEN-LAST:event_sixAddButtonActionPerformed
+
+    private void sixDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sixDeleteButtonActionPerformed
+        loggerMgr.getLogger().info("===> sixDeleteButtonActionPerformed()");
+        sixComboBox1.removeItem((String)sixComboBox1.getSelectedItem());
+    }//GEN-LAST:event_sixDeleteButtonActionPerformed
+
+    private void sevenList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_sevenList1ValueChanged
+        loggerMgr.getLogger().info("===> sevenList1ValueChanged()");
+
+        // evt.getValueIsAdjusting()	true일 때 중간 상태, false일 때 확정
+        if (evt.getValueIsAdjusting() == false) {
+            loggerMgr.getLogger().info("단일 index = " + sevenList1.getSelectedIndex());
+            loggerMgr.getLogger().info("단일 value = " + sevenList1.getSelectedValue());
+
+            //loggerMgr.getLogger().info("멀티 index = " + sevenList1.getSelectedIndices());
+            boolean first = true;
+            String log = "";
+            for (int index : sevenList1.getSelectedIndices()) {
+                if (first == true) {
+                    first = false;
+                    log += index;
+                } else {
+                    log += ", " + index;
+                }
+            }
+            loggerMgr.getLogger().info("멀티 index = [" + log + "]");
+            loggerMgr.getLogger().info("멀티 value = " + sevenList1.getSelectedValuesList());
+        }
+    }//GEN-LAST:event_sevenList1ValueChanged
+
+    private void sevenList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sevenList1MouseClicked
+        loggerMgr.getLogger().info("===> sevenList1MouseClicked()");
+
+        int index;
+        String value;
+        if (evt.getClickCount() == 2) {
+            index = sevenList1.locationToIndex(evt.getPoint());
+            value = (String) sevenList1.getModel().getElementAt(index);
+
+            loggerMgr.getLogger().info("index = " + index + ", value = " + value);
+        }
+    
+        
+    }//GEN-LAST:event_sevenList1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -560,11 +762,24 @@ public class FramePanelControls extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton oneButton;
     private javax.swing.JLabel oneLabel;
     private javax.swing.JPanel onePanel;
     private javax.swing.JTextField oneTextField;
     private javax.swing.ButtonGroup radioButtonGroup1;
+    private javax.swing.JButton sevenAddButton;
+    private javax.swing.JButton sevenClearButton;
+    private javax.swing.JButton sevenDeleteButton;
+    private javax.swing.JList<String> sevenList1;
+    private javax.swing.JTextField sevenTextField1;
+    private javax.swing.JButton sixAddButton;
+    private javax.swing.JComboBox<String> sixComboBox1;
+    private javax.swing.JButton sixDeleteButton;
+    private javax.swing.JButton sixUpdateButton;
     private javax.swing.JRadioButton threeRadioButton1;
     private javax.swing.JRadioButton threeRadioButton2;
     private javax.swing.JRadioButton threeRadioButton3;
