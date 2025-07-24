@@ -5,9 +5,14 @@
 package study.netbeans.controls;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.util.SwingUtils;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.ListModel;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import study.netbeans.common.logger.LoggerManager;
@@ -32,11 +37,24 @@ public class FramePanelControls extends javax.swing.JFrame {
         
         initComponents();
         
+        initSevenList();
+        
         loggerMgr.getLogger().info("FramePanelControls()");        
     }
 
     private void initLoggerManager() {
         loggerMgr = new LoggerManager(this.getClass().getName(), Level.INFO);
+    }
+    
+    private void initSevenList() {
+        DefaultListModel model = (DefaultListModel) sevenList1.getModel();
+        //model.addElement(new String[] {"list_1","list_2","list_3","list_4"});
+        model.addElement("list_1");
+        model.addElement("list_2");
+        model.addElement("list_3");
+        model.addElement("list_4");
+        model.addElement("list_5");
+        model.addElement("list_6");
     }
     
 //    private void initLookAndFeelManager() {
@@ -58,6 +76,8 @@ public class FramePanelControls extends javax.swing.JFrame {
         oneLabel = new javax.swing.JLabel();
         oneTextField = new javax.swing.JTextField();
         oneButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        oneTextArea1 = new javax.swing.JTextArea();
         twoPanel = new javax.swing.JPanel();
         twoLabel = new javax.swing.JLabel();
         twoButton1 = new javax.swing.JButton();
@@ -90,7 +110,7 @@ public class FramePanelControls extends javax.swing.JFrame {
         sevenAddButton = new javax.swing.JButton();
         sevenTextField1 = new javax.swing.JTextField();
         sevenDeleteButton = new javax.swing.JButton();
-        sevenClearButton = new javax.swing.JButton();
+        sevenUpdateButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FramePanelControls");
@@ -107,27 +127,39 @@ public class FramePanelControls extends javax.swing.JFrame {
             }
         });
 
+        oneTextArea1.setColumns(20);
+        oneTextArea1.setRows(5);
+        oneTextArea1.setText("Text Area");
+        oneTextArea1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                oneTextArea1MouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(oneTextArea1);
+
         javax.swing.GroupLayout onePanelLayout = new javax.swing.GroupLayout(onePanel);
         onePanel.setLayout(onePanelLayout);
         onePanelLayout.setHorizontalGroup(
             onePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(onePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(onePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(oneButton, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(oneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(oneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(onePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(oneButton, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                    .addComponent(oneLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(oneTextField)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         onePanelLayout.setVerticalGroup(
             onePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, onePanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(oneLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(oneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(oneButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -161,7 +193,7 @@ public class FramePanelControls extends javax.swing.JFrame {
         twoPanelLayout.setHorizontalGroup(
             twoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(twoPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(twoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(twoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(twoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -279,13 +311,10 @@ public class FramePanelControls extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fourCheckBox1)
-                    .addComponent(fourCheckBox2)
-                    .addComponent(fourCheckBox3)
-                    .addComponent(fourCheckBox4))
-                .addGap(0, 14, Short.MAX_VALUE))
+            .addComponent(fourCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+            .addComponent(fourCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(fourCheckBox3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(fourCheckBox4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -371,7 +400,7 @@ public class FramePanelControls extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -434,12 +463,7 @@ public class FramePanelControls extends javax.swing.JFrame {
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("seven"));
 
-        sevenList1.setBorder(null);
-        sevenList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "list_1", "list_2", "list_3", "list_4", "list_5", "list_6", "list_7", "list_8", "list_9" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        sevenList1.setModel(new javax.swing.DefaultListModel<>());
         sevenList1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sevenList1MouseClicked(evt);
@@ -453,10 +477,25 @@ public class FramePanelControls extends javax.swing.JFrame {
         jScrollPane1.setViewportView(sevenList1);
 
         sevenAddButton.setText("ADD");
+        sevenAddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sevenAddButtonActionPerformed(evt);
+            }
+        });
 
         sevenDeleteButton.setText("DELETE");
+        sevenDeleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sevenDeleteButtonActionPerformed(evt);
+            }
+        });
 
-        sevenClearButton.setText("CLEAR");
+        sevenUpdateButton.setText("UPDATE");
+        sevenUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sevenUpdateButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -470,14 +509,15 @@ public class FramePanelControls extends javax.swing.JFrame {
                     .addComponent(sevenTextField1)
                     .addComponent(sevenAddButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sevenDeleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sevenClearButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(sevenUpdateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(sevenTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -485,10 +525,8 @@ public class FramePanelControls extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(sevenDeleteButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sevenClearButton)
-                        .addGap(0, 17, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addComponent(sevenUpdateButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -497,12 +535,12 @@ public class FramePanelControls extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(onePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(twoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(twoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -524,11 +562,11 @@ public class FramePanelControls extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(twoPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(onePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(onePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -704,11 +742,85 @@ public class FramePanelControls extends javax.swing.JFrame {
             index = sevenList1.locationToIndex(evt.getPoint());
             value = (String) sevenList1.getModel().getElementAt(index);
 
-            loggerMgr.getLogger().info("index = " + index + ", value = " + value);
+            loggerMgr.getLogger().info("더블클릭, index = " + index + ", value = " + value);
         }
-    
         
     }//GEN-LAST:event_sevenList1MouseClicked
+
+    private void sevenAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sevenAddButtonActionPerformed
+        loggerMgr.getLogger().info("===> sevenAddButtonActionPerformed()");
+        
+        DefaultListModel<String> model = (DefaultListModel<String>) sevenList1.getModel();
+        String inputText = sevenTextField1.getText();
+        
+        if (inputText.length() > 0) {
+            model.addElement(inputText);
+        } else {
+            JOptionPane.showMessageDialog(null, "데이터를 입력하세요");
+        }        
+    }//GEN-LAST:event_sevenAddButtonActionPerformed
+
+    private void sevenDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sevenDeleteButtonActionPerformed
+        loggerMgr.getLogger().info("===> sevenDeleteButtonActionPerformed()");
+        
+        DefaultListModel<String> model = (DefaultListModel<String>) sevenList1.getModel();
+        
+//        int index = sevenList1.getSelectedIndex();               
+//        loggerMgr.getLogger().info("index = " + index);
+//        model.remove(index);                
+
+        // 점위로 할때는 내림차순으로 해야 인덱스가 안꼬이고 잘 됨
+        int[] index = sevenList1.getSelectedIndices();
+        // 오름차순 정렬
+        Arrays.sort(index);
+        
+        if (sevenList1.getValueIsAdjusting() == false) {
+            // 내림차순으로 삭제
+            for (int i = index.length - 1; i >= 0; i -= 1) {
+                loggerMgr.getLogger().info("remove idx = " + index[i]);
+                model.remove(index[i]);
+            }
+
+            // 인덱스가 밀림
+//        for (int i = 0; i < index.length; i += 1) {
+//            loggerMgr.getLogger().info("remove idx = " + index[i]);
+//            model.remove(index[i]);
+//        }
+        }
+    }//GEN-LAST:event_sevenDeleteButtonActionPerformed
+
+    private void sevenUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sevenUpdateButtonActionPerformed
+        loggerMgr.getLogger().info("===> sevenDeleteButtonActionPerformed()");
+        
+        String inputText = sevenTextField1.getText();
+        DefaultListModel<String> model = (DefaultListModel<String>) sevenList1.getModel();
+        
+        if (sevenList1.getValueIsAdjusting() == false) {
+            if (inputText.length() > 0) {
+                int idx = sevenList1.getSelectedIndex();
+                model.set(idx, inputText);
+            } else {
+                JOptionPane.showMessageDialog(null, "데이터를 입력하세요");
+            }
+        }
+    }//GEN-LAST:event_sevenUpdateButtonActionPerformed
+
+    private void oneTextArea1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oneTextArea1MouseClicked
+        loggerMgr.getLogger().info("===> oneTextArea1MouseClicked()");
+        
+        String text = oneTextArea1.getText();
+        if (evt.getClickCount() == 2) {
+            loggerMgr.getLogger().info("더블 클릭, text = " + text);
+        } else {
+            if (SwingUtilities.isLeftMouseButton(evt) == true) {
+                loggerMgr.getLogger().info("좌 클릭, text = " + text);
+            } else if (SwingUtilities.isRightMouseButton(evt) == true) {
+                loggerMgr.getLogger().info("우 클릭, text = " + text);
+            } else {
+                loggerMgr.getLogger().info("뭐지 클릭, text = " + text);
+            }
+        }
+    }//GEN-LAST:event_oneTextArea1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -766,16 +878,18 @@ public class FramePanelControls extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton oneButton;
     private javax.swing.JLabel oneLabel;
     private javax.swing.JPanel onePanel;
+    private javax.swing.JTextArea oneTextArea1;
     private javax.swing.JTextField oneTextField;
     private javax.swing.ButtonGroup radioButtonGroup1;
     private javax.swing.JButton sevenAddButton;
-    private javax.swing.JButton sevenClearButton;
     private javax.swing.JButton sevenDeleteButton;
     private javax.swing.JList<String> sevenList1;
     private javax.swing.JTextField sevenTextField1;
+    private javax.swing.JButton sevenUpdateButton;
     private javax.swing.JButton sixAddButton;
     private javax.swing.JComboBox<String> sixComboBox1;
     private javax.swing.JButton sixDeleteButton;
