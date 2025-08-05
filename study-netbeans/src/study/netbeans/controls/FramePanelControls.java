@@ -83,34 +83,35 @@ public class FramePanelControls extends javax.swing.JFrame {
         twoButton1 = new javax.swing.JButton();
         twoButton2 = new javax.swing.JButton();
         twoButton3 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        threePanel = new javax.swing.JPanel();
         threeRadioButton1 = new javax.swing.JRadioButton();
         threeRadioButton2 = new javax.swing.JRadioButton();
         threeRadioButton3 = new javax.swing.JRadioButton();
         threeRadioButton4 = new javax.swing.JRadioButton();
-        jPanel2 = new javax.swing.JPanel();
+        fourPanel = new javax.swing.JPanel();
         fourCheckBox1 = new javax.swing.JCheckBox();
         fourCheckBox2 = new javax.swing.JCheckBox();
         fourCheckBox3 = new javax.swing.JCheckBox();
         fourCheckBox4 = new javax.swing.JCheckBox();
-        jPanel3 = new javax.swing.JPanel();
+        fivePanel = new javax.swing.JPanel();
         fiveToggleButton1 = new javax.swing.JToggleButton();
         fiveToggleButton2 = new javax.swing.JToggleButton();
         fiveToggleButton3 = new javax.swing.JToggleButton();
         fiveToggleButton4 = new javax.swing.JToggleButton();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
+        sixPanel = new javax.swing.JPanel();
         sixComboBox1 = new javax.swing.JComboBox<>();
         sixUpdateButton = new javax.swing.JButton();
         sixDeleteButton = new javax.swing.JButton();
         sixAddButton = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
+        sevenPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         sevenList1 = new javax.swing.JList<>();
         sevenAddButton = new javax.swing.JButton();
         sevenTextField1 = new javax.swing.JTextField();
         sevenDeleteButton = new javax.swing.JButton();
         sevenUpdateButton = new javax.swing.JButton();
+        eightPanel = new javax.swing.JPanel();
+        eightSlider = new javax.swing.JSlider();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FramePanelControls");
@@ -215,7 +216,7 @@ public class FramePanelControls extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("three"));
+        threePanel.setBorder(javax.swing.BorderFactory.createTitledBorder("three"));
 
         radioButtonGroup1.add(threeRadioButton1);
         threeRadioButton1.setSelected(true);
@@ -250,22 +251,22 @@ public class FramePanelControls extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout threePanelLayout = new javax.swing.GroupLayout(threePanel);
+        threePanel.setLayout(threePanelLayout);
+        threePanelLayout.setHorizontalGroup(
+            threePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(threePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(threePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(threeRadioButton1)
                     .addComponent(threeRadioButton2)
                     .addComponent(threeRadioButton3)
                     .addComponent(threeRadioButton4))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        threePanelLayout.setVerticalGroup(
+            threePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(threePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(threeRadioButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -277,7 +278,7 @@ public class FramePanelControls extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("four"));
+        fourPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("four"));
 
         fourCheckBox1.setText("jCheckBox1");
         fourCheckBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -307,18 +308,18 @@ public class FramePanelControls extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout fourPanelLayout = new javax.swing.GroupLayout(fourPanel);
+        fourPanel.setLayout(fourPanelLayout);
+        fourPanelLayout.setHorizontalGroup(
+            fourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(fourCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
             .addComponent(fourCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(fourCheckBox3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(fourCheckBox4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        fourPanelLayout.setVerticalGroup(
+            fourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fourPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(fourCheckBox1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -330,7 +331,7 @@ public class FramePanelControls extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("five"));
+        fivePanel.setBorder(javax.swing.BorderFactory.createTitledBorder("five"));
 
         toggleButtonGroup1.add(fiveToggleButton1);
         fiveToggleButton1.setText("jToggleButton1");
@@ -364,27 +365,27 @@ public class FramePanelControls extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout fivePanelLayout = new javax.swing.GroupLayout(fivePanel);
+        fivePanel.setLayout(fivePanelLayout);
+        fivePanelLayout.setHorizontalGroup(
+            fivePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fivePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(fivePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fivePanelLayout.createSequentialGroup()
                         .addComponent(fiveToggleButton1)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fivePanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(fivePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(fiveToggleButton2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(fiveToggleButton3, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(fiveToggleButton4, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        fivePanelLayout.setVerticalGroup(
+            fivePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fivePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(fiveToggleButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -396,18 +397,7 @@ public class FramePanelControls extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 138, Short.MAX_VALUE)
-        );
-
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("six"));
+        sixPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("six"));
 
         sixComboBox1.setEditable(true);
         sixComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "apple", "banana", "orange", "1234" }));
@@ -434,22 +424,22 @@ public class FramePanelControls extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout sixPanelLayout = new javax.swing.GroupLayout(sixPanel);
+        sixPanel.setLayout(sixPanelLayout);
+        sixPanelLayout.setHorizontalGroup(
+            sixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sixPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(sixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sixComboBox1, 0, 114, Short.MAX_VALUE)
                     .addComponent(sixUpdateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sixDeleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sixAddButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        sixPanelLayout.setVerticalGroup(
+            sixPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sixPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(sixComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -461,7 +451,7 @@ public class FramePanelControls extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("seven"));
+        sevenPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("seven"));
 
         sevenList1.setModel(new javax.swing.DefaultListModel<>());
         sevenList1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -474,7 +464,6 @@ public class FramePanelControls extends javax.swing.JFrame {
                 sevenList1ValueChanged(evt);
             }
         });
-        jScrollPane1.setViewportView(sevenList1);
 
         sevenAddButton.setText("ADD");
         sevenAddButton.addActionListener(new java.awt.event.ActionListener() {
@@ -497,28 +486,28 @@ public class FramePanelControls extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        javax.swing.GroupLayout sevenPanelLayout = new javax.swing.GroupLayout(sevenPanel);
+        sevenPanel.setLayout(sevenPanelLayout);
+        sevenPanelLayout.setHorizontalGroup(
+            sevenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sevenPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(sevenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sevenTextField1)
                     .addComponent(sevenAddButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sevenDeleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sevenUpdateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        sevenPanelLayout.setVerticalGroup(
+            sevenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sevenPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(sevenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGroup(sevenPanelLayout.createSequentialGroup()
                         .addComponent(sevenTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(sevenAddButton)
@@ -527,6 +516,34 @@ public class FramePanelControls extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(sevenUpdateButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        eightPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("eight"));
+
+        eightSlider.setMajorTickSpacing(20);
+        eightSlider.setPaintLabels(true);
+        eightSlider.setPaintTicks(true);
+        eightSlider.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        eightSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                eightSliderStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout eightPanelLayout = new javax.swing.GroupLayout(eightPanel);
+        eightPanel.setLayout(eightPanelLayout);
+        eightPanelLayout.setHorizontalGroup(
+            eightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(eightPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(eightSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        eightPanelLayout.setVerticalGroup(
+            eightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(eightPanelLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(eightSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -540,32 +557,37 @@ public class FramePanelControls extends javax.swing.JFrame {
                         .addComponent(onePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(twoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(sevenPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(eightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(302, 302, 302))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(threePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fourPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fivePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sixPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fivePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fourPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(threePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(twoPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sixPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(onePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(sevenPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(eightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -822,6 +844,16 @@ public class FramePanelControls extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_oneTextArea1MouseClicked
 
+    private void eightSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_eightSliderStateChanged
+        loggerMgr.getLogger().info("===> oneTextArea1MouseClicked()");
+        
+        eightSlider.setMinorTickSpacing(2);
+        
+        loggerMgr.getLogger().info("value = " + eightSlider.getValue());
+        
+        
+    }//GEN-LAST:event_eightSliderStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -863,6 +895,9 @@ public class FramePanelControls extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel eightPanel;
+    private javax.swing.JSlider eightSlider;
+    private javax.swing.JPanel fivePanel;
     private javax.swing.JToggleButton fiveToggleButton1;
     private javax.swing.JToggleButton fiveToggleButton2;
     private javax.swing.JToggleButton fiveToggleButton3;
@@ -871,12 +906,7 @@ public class FramePanelControls extends javax.swing.JFrame {
     private javax.swing.JCheckBox fourCheckBox2;
     private javax.swing.JCheckBox fourCheckBox3;
     private javax.swing.JCheckBox fourCheckBox4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel fourPanel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton oneButton;
@@ -888,12 +918,15 @@ public class FramePanelControls extends javax.swing.JFrame {
     private javax.swing.JButton sevenAddButton;
     private javax.swing.JButton sevenDeleteButton;
     private javax.swing.JList<String> sevenList1;
+    private javax.swing.JPanel sevenPanel;
     private javax.swing.JTextField sevenTextField1;
     private javax.swing.JButton sevenUpdateButton;
     private javax.swing.JButton sixAddButton;
     private javax.swing.JComboBox<String> sixComboBox1;
     private javax.swing.JButton sixDeleteButton;
+    private javax.swing.JPanel sixPanel;
     private javax.swing.JButton sixUpdateButton;
+    private javax.swing.JPanel threePanel;
     private javax.swing.JRadioButton threeRadioButton1;
     private javax.swing.JRadioButton threeRadioButton2;
     private javax.swing.JRadioButton threeRadioButton3;
