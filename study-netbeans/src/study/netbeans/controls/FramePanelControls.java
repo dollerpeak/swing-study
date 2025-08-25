@@ -774,6 +774,7 @@ public class FramePanelControls extends javax.swing.JFrame {
         
         DefaultListModel<String> model = (DefaultListModel<String>) sevenList1.getModel();
         String inputText = sevenTextField1.getText();
+        loggerMgr.getLogger().info("inputText = " + inputText);
         
         if (inputText.length() > 0) {
             model.addElement(inputText);
