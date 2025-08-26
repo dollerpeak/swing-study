@@ -4,19 +4,12 @@
  */
 package study.netbeans.controls;
 
-import com.formdev.flatlaf.FlatLightLaf;
-import com.formdev.flatlaf.util.SwingUtils;
 import java.util.Arrays;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import javax.swing.ListModel;
 import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import study.netbeans.common.logger.LoggerManager;
-import study.netbeans.common.looandfeel.LookAndFeelManager;
 
 /**
  *
@@ -25,7 +18,8 @@ import study.netbeans.common.looandfeel.LookAndFeelManager;
 public class FramePanelControls extends javax.swing.JFrame {
     
     private LoggerManager loggerMgr;
-    //private LookAndFeelManager lookAndFeelMgr;
+        
+    private DefaultListModel<String> sevenModel = new DefaultListModel<>();
 
     /**
      * Creates new form FrameControls_1
@@ -33,9 +27,8 @@ public class FramePanelControls extends javax.swing.JFrame {
     public FramePanelControls() {
         initLoggerManager();
         
-        //initLookAndFeelManager();
-        
         initComponents();
+        loggerMgr.getLogger().info("===> initComponents()");  
         
         initSevenList();
         
@@ -44,22 +37,21 @@ public class FramePanelControls extends javax.swing.JFrame {
 
     private void initLoggerManager() {
         loggerMgr = new LoggerManager(this.getClass().getName(), Level.INFO);
+        loggerMgr.getLogger().info("===> initLoggerManager()");  
     }
     
     private void initSevenList() {
-        DefaultListModel model = (DefaultListModel) sevenList1.getModel();
-        //model.addElement(new String[] {"list_1","list_2","list_3","list_4"});
-        model.addElement("list_1");
-        model.addElement("list_2");
-        model.addElement("list_3");
-        model.addElement("list_4");
-        model.addElement("list_5");
-        model.addElement("list_6");
+        sevenList1.setModel(sevenModel);
+        
+        sevenModel.addElement("list_1");
+        sevenModel.addElement("list_2");
+        sevenModel.addElement("list_3");
+        sevenModel.addElement("list_4");
+        sevenModel.addElement("list_5");
+        sevenModel.addElement("list_6");
+        
+        loggerMgr.getLogger().info("===> initSevenList()");  
     }
-    
-//    private void initLookAndFeelManager() {
-//        lookAndFeelMgr = new LookAndFeelManager(loggerMgr);
-//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -453,7 +445,6 @@ public class FramePanelControls extends javax.swing.JFrame {
 
         sevenPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("seven"));
 
-        sevenList1.setModel(new javax.swing.DefaultListModel<>());
         sevenList1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sevenList1MouseClicked(evt);
@@ -464,6 +455,7 @@ public class FramePanelControls extends javax.swing.JFrame {
                 sevenList1ValueChanged(evt);
             }
         });
+        jScrollPane1.setViewportView(sevenList1);
 
         sevenAddButton.setText("ADD");
         sevenAddButton.addActionListener(new java.awt.event.ActionListener() {

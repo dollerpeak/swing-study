@@ -4,12 +4,7 @@
  */
 package study.netbeans;
 
-import javax.swing.LookAndFeel;
-import javax.swing.UIManager;
-import javax.swing.plaf.basic.BasicLookAndFeel;
-import study.netbeans.common.looandfeel.LookAndFeelManager;
 import study.netbeans.controls.FramePanelControls;
-import study.netbeans.etc.CelsiusConverter;
 
 /**
  *
@@ -21,7 +16,7 @@ public class StudyNetbeans {
      * @param args the command line arguments
      */
     public static void main(String[] args) {        
-        LookAndFeelManager lookAndFeelMgr = new LookAndFeelManager();
+        com.formdev.flatlaf.FlatLightLaf.setup();
                 
         //NumberAddition frame = new NumberAddition();
         //ImageDisplay frame = new ImageDisplay();
@@ -32,6 +27,15 @@ public class StudyNetbeans {
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
         //frame.setTitle("TEST");
+        
+//        com.formdev.flatlaf.FlatLightLaf.setup(); // LAF 먼저
+//        javax.swing.SwingUtilities.invokeLater(() -> {
+//            FramePanelControls frame = new FramePanelControls();
+//            
+//            frame.setLocationRelativeTo(null);
+//            frame.setVisible(true);
+//        });
+
     }
     
 }
