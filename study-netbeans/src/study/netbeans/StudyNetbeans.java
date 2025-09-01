@@ -5,6 +5,7 @@
 package study.netbeans;
 
 import study.netbeans.controls.FramePanelControls;
+import study.netbeans.newframe.MainFrame;
 
 /**
  *
@@ -22,7 +23,8 @@ public class StudyNetbeans {
         //ImageDisplay frame = new ImageDisplay();
         //ContactEditorUI frame = new ContactEditorUI();
         //CelsiusConverter frame = new CelsiusConverter();
-        FramePanelControls frame = new FramePanelControls();
+        //FramePanelControls frame = new FramePanelControls();
+        MainFrame frame = new MainFrame();
         
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
