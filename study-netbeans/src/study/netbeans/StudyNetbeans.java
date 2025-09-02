@@ -4,6 +4,7 @@
  */
 package study.netbeans;
 
+import study.netbeans.controls.DragAndDrop;
 import study.netbeans.controls.FramePanelControls;
 import study.netbeans.newframe.MainFrame;
 
@@ -24,7 +25,8 @@ public class StudyNetbeans {
         //ContactEditorUI frame = new ContactEditorUI();
         //CelsiusConverter frame = new CelsiusConverter();
         //FramePanelControls frame = new FramePanelControls();
-        MainFrame frame = new MainFrame();
+        //MainFrame frame = new MainFrame();
+        DragAndDrop frame = new DragAndDrop();
         
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
