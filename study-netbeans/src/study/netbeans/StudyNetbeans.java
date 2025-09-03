@@ -4,8 +4,10 @@
  */
 package study.netbeans;
 
+import java.awt.image.ImageConsumer;
 import study.netbeans.controls.DragAndDrop;
 import study.netbeans.controls.FramePanelControls;
+import study.netbeans.controls.ImageControl;
 import study.netbeans.newframe.MainFrame;
 
 /**
@@ -26,7 +28,8 @@ public class StudyNetbeans {
         //CelsiusConverter frame = new CelsiusConverter();
         //FramePanelControls frame = new FramePanelControls();
         //MainFrame frame = new MainFrame();
-        DragAndDrop frame = new DragAndDrop();
+        //DragAndDrop frame = new DragAndDrop();
+        ImageControl frame = new ImageControl();
         
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
