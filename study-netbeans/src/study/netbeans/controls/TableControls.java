@@ -4,7 +4,7 @@
  */
 package study.netbeans.controls;
 
-import study.netbeans.util.CustomTableCellRenderer;
+import study.netbeans.util.TableCellRenderer;
 import java.awt.Color;
 import java.util.logging.Level;
 import javax.swing.DefaultListModel;
@@ -19,7 +19,7 @@ public class TableControls extends javax.swing.JFrame {
     
     private LoggerManager loggerMgr;
 
-    private DefaultTableModel tableModel = new DefaultTableModel(new String[]{"원본", "수정안", "최종안"}, 10) {
+    private DefaultTableModel tableModel = new DefaultTableModel(new String[]{"원본", "수정안", "최종안"}, 0) {
         // 맨 왼쪽 수정금지
         @Override
         public boolean isCellEditable(int row, int column) {
@@ -54,9 +54,26 @@ public class TableControls extends javax.swing.JFrame {
         // 타이틀바 색상변경
         table.getTableHeader().setBackground(Color.LIGHT_GRAY);
         // 맨 왼쪽 색상변경
-        table.setDefaultRenderer(Object.class, new CustomTableCellRenderer());
+        table.setDefaultRenderer(Object.class, new TableCellRenderer());
         
-        //tableModel.addRow(new String[]{"v1", "v2", "v3"});
+        tableModel.addRow(new String[]{"ven", "Ven_int", "Ven_int"});
+        tableModel.addRow(new String[]{"duct", "", "duct"});
+        tableModel.addRow(new String[]{"door", "Door_1", "Door_1"});
+
+        //tableModel.setValueAt("AAA", 0, 0);
+        tableModel.removeRow(1);
+        tableModel.insertRow(1, new String[]{"duct", "111", "111"});
+        
+        tableModel.setRowCount(1);
+        tableModel.setRowCount(2);
+        
+        loggerMgr.getLogger().info("getRowCount = " + tableModel.getRowCount());  
+        loggerMgr.getLogger().info("getColumnCount = " + tableModel.getColumnCount());  
+        loggerMgr.getLogger().info("getDataVector = " + tableModel.getDataVector()); 
+        
+        //tableModel.addColumn("추가");
+        tableModel.addColumn("추가", new String[]{"11", "22", "333"});
+        
     }
 
     /**
@@ -71,8 +88,12 @@ public class TableControls extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jFileChooser1 = new javax.swing.JFileChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,14 +116,33 @@ public class TableControls extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(272, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -111,7 +151,9 @@ public class TableControls extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -119,7 +161,9 @@ public class TableControls extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -161,7 +205,9 @@ public class TableControls extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables

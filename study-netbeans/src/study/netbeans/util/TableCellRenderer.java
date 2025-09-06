@@ -8,13 +8,12 @@ import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableCellRenderer;
 
 /**
  *
  * @author home
  */
-public class CustomTableCellRenderer extends DefaultTableCellRenderer {
+public class TableCellRenderer extends DefaultTableCellRenderer {
 
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
@@ -26,7 +25,7 @@ public class CustomTableCellRenderer extends DefaultTableCellRenderer {
         } else {
             if (isSelected) {
                 component.setBackground(table.getSelectionBackground());
-                component.setForeground(table.getSelectionBackground());
+                component.setForeground(table.getSelectionForeground());
             } else {
                 component.setBackground(Color.WHITE);
                 component.setForeground(Color.BLACK);
