@@ -95,6 +95,7 @@ public class FileChooserControls extends javax.swing.JFrame {
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         JFileChooser chooser = new JFileChooser();
+        //JFileChooser chooser = new JFileChooser("C:\\Users\\User\\Documents"); 특정경로 설정
         // 디렉토리만 선택 가능
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         chooser.setDialogTitle("생성");
@@ -128,7 +129,8 @@ public class FileChooserControls extends javax.swing.JFrame {
     }//GEN-LAST:event_createButtonActionPerformed
 
     private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
-        JFileChooser chooser = new JFileChooser();
+        //JFileChooser chooser = new JFileChooser();
+        JFileChooser chooser = new JFileChooser("C:\\Users\\P088454\\Desktop");
         //chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); // 디렉토리만 선택
         chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES); // 파일까지 다 보임
         chooser.setDialogTitle("로드");
