@@ -32,8 +32,8 @@ public class StudyNetbeans {
         //MainFrame frame = new MainFrame();
         //DragAndDrop frame = new DragAndDrop();
         //ImageControl frame = new ImageControl();
-        //TableControls frame = new TableControls();
-        FileChooserControls frame = new FileChooserControls();
+        TableControls frame = new TableControls();
+        //FileChooserControls frame = new FileChooserControls();
         
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
