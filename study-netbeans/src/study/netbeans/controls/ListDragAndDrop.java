@@ -11,13 +11,13 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.TransferHandler;
 import study.netbeans.common.logger.LoggerManager;
-import study.netbeans.util.ListDraAndDropTransferHandler;
+import study.netbeans.util.ListDragAndDropMoveHandler;
 
 /**
  *
  * @author P088454
  */
-public class DragAndDrop extends javax.swing.JFrame {
+public class ListDragAndDrop extends javax.swing.JFrame {
     
     private LoggerManager loggerMgr;
     
@@ -33,7 +33,7 @@ public class DragAndDrop extends javax.swing.JFrame {
     /**
      * Creates new form DraAndDrop
      */
-    public DragAndDrop() {
+    public ListDragAndDrop() {
         initLoggerManager();
         initComponents();
         
@@ -45,17 +45,17 @@ public class DragAndDrop extends javax.swing.JFrame {
         list6.setModel(list6Model);
         mainList.setModel(mainlistModel);
         
-        list1.setTransferHandler(new ListDraAndDropTransferHandler(loggerMgr));
-        list2.setTransferHandler(new ListDraAndDropTransferHandler(loggerMgr));
-        list3.setTransferHandler(new ListDraAndDropTransferHandler(loggerMgr));
-        list4.setTransferHandler(new ListDraAndDropTransferHandler(loggerMgr));
-        list5.setTransferHandler(new ListDraAndDropTransferHandler(loggerMgr));
-        list6.setTransferHandler(new ListDraAndDropTransferHandler(loggerMgr));
-        mainList.setTransferHandler(new ListDraAndDropTransferHandler(loggerMgr));
+        list1.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+        list2.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+        list3.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+        list4.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+        list5.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+        list6.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+        mainList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
         
         mainlistModel.addElement("slot_0");
         mainlistModel.addElement("slot_1");
-        mainlistModel.addElement("slot_2");
+        mainlistModel.addElement("");
         mainlistModel.addElement("slot_3");
         mainlistModel.addElement("slot_4");
         mainlistModel.addElement("slot_5");
@@ -333,14 +333,14 @@ public class DragAndDrop extends javax.swing.JFrame {
                                 JOptionPane.WARNING_MESSAGE
                         );
                     }
-                } else {
+                } /*else {
                     JOptionPane.showMessageDialog(
                             this,
                             "빈 값으로 변경할 수 없습니다.",
                             "알림",
                             JOptionPane.WARNING_MESSAGE
                     );
-                }
+                }*/
             }
         }
     }//GEN-LAST:event_list1MouseClicked
@@ -385,7 +385,7 @@ public class DragAndDrop extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new DragAndDrop().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new ListDragAndDrop().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

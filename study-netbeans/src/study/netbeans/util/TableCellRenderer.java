@@ -10,8 +10,9 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
 /**
- *
- * @author home
+ * table
+ * - 첫번째 컬럼 색상적용
+ * - 활성화, 비활성화시 색상적용
  */
 public class TableCellRenderer extends DefaultTableCellRenderer {
 

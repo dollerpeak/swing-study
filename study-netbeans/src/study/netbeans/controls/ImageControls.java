@@ -13,16 +13,16 @@ import javax.swing.JPanel;
  *
  * @author P088454
  */
-public class ImageControl extends javax.swing.JFrame {
+public class ImageControls extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ImageControl.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ImageControls.class.getName());
     
 //    private JPanel imagePanel;         // 교체용 커스텀 패널
 
     /**
      * Creates new form ImageControl
      */
-    public ImageControl() {
+    public ImageControls() {
         initComponents();
         
 //        changePanel();
@@ -149,7 +149,7 @@ public class ImageControl extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new ImageControl().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new ImageControls().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,11 +4,12 @@
  */
 package study.netbeans;
 
+import study.netbeans.controls.TableListMulti;
 import java.awt.image.ImageConsumer;
-import study.netbeans.controls.DragAndDrop;
+import study.netbeans.controls.ListDragAndDrop;
 import study.netbeans.controls.FileChooserControls;
 import study.netbeans.controls.FramePanelControls;
-import study.netbeans.controls.ImageControl;
+import study.netbeans.controls.ImageControls;
 import study.netbeans.controls.TableControls;
 import study.netbeans.newframe.MainFrame;
 
@@ -30,10 +31,11 @@ public class StudyNetbeans {
         //CelsiusConverter frame = new CelsiusConverter();
         //FramePanelControls frame = new FramePanelControls();
         //MainFrame frame = new MainFrame();
-        //DragAndDrop frame = new DragAndDrop();
+        //ListDragAndDrop frame = new ListDragAndDrop();
         //ImageControl frame = new ImageControl();
-        TableControls frame = new TableControls();
+        //TableControls frame = new TableControls();
         //FileChooserControls frame = new FileChooserControls();
+        TableListMulti frame = new TableListMulti();
         
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
