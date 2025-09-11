@@ -76,6 +76,7 @@ public class TableDragAndDropSwapHandler extends TransferHandler {
             targetTable.setValueAt(data.value, targetRow, targetCol);
 
             return true;
+        //} catch (UnsupportedFlavorException | IOException e) {
         } catch (Exception e) {
             loggerMgr.getLogger().severe(e.getMessage());
             return false;
