@@ -151,6 +151,11 @@ public class TableListMulti extends javax.swing.JFrame {
         table1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         table1.setShowGrid(true);
         table1.getTableHeader().setReorderingAllowed(false);
+        table1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                table1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(table1);
 
         table2.setModel(new javax.swing.table.DefaultTableModel(
@@ -261,6 +266,21 @@ public class TableListMulti extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void table1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table1MouseClicked
+        if (evt.getClickCount() == 2) {
+            int row = table1.getSelectedRow();
+            int col = table1.getSelectedColumn();
+            
+            loggerMgr.getLogger().info("row = " + row);
+            loggerMgr.getLogger().info("col = " + col);
+            
+            if (row >= 0 && col > 0) {
+                table1Model.setValueAt("000", row, col);
+            }
+            
+        }
+    }//GEN-LAST:event_table1MouseClicked
 
     /**
      * @param args the command line arguments
