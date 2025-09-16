@@ -45,24 +45,55 @@ public class ListDragAndDrop extends javax.swing.JFrame {
         list6.setModel(list6Model);
         mainList.setModel(mainlistModel);
         
-        list1.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
-        list2.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
-        list3.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
-        list4.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
-        list5.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
-        list6.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
-        mainList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+//        list1.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "12"));
+//        list2.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "12"));
+//        list3.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "all"));
+//        list4.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "45"));
+//        list5.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "45"));
+//        list6.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "all"));
+//        mainList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "all"));
         
-        mainlistModel.addElement("slot_0");
-        mainlistModel.addElement("slot_1");
-        mainlistModel.addElement("");
-        mainlistModel.addElement("slot_3");
-        mainlistModel.addElement("slot_4");
-        mainlistModel.addElement("slot_5");
-        mainlistModel.addElement("slot_6");
-        mainlistModel.addElement("slot_7");
-        mainlistModel.addElement("slot_8");
-        mainlistModel.addElement("slot_9");
+//        mainlistModel.addElement("slot_0");
+//        mainlistModel.addElement("slot_1");
+//        mainlistModel.addElement("");
+//        mainlistModel.addElement("slot_3");
+//        mainlistModel.addElement("slot_4");
+//        mainlistModel.addElement("slot_5");
+//        mainlistModel.addElement("slot_6");
+//        mainlistModel.addElement("slot_7");
+//        mainlistModel.addElement("slot_8");
+//        mainlistModel.addElement("slot_9");        
+
+
+        // 리스트 group랑 양방향, 단방향 테스트
+        
+        list1.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "1"));
+        list2.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "2"));
+        list4.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "4"));
+        list5.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "5"));
+        
+        //ListDragAndDropMoveHandler.allowPair("1", "2", true);  // 1 <-> 2 (양방향)
+        //ListDragAndDropMoveHandler.allowPair("4", "5", true); // 4 <-> 5 (양방향)        
+        //ListDragAndDropMoveHandler.allowPair("1", "2", false);  // 1 -> 2 (단방향)
+        //ListDragAndDropMoveHandler.allowPair("4", "5", false); // 4 -> 5 (단방향)
+        
+        ListDragAndDropMoveHandler.allowPair("1", "2", false);
+        ListDragAndDropMoveHandler.allowPair("2", "1", false);
+
+        
+        list1Model.addElement("list1_0");
+        list1Model.addElement("list1_1");
+        list1Model.addElement("list1_2");
+        
+        list4Model.addElement("list4_0");
+        list4Model.addElement("list4_1");
+        list4Model.addElement("list4_2");
+        
+        
+        
+        
+        
+        
     }
 
     private void initLoggerManager() {

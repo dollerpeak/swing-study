@@ -78,6 +78,8 @@ public class MainFrame extends javax.swing.JFrame {
     public DefaultListModel<String> getListModel() {
         return listModel;
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

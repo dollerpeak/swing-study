@@ -10,6 +10,7 @@ import study.netbeans.controls.ListDragAndDrop;
 import study.netbeans.controls.FileChooserControls;
 import study.netbeans.controls.FramePanelControls;
 import study.netbeans.controls.ImageControls;
+import study.netbeans.controls.PanelForm;
 import study.netbeans.controls.TableControls;
 import study.netbeans.newframe.MainFrame;
 
@@ -31,15 +32,18 @@ public class StudyNetbeans {
         //CelsiusConverter frame = new CelsiusConverter();
         //FramePanelControls frame = new FramePanelControls();
         //MainFrame frame = new MainFrame();
-        //ListDragAndDrop frame = new ListDragAndDrop();
+        ListDragAndDrop frame = new ListDragAndDrop();
         //ImageControl frame = new ImageControl();
         //TableControls frame = new TableControls();
         //FileChooserControls frame = new FileChooserControls();
-        TableListMulti frame = new TableListMulti();
+        //TableListMulti frame = new TableListMulti();
+        //PanelForm frame = new PanelForm();
         
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
-        //frame.setTitle("TEST");
+        frame.setTitle("TEST");
+        
+        frame.setResizable(false);
         
 //        com.formdev.flatlaf.FlatLightLaf.setup(); // LAF 먼저
 //        javax.swing.SwingUtilities.invokeLater(() -> {
