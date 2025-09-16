@@ -82,7 +82,7 @@ public class ListDragAndDrop extends javax.swing.JFrame {
 
         
         list1Model.addElement("list1_0");
-        list1Model.addElement("list1_1");
+        list1Model.addElement("");
         list1Model.addElement("list1_2");
         
         list4Model.addElement("list4_0");
