@@ -118,9 +118,10 @@
                 <StringItem index="4" value="Item 5"/>
               </StringArray>
             </Property>
+            <Property name="selectionMode" type="int" value="0"/>
             <Property name="dragEnabled" type="boolean" value="true"/>
             <Property name="dropMode" type="javax.swing.DropMode" editor="org.netbeans.modules.form.editors.EnumEditor">
-              <Value id="INSERT"/>
+              <Value id="ON"/>
             </Property>
             <Property name="prototypeCellValue" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="&quot;width&quot;" type="code"/>
@@ -154,9 +155,10 @@
                 <StringItem index="4" value="Item 5"/>
               </StringArray>
             </Property>
+            <Property name="selectionMode" type="int" value="0"/>
             <Property name="dragEnabled" type="boolean" value="true"/>
             <Property name="dropMode" type="javax.swing.DropMode" editor="org.netbeans.modules.form.editors.EnumEditor">
-              <Value id="INSERT"/>
+              <Value id="ON"/>
             </Property>
             <Property name="prototypeCellValue" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="&quot;width&quot;" type="code"/>
@@ -186,9 +188,10 @@
                 <StringItem index="4" value="Item 5"/>
               </StringArray>
             </Property>
+            <Property name="selectionMode" type="int" value="0"/>
             <Property name="dragEnabled" type="boolean" value="true"/>
             <Property name="dropMode" type="javax.swing.DropMode" editor="org.netbeans.modules.form.editors.EnumEditor">
-              <Value id="INSERT"/>
+              <Value id="ON"/>
             </Property>
             <Property name="prototypeCellValue" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="&quot;width&quot;" type="code"/>
@@ -250,9 +253,10 @@
                 <StringItem index="4" value="Item 5"/>
               </StringArray>
             </Property>
+            <Property name="selectionMode" type="int" value="0"/>
             <Property name="dragEnabled" type="boolean" value="true"/>
             <Property name="dropMode" type="javax.swing.DropMode" editor="org.netbeans.modules.form.editors.EnumEditor">
-              <Value id="INSERT"/>
+              <Value id="ON"/>
             </Property>
             <Property name="prototypeCellValue" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="&quot;width&quot;" type="code"/>

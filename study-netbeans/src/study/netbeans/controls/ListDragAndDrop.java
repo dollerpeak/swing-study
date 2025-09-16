@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.TransferHandler;
 import study.netbeans.common.logger.LoggerManager;
 import study.netbeans.util.ListDragAndDropMoveHandler;
+import study.netbeans.util.ListDragAndDropSwapHandler;
 
 /**
  *
@@ -51,7 +52,7 @@ public class ListDragAndDrop extends javax.swing.JFrame {
 //        list4.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "45"));
 //        list5.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "45"));
 //        list6.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "all"));
-//        mainList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "all"));
+        mainList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "main"));
         
 //        mainlistModel.addElement("slot_0");
 //        mainlistModel.addElement("slot_1");
@@ -67,27 +68,35 @@ public class ListDragAndDrop extends javax.swing.JFrame {
 
         // 리스트 group랑 양방향, 단방향 테스트
         
-        list1.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "1"));
-        list2.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "2"));
-        list4.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "4"));
-        list5.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "5"));
+        list1.setTransferHandler(new ListDragAndDropSwapHandler(loggerMgr, "1"));
+        list2.setTransferHandler(new ListDragAndDropSwapHandler(loggerMgr, "2"));
+        list4.setTransferHandler(new ListDragAndDropSwapHandler(loggerMgr, "4"));
+        list5.setTransferHandler(new ListDragAndDropSwapHandler(loggerMgr, "5"));
         
-        //ListDragAndDropMoveHandler.allowPair("1", "2", true);  // 1 <-> 2 (양방향)
-        //ListDragAndDropMoveHandler.allowPair("4", "5", true); // 4 <-> 5 (양방향)        
-        //ListDragAndDropMoveHandler.allowPair("1", "2", false);  // 1 -> 2 (단방향)
-        //ListDragAndDropMoveHandler.allowPair("4", "5", false); // 4 -> 5 (단방향)
+        ListDragAndDropSwapHandler.allowPair("1", "2", false);  // 1 <-> 2 (양방향)
+        ListDragAndDropSwapHandler.allowPair("2", "5", true); // 4 <-> 5 (양방향)        
+        ListDragAndDropSwapHandler.allowPair("1", "5", false);  // 1 -> 2 (단방향)
+//        ListDragAndDropMoveHandler.allowPair("4", "5", false); // 4 -> 5 (단방향)
         
-        ListDragAndDropMoveHandler.allowPair("1", "2", false);
-        ListDragAndDropMoveHandler.allowPair("2", "1", false);
+//        ListDragAndDropMoveHandler.allowPair("1", "2", ListDragAndDropMoveHandler.Mode.MOVE, false);
+//        ListDragAndDropMoveHandler.allowPair("2", "1", ListDragAndDropMoveHandler.Mode.SWAP, false);
 
         
         list1Model.addElement("list1_0");
-        list1Model.addElement("");
+        list1Model.addElement("list1_1");
         list1Model.addElement("list1_2");
+        list1Model.addElement("list1_3");
+        
+        list2Model.addElement("list2_0");
+        list2Model.addElement("list2_1");
         
         list4Model.addElement("list4_0");
         list4Model.addElement("list4_1");
         list4Model.addElement("list4_2");
+        list4Model.addElement("list4_3");
+        
+        list5Model.addElement("list5_0");
+        list5Model.addElement("list5_1");
         
         
         
@@ -138,8 +147,9 @@ public class ListDragAndDrop extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        list1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         list1.setDragEnabled(true);
-        list1.setDropMode(javax.swing.DropMode.INSERT);
+        list1.setDropMode(javax.swing.DropMode.ON);
         list1.setPrototypeCellValue("width");
         list1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -158,8 +168,9 @@ public class ListDragAndDrop extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        list4.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         list4.setDragEnabled(true);
-        list4.setDropMode(javax.swing.DropMode.INSERT);
+        list4.setDropMode(javax.swing.DropMode.ON);
         list4.setPrototypeCellValue("width");
         jScrollPane2.setViewportView(list4);
 
@@ -168,8 +179,9 @@ public class ListDragAndDrop extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        list2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         list2.setDragEnabled(true);
-        list2.setDropMode(javax.swing.DropMode.INSERT);
+        list2.setDropMode(javax.swing.DropMode.ON);
         list2.setPrototypeCellValue("width");
         jScrollPane3.setViewportView(list2);
 
@@ -188,8 +200,9 @@ public class ListDragAndDrop extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        list5.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         list5.setDragEnabled(true);
-        list5.setDropMode(javax.swing.DropMode.INSERT);
+        list5.setDropMode(javax.swing.DropMode.ON);
         list5.setPrototypeCellValue("width");
         jScrollPane5.setViewportView(list5);
 
