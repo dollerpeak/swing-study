@@ -16,47 +16,73 @@ import javax.swing.TransferHandler;
 import study.netbeans.common.logger.LoggerManager;
 
 /**
- * JList 간/내부 항목 SWAP 전용 TransferHandler
- * - 단일 선택(SINGLE_SELECTION) 전제
- * - DropMode.ON 전제 (항목 위로 드롭하여 맞교환)
- * - 같은 리스트: 선택 항목 ↔ 드롭 대상 항목 스왑(순서 변경)
- * - 다른 리스트: 정책(allowPair) 충족 시 소스 항목 ↔ 타깃 항목 스왑
- * - 문자열(stringFlavor) 기반으로 간단 구현
+ * 리스트간 DragAndDrop방식으로 데이터 교환(SWAP) 
+ * - 리스트 데이터는 ""(공란)이거나 null데이터는 없음 
+ * - 동일 리스트내에서 교환(SWAP)
+ * - 다른 리스트간 교환(SWAP)
+ * - 한개의 데이터만 교환(SWAP)가능
+ *
+ * list설정 
+ * - selectionMode : SINGLE
+ * - dragEnabled : True 
+ * - dropMode : ON
+ *
+ * 사용 
+ * 리스트별 고유 key설정 
+ * - alist.setTransferHandler(new ListToListSwapDragAndDropHandler(loggerMgr, "a")); // 리스트 key설정
+ * - blist.setTransferHandler(new ListToListSwapDragAndDropHandler(loggerMgr, "b")); // 리스트 key설정 
+ * 리스트별 방향성 설정 -
+ * - ListToListSwapDragAndDropHandler.allowPair("1", "2", true); // 1 <-> 2 (true=양방향) 
+ * - ListToListSwapDragAndDropHandler.allowPair("2", "1", false); //2 -> 1 (false=단방향)
+ *
  */
-public class ListDragAndDropSwapHandler extends TransferHandler {
+
+public class ListToListSwapDragAndDropHandler extends TransferHandler {
 
     private final LoggerManager loggerMgr;
-    private final String listKey; // 이 핸들러가 붙은 리스트의 키
+    private final String listKey; // 고유 key
 
-    // === 전역 방향성 정책 (이전 MOVE와 동일한 사용법) ===
+    // 이동 허용 테이블
     private static final Set<String> allowedPairs = new HashSet<>();
-    private static String pair(Object a, Object b){ return String.valueOf(a) + "->" + String.valueOf(b); }
 
-    /** bidirectional=true 이면 양방향( from↔to ), false면 단방향( from→to ) */
+    private static String pair(Object a, Object b) {
+        return String.valueOf(a) + "->" + String.valueOf(b);
+    }
+
+    // from에서 to로 교환(SWAP), bidirectional=true면 양방향, false면 단방향
     public static void allowPair(String fromKey, String toKey, boolean bidirectional) {
         allowedPairs.add(pair(fromKey, toKey));
-        if (bidirectional) allowedPairs.add(pair(toKey, fromKey));
+        if (bidirectional) {
+            allowedPairs.add(pair(toKey, fromKey));
+        }
     }
 
     // 드래그-소스 컨텍스트를 타깃에서 읽기 위한 ThreadLocal (NPE 예방)
     private static final ThreadLocal<SwapContext> TL_CTX = new ThreadLocal<>();
 
     private static class SwapContext {
+
         final JList<String> sourceList;
         final int sourceIndex;
         final String sourceValue;
         final String fromKey;
+
         SwapContext(JList<String> list, int idx, String value, String fromKey) {
-            this.sourceList = list; this.sourceIndex = idx; this.sourceValue = value; this.fromKey = fromKey;
+            this.sourceList = list;
+            this.sourceIndex = idx;
+            this.sourceValue = value;
+            this.fromKey = fromKey;
         }
     }
 
-    public ListDragAndDropSwapHandler(LoggerManager loggerMgr, String listKey) {
+    public ListToListSwapDragAndDropHandler(LoggerManager loggerMgr, String listKey) {
         this.loggerMgr = loggerMgr;
         this.listKey = listKey;
     }
 
-    public String getListKey() { return listKey; }
+    public String getListKey() {
+        return listKey;
+    }
 
     @Override
     public int getSourceActions(JComponent c) {
@@ -65,15 +91,20 @@ public class ListDragAndDropSwapHandler extends TransferHandler {
     }
 
     @Override
-    protected Transferable createTransferable(JComponent c) {
+    protected Transferable createTransferable(JComponent component) {
         @SuppressWarnings("unchecked")
-        JList<String> list = (JList<String>) c;
+        JList<String> list = (JList<String>) component;
 
         int idx = list.getSelectedIndex();
-        if (idx < 0) return null; // 단일 선택 전제
+        if (idx < 0) {
+            return null; // 단일 선택 전제
+        }
+        
         String value = list.getModel().getElementAt(idx);
-        if (value == null || value.isEmpty()) return null; // 안전망
-
+        if (value == null || value.isEmpty()) {
+            return null; // 안전망
+        }
+        
         // 소스 컨텍스트 기록(타깃 canImport/importData에서 사용)
         TL_CTX.set(new SwapContext(list, idx, value, this.listKey));
 
@@ -82,50 +113,77 @@ public class ListDragAndDropSwapHandler extends TransferHandler {
 
     @Override
     public boolean canImport(TransferSupport support) {
-        if (!support.isDrop()) return false;
-        if (!support.isDataFlavorSupported(DataFlavor.stringFlavor)) return false;
-        if (!(support.getComponent() instanceof JList)) return false;
+        if (!support.isDrop()) {
+            return false;
+        }
+        
+        if (!support.isDataFlavorSupported(DataFlavor.stringFlavor)) {
+            return false;
+        }
+        
+        if (!(support.getComponent() instanceof JList)) {
+            return false;
+        }
 
         JList.DropLocation dl = (JList.DropLocation) support.getDropLocation();
         int tIndex = dl.getIndex();
-        if (tIndex < 0) return false; // ON 모드에서 유효한 타깃 인덱스 필요
-
+        if (tIndex < 0) {
+            return false; // ON 모드에서 유효한 타깃 인덱스 필요
+        }
+        
         @SuppressWarnings("unchecked")
         JList<String> target = (JList<String>) support.getComponent();
-        if (tIndex >= target.getModel().getSize()) return false; // ON → 0..size-1
-
+        if (tIndex >= target.getModel().getSize()) {
+            return false; // ON → 0..size-1
+        }
+        
         SwapContext ctx = TL_CTX.get();
-        if (ctx == null) return false; // 우리 핸들러에서 시작하지 않은 DnD
-
+        if (ctx == null) {
+            return false; // 핸들러에서 시작하지 않은 DnD
+        }
+        
         // 같은 리스트: 언제나 허용(순서 변경)
-        if (ctx.sourceList == target) return true;
+        if (ctx.sourceList == target) {
+            return true;
+        }
 
         // 다른 리스트: 방향성 정책 검사
         String fromKey = ctx.fromKey;
-        String toKey   = this.listKey;
-        if (fromKey == null || toKey == null) return false;
+        String toKey = this.listKey;
+        if (fromKey == null || toKey == null) {
+            return false;
+        }
+        
         return allowedPairs.contains(pair(fromKey, toKey));
     }
 
     @Override
     public boolean importData(TransferSupport support) {
-        if (!canImport(support)) return false;
+        if (!canImport(support)) {
+            return false;
+        }
 
         try {
             @SuppressWarnings("unchecked")
             JList<String> target = (JList<String>) support.getComponent();
-            if (!(target.getModel() instanceof DefaultListModel)) return false;
+            if (!(target.getModel() instanceof DefaultListModel)) {
+                return false;
+            }
 
             DefaultListModel<String> tModel = (DefaultListModel<String>) target.getModel();
             int tIndex = ((JList.DropLocation) support.getDropLocation()).getIndex();
             String tValue = tModel.getElementAt(tIndex);
 
             SwapContext ctx = TL_CTX.get();
-            if (ctx == null) return false;
+            if (ctx == null) {
+                return false;
+            }
 
             @SuppressWarnings("unchecked")
             JList<String> source = ctx.sourceList;
-            if (!(source.getModel() instanceof DefaultListModel)) return false;
+            if (!(source.getModel() instanceof DefaultListModel)) {
+                return false;
+            }
 
             DefaultListModel<String> sModel = (DefaultListModel<String>) source.getModel();
             int sIndex = ctx.sourceIndex;
@@ -133,7 +191,10 @@ public class ListDragAndDropSwapHandler extends TransferHandler {
 
             if (source == target) {
                 // 같은 리스트: 자기 자신 위면 변화 없음
-                if (sIndex == tIndex) return true;
+                if (sIndex == tIndex) {
+                    return true;
+                }
+                
                 // 같은 모델 내 스왑
                 tModel.set(tIndex, sValue);
                 sModel.set(sIndex, tValue);
@@ -152,8 +213,7 @@ public class ListDragAndDropSwapHandler extends TransferHandler {
             return true;
 
         } catch (Exception e) {
-            //Logger log = loggerMgr.getLogger();
-            //log.severe(e.toString());
+            loggerMgr.getLogger().severe(e.toString());
             return false;
         }
     }

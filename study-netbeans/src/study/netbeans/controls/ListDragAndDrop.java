@@ -11,8 +11,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.TransferHandler;
 import study.netbeans.common.logger.LoggerManager;
-import study.netbeans.util.ListDragAndDropMoveHandler;
-import study.netbeans.util.ListDragAndDropSwapHandler;
+import study.netbeans.util.ListToListMoveDragAndDropHandler;
+import study.netbeans.util.ListToListSwapDragAndDropHandler;
 
 /**
  *
@@ -52,7 +52,7 @@ public class ListDragAndDrop extends javax.swing.JFrame {
 //        list4.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "45"));
 //        list5.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "45"));
 //        list6.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "all"));
-        mainList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "main"));
+        mainList.setTransferHandler(new ListToListMoveDragAndDropHandler(loggerMgr, "main"));
         
 //        mainlistModel.addElement("slot_0");
 //        mainlistModel.addElement("slot_1");
@@ -68,14 +68,14 @@ public class ListDragAndDrop extends javax.swing.JFrame {
 
         // 리스트 group랑 양방향, 단방향 테스트
         
-        list1.setTransferHandler(new ListDragAndDropSwapHandler(loggerMgr, "1"));
-        list2.setTransferHandler(new ListDragAndDropSwapHandler(loggerMgr, "2"));
-        list4.setTransferHandler(new ListDragAndDropSwapHandler(loggerMgr, "4"));
-        list5.setTransferHandler(new ListDragAndDropSwapHandler(loggerMgr, "5"));
+        list1.setTransferHandler(new ListToListSwapDragAndDropHandler(loggerMgr, "1"));
+        list2.setTransferHandler(new ListToListSwapDragAndDropHandler(loggerMgr, "2"));
+        list4.setTransferHandler(new ListToListSwapDragAndDropHandler(loggerMgr, "4"));
+        list5.setTransferHandler(new ListToListSwapDragAndDropHandler(loggerMgr, "5"));
         
-        ListDragAndDropSwapHandler.allowPair("1", "2", false);  // 1 <-> 2 (양방향)
-        ListDragAndDropSwapHandler.allowPair("2", "5", true); // 4 <-> 5 (양방향)        
-        ListDragAndDropSwapHandler.allowPair("1", "5", false);  // 1 -> 2 (단방향)
+        ListToListSwapDragAndDropHandler.allowPair("1", "2", false);  // 1 <-> 2 (양방향)
+        ListToListSwapDragAndDropHandler.allowPair("2", "5", true); // 4 <-> 5 (양방향)        
+        ListToListSwapDragAndDropHandler.allowPair("1", "5", false);  // 1 -> 2 (단방향)
 //        ListDragAndDropMoveHandler.allowPair("4", "5", false); // 4 -> 5 (단방향)
         
 //        ListDragAndDropMoveHandler.allowPair("1", "2", ListDragAndDropMoveHandler.Mode.MOVE, false);
