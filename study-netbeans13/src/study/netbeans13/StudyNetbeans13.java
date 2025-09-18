@@ -2,36 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package study.netbeans;
+package study.netbeans13;
 
-import study.netbeans.controls.TableListMulti;
-import java.awt.image.ImageConsumer;
 import javax.swing.UIManager;
-import study.netbeans.controls.ListDragAndDrop;
-import study.netbeans.controls.FileChooserControls;
-import study.netbeans.controls.FramePanelControls;
-import study.netbeans.controls.ImageControls;
-import study.netbeans.controls.PanelForm;
-import study.netbeans.controls.TableControls;
-import study.netbeans.newframe.MainFrame;
+import study.netbeans13.test.MainFrame;
 
 /**
  *
  * @author P088454
  */
-public class StudyNetbeans {
+public class StudyNetbeans13 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {        
         //com.formdev.flatlaf.FlatLightLaf.setup();
         System.out.println("layout = " + UIManager.getLookAndFeel().getClass().getName());
-        
-        System.out.println("- system: " + UIManager.getSystemLookAndFeelClassName());
-        for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-            System.out.println("--- " + info.getName() + " -> " + info.getClassName());
-        }
                 
         //NumberAddition frame = new NumberAddition();
         //ImageDisplay frame = new ImageDisplay();
