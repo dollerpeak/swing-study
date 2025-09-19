@@ -17,9 +17,9 @@ import study.netbeans.common.logger.LoggerManager;
 public class MainFrame extends javax.swing.JFrame {
     
     private LoggerManager loggerMgr;    
-    private Sub1Frame sub1Frame;
-    private Sub2Frame sub2Frame;
-    private Sub3Frame sub3Frame;
+//    private Sub1Frame sub1Frame;
+//    private Sub2Frame sub2Frame;
+//    private Sub3Frame sub3Frame;
     
     private DefaultListModel<String> listModel = new DefaultListModel<>();
 
@@ -45,17 +45,17 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     private void initFrame() {
-        sub1Frame = new Sub1Frame(this);
-        sub1Frame.setLocationRelativeTo(this);
-        //sub1Frame.setVisible(true);
-        
-        sub2Frame = new Sub2Frame(this);
-        sub2Frame.setLocationRelativeTo(this);
-        //sub2Frame.setVisible(true);
-        
-        sub3Frame = new Sub3Frame(this);
-        sub3Frame.setLocationRelativeTo(this);
-        //sub3Frame.setVisible(true);
+//        sub1Frame = new Sub1Frame(this);
+//        sub1Frame.setLocationRelativeTo(this);
+//        //sub1Frame.setVisible(true);
+//        
+//        sub2Frame = new Sub2Frame(this);
+//        sub2Frame.setLocationRelativeTo(this);
+//        //sub2Frame.setVisible(true);
+//        
+//        sub3Frame = new Sub3Frame(this);
+//        sub3Frame.setLocationRelativeTo(this);
+//        //sub3Frame.setVisible(true);
         
         loggerMgr.getLogger().info("===> initSubFrame()");  
     }
@@ -138,8 +138,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(topLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sub1FrameButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sub2FrameButton, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
-                    .addComponent(sub3FrameButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE))
+                    .addComponent(sub2FrameButton, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                    .addComponent(sub3FrameButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE))
                 .addContainerGap())
         );
         topLayout.setVerticalGroup(
@@ -210,9 +210,8 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(sub1DataButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(sub2DataButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sub3DataButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6))
+                        .addGap(18, 18, 18)
+                        .addComponent(sub3DataButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -235,11 +234,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(top, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(down, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-                .addContainerGap(43, Short.MAX_VALUE))
-=======
-                .addContainerGap(30, Short.MAX_VALUE))
->>>>>>> d331f10ee4a9084e8be2aa8cae19b83473b0e877
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -248,80 +243,80 @@ public class MainFrame extends javax.swing.JFrame {
     private void sub1FrameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sub1FrameButtonActionPerformed
         loggerMgr.getLogger().info("===> sub1FrameButtonActionPerformed()");  
         
-        this.setVisible(false);
-        sub1Frame.setVisible(true);
+//        this.setVisible(false);
+//        sub1Frame.setVisible(true);
     }//GEN-LAST:event_sub1FrameButtonActionPerformed
 
     private void sub2FrameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sub2FrameButtonActionPerformed
         loggerMgr.getLogger().info("===> sub2FrameButtonActionPerformed()");  
         
-        this.setVisible(false);
-        sub2Frame.setVisible(true);
+//        this.setVisible(false);
+//        sub2Frame.setVisible(true);
     }//GEN-LAST:event_sub2FrameButtonActionPerformed
 
     private void sub3FrameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sub3FrameButtonActionPerformed
         loggerMgr.getLogger().info("===> sub3FrameButtonActionPerformed()");  
         
-        this.setVisible(false);
-        sub3Frame.setVisible(true);
+//        this.setVisible(false);
+//        sub3Frame.setVisible(true);
     }//GEN-LAST:event_sub3FrameButtonActionPerformed
 
     private void sub1DataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sub1DataButtonActionPerformed
         loggerMgr.getLogger().info("===> sub1DataButtonActionPerformed()");  
         
-        // 선택된 인덱스
-        int[] index = list.getSelectedIndices();
-        // 오름차순 정렬
-        Arrays.sort(index);
-        
-        String selectData;
-        
-        if (list.getValueIsAdjusting() == false) {
-            for (int i = index.length - 1; i >= 0; i -= 1) {
-                //loggerMgr.getLogger().info("index = " + i);  
-                selectData = listModel.getElementAt(index[i]);
-                sub1Frame.getListModel().addElement(selectData);
-                listModel.remove(index[i]);
-            }
-        }
+//        // 선택된 인덱스
+//        int[] index = list.getSelectedIndices();
+//        // 오름차순 정렬
+//        Arrays.sort(index);
+//        
+//        String selectData;
+//        
+//        if (list.getValueIsAdjusting() == false) {
+//            for (int i = index.length - 1; i >= 0; i -= 1) {
+//                //loggerMgr.getLogger().info("index = " + i);  
+//                selectData = listModel.getElementAt(index[i]);
+//                sub1Frame.getListModel().addElement(selectData);
+//                listModel.remove(index[i]);
+//            }
+//        }
     }//GEN-LAST:event_sub1DataButtonActionPerformed
 
     private void sub2DataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sub2DataButtonActionPerformed
         loggerMgr.getLogger().info("===> sub2DataButtonActionPerformed()");  
         
-        // 선택된 인덱스
-        int[] index = list.getSelectedIndices();
-        // 오름차순 정렬
-        Arrays.sort(index);
-        
-        String selectData;
-        
-        if (list.getValueIsAdjusting() == false) {
-            for (int i = index.length - 1; i >= 0; i -= 1) {
-                selectData = listModel.getElementAt(index[i]);
-                sub2Frame.getListModel().addElement(selectData);
-                listModel.remove(index[i]);
-            }
-        }
+//        // 선택된 인덱스
+//        int[] index = list.getSelectedIndices();
+//        // 오름차순 정렬
+//        Arrays.sort(index);
+//        
+//        String selectData;
+//        
+//        if (list.getValueIsAdjusting() == false) {
+//            for (int i = index.length - 1; i >= 0; i -= 1) {
+//                selectData = listModel.getElementAt(index[i]);
+//                sub2Frame.getListModel().addElement(selectData);
+//                listModel.remove(index[i]);
+//            }
+//        }
     }//GEN-LAST:event_sub2DataButtonActionPerformed
 
     private void sub3DataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sub3DataButtonActionPerformed
         loggerMgr.getLogger().info("===> sub3DataButtonActionPerformed()");  
         
-        // 선택된 인덱스
-        int[] index = list.getSelectedIndices();
-        // 오름차순 정렬
-        Arrays.sort(index);
-        
-        String selectData;
-        
-        if (list.getValueIsAdjusting() == false) {
-            for (int i = index.length - 1; i >= 0; i -= 1) {
-                selectData = listModel.getElementAt(index[i]);
-                sub3Frame.getListModel().addElement(selectData);
-                listModel.remove(index[i]);
-            }
-        }
+//        // 선택된 인덱스
+//        int[] index = list.getSelectedIndices();
+//        // 오름차순 정렬
+//        Arrays.sort(index);
+//        
+//        String selectData;
+//        
+//        if (list.getValueIsAdjusting() == false) {
+//            for (int i = index.length - 1; i >= 0; i -= 1) {
+//                selectData = listModel.getElementAt(index[i]);
+//                sub3Frame.getListModel().addElement(selectData);
+//                listModel.remove(index[i]);
+//            }
+//        }
     }//GEN-LAST:event_sub3DataButtonActionPerformed
 
     /**

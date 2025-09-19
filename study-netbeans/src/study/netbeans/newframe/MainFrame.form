@@ -41,11 +41,7 @@
               <Component id="top" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="down" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-              <EmptySpace pref="43" max="32767" attributes="0"/>
-=======
-              <EmptySpace pref="30" max="32767" attributes="0"/>
->>>>>>> d331f10ee4a9084e8be2aa8cae19b83473b0e877
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -67,8 +63,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="sub1FrameButton" alignment="0" max="32767" attributes="0"/>
-                      <Component id="sub2FrameButton" alignment="0" pref="408" max="32767" attributes="0"/>
-                      <Component id="sub3FrameButton" alignment="1" pref="408" max="32767" attributes="0"/>
+                      <Component id="sub2FrameButton" alignment="0" pref="366" max="32767" attributes="0"/>
+                      <Component id="sub3FrameButton" alignment="1" pref="366" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -158,9 +154,8 @@
                           <Component id="sub1DataButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="sub2DataButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="sub3DataButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   </Group>
