@@ -13,6 +13,7 @@ import study.netbeans.controls.FramePanelControls;
 import study.netbeans.controls.ImageControls;
 import study.netbeans.controls.PanelForm;
 import study.netbeans.controls.TableControls;
+import study.netbeans.controls.UtilFrame;
 import study.netbeans.newframe.MainFrame;
 
 /**
@@ -38,13 +39,14 @@ public class StudyNetbeans {
         //ContactEditorUI frame = new ContactEditorUI();
         //CelsiusConverter frame = new CelsiusConverter();
         //FramePanelControls frame = new FramePanelControls();
-        MainFrame frame = new MainFrame();
+        //MainFrame frame = new MainFrame();
         //ListDragAndDrop frame = new ListDragAndDrop();
         //ImageControl frame = new ImageControl();
         //TableControls frame = new TableControls();
-        //FileChooserControls frame = new FileChooserControls();
+        FileChooserControls frame = new FileChooserControls();
         //TableListMulti frame = new TableListMulti();
         //PanelForm frame = new PanelForm();
+        //UtilFrame frame = new UtilFrame();
         
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
