@@ -62,11 +62,13 @@ public class MainFrame extends javax.swing.JFrame {
     private Simulation simulation;
     private LoggerManager loggerMgr;
     
+    // sub프레임
     private StartFrame startFrame;
     private RemeshFrame remeshFrame;
     private DoorInfoFrame doorInfoFrame;
     private ArtificaialFrame artificaialFrame;
     
+    // TAB_MESH
     private DefaultListModel<String> deletePartListModel = new DefaultListModel<>(); 
     private DefaultListModel<String> fluidPartListModel = new DefaultListModel<>(); 
     private DefaultListModel<String> autoMeshActiveListModel1 = new DefaultListModel<>(); 
