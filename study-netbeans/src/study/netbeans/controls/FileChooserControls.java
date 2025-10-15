@@ -8,7 +8,7 @@ import java.io.File;
 import java.util.logging.Level;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import study.netbeans.common.logger.LoggerManager;
+import study.netbeans.common.LoggerManager;
 
 /**
  *

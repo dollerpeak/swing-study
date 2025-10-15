@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
-import study.netbeans.common.logger.LoggerManager;
+import study.netbeans.common.LoggerManager;
 
 /**
  *

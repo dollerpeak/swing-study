@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package study.netbeans.util;
+package hdwia.hvac.function;
 
+import study.wia.common.CommonManager;
+import study.wia.common.LoggerManager;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
@@ -14,16 +16,16 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.TransferHandler;
-import study.netbeans.common.LoggerManager;
-import study.wia.common.CommonManager;
 
+/**
+ * Table, List 드래그 앤 드롭 기능
+ */
 public class MultiTableListDragAndDropSwapHandler extends TransferHandler {
 
-    // private LoggerManager loggerMgr;
     private static LoggerManager loggerMgr;
 
     public MultiTableListDragAndDropSwapHandler(LoggerManager loggerMgr) {
-        this.loggerMgr = loggerMgr;
+        loggerMgr = loggerMgr;
     }
 
     @Override
@@ -204,7 +206,7 @@ public class MultiTableListDragAndDropSwapHandler extends TransferHandler {
 
             //} catch (UnsupportedFlavorException | IOException e) {
         } catch (Exception e) {
-            loggerMgr.getLogger().severe(e.getMessage());
+            loggerMgr.error(e.getMessage());
             return false;
         }
 
@@ -230,7 +232,7 @@ public class MultiTableListDragAndDropSwapHandler extends TransferHandler {
             //} catch (ClassNotFoundException e) {
             } catch (Exception e) {
                 //throw new RuntimeException("CellData class not found for DataFlavor", e);
-                loggerMgr.getLogger().severe(e.getMessage());
+                loggerMgr.error(e.getMessage());
             }
         }
 

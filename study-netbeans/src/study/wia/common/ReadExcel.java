@@ -2,24 +2,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package study.netbeans.common;
-
-import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+package study.wia.common;
 
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.commons.compress.archivers.dump.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.FormulaEvaluator;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 
-/**
- *
- * @author home
- */
+
 public class ReadExcel implements Closeable {
 
     private final Workbook wb;
@@ -32,7 +37,7 @@ public class ReadExcel implements Closeable {
         this.evaluator = wb.getCreationHelper().createFormulaEvaluator();
     }
 
-    /** 파일 열기 (.xlsx/.xls 자동 인식) */
+    // 파일 열기 (.xlsx/.xls 자동 인식)
     public static ReadExcel open(Path excelPath) throws IOException, InvalidFormatException {
         try (InputStream in = Files.newInputStream(excelPath)) {
             Workbook book = WorkbookFactory.create(in);
@@ -40,7 +45,7 @@ public class ReadExcel implements Closeable {
         }
     }
 
-    /** 모든 시트명 반환 */
+    // 모든 시트명 반환
     public List<String> getSheetNames() {
         List<String> names = new ArrayList<>();
         for (int i = 0; i < wb.getNumberOfSheets(); i++) {
@@ -49,28 +54,38 @@ public class ReadExcel implements Closeable {
         return names;
     }
 
-    /** 시트명 + (행,열) → 값 (1-based) */
+    // 시트명, 행, 열
+    // ex) String v1 = reader.get("AutomatedMesh", 5, 2);
+    // 행과 열이 숫자로 들어가야 함, 1부터 시작, A=1, B=2
     public String get(String sheetName, int row1, int col1) {
         Sheet sheet = wb.getSheet(sheetName);
-        if (sheet == null) return null;
+        if (sheet == null) {
+            return null;
+        }
 
         int rowIdx = row1 - 1;
         int colIdx = col1 - 1;
         Row row = sheet.getRow(rowIdx);
-        if (row == null) return "";
+        if (row == null) {
+            return "";
+        }
 
         Cell cell = row.getCell(colIdx, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
         return format(cell);
     }
 
-    /** 시트명 + A1 주소 → 값 */
+    // 시트명, 열행
+    // ex) String v2 = reader.get("AutomatedMesh", "B5");
+    // 열과 행을 붙여서 보이는대로 적용
     public String get(String sheetName, String a1Address) {
         int[] rc = parseA1(a1Address);
         return get(sheetName, rc[0], rc[1]);
     }
 
     private String format(Cell cell) {
-        if (cell == null) return "";
+        if (cell == null) {
+            return "";
+        }
         if (cell.getCellType() == CellType.FORMULA) {
             return formatter.formatCellValue(cell, evaluator);
         }
@@ -80,7 +95,9 @@ public class ReadExcel implements Closeable {
     private static int[] parseA1(String a1) {
         Pattern p = Pattern.compile("^([A-Za-z]+)(\\d+)$");
         Matcher m = p.matcher(a1.trim());
-        if (!m.matches()) throw new IllegalArgumentException("잘못된 A1 주소: " + a1);
+        if (!m.matches()) {
+            throw new IllegalArgumentException("잘못된 A1 주소: " + a1);
+        }
 
         String letters = m.group(1).toUpperCase(Locale.ROOT);
         int col1 = 0;

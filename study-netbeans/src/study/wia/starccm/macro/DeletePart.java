@@ -2,19 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package study.netbeans.starccm;
+package study.wia.starccm.macro;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import star.base.neo.NeoObjectVector;
 import star.common.CompositePart;
 import star.common.GeometryPart;
-import star.common.PartContact;
-import star.common.PartContactManager;
 import star.common.Simulation;
 import star.common.SimulationPartManager;
 import star.common.StarMacro;
+
 
 public class DeletePart extends StarMacro {
 
@@ -34,6 +32,7 @@ public class DeletePart extends StarMacro {
         sim.println("=== Done ===");
     }
 
+    @SuppressWarnings("unchecked")
     private void removeRecursive(GeometryPart part, Simulation sim) {
         // CompositePart라면 내부 자식까지 검사
         if (part instanceof CompositePart) {

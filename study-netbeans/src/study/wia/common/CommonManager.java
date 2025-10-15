@@ -2,15 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package study.netbeans.common;
+package study.wia.common;
 
 import java.awt.Component;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author P088454
- */
+
 public class CommonManager {
     static public int showConfirmDialog(Component parentComponent, String title, String message, int optionType, int messageType) {
         return JOptionPane.showConfirmDialog(parentComponent, message, title, optionType, messageType);

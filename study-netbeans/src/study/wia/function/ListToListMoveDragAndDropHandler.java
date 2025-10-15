@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package study.netbeans.util;
+package hdwia.hvac.function;
 
+import study.wia.common.LoggerManager;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
@@ -14,7 +15,6 @@ import javax.swing.DefaultListModel;
 import javax.swing.JComponent;
 import javax.swing.JList;
 import javax.swing.TransferHandler;
-import study.netbeans.common.LoggerManager;
 
 /**
  * 리스트간 DragAndDrop방식으로 데이터 이동(MOVE) 
@@ -181,7 +181,7 @@ public class ListToListMoveDragAndDropHandler extends TransferHandler {
             return true;
 
         } catch (Exception e) {
-            loggerMgr.getLogger().severe(e.toString());
+            loggerMgr.error(e.toString());
             return false;
         }
     }
@@ -209,7 +209,7 @@ public class ListToListMoveDragAndDropHandler extends TransferHandler {
                     if (idx >= 0 && idx < model.getSize()) {
                         model.remove(idx);
                     } else {
-                        loggerMgr.getLogger().severe("remove out-of-range, idx=" + idx + ", size=" + model.getSize());
+                        loggerMgr.error("remove out-of-range, idx=" + idx + ", size=" + model.getSize());
                     }
                 }
             }
@@ -225,7 +225,5 @@ public class ListToListMoveDragAndDropHandler extends TransferHandler {
         }
     }
 }
-
-
 
 

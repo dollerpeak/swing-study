@@ -12,9 +12,9 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import study.netbeans.common.CommonManager;
-import study.netbeans.common.logger.LoggerManager;
+import study.netbeans.common.LoggerManager;
 import study.netbeans.util.TableDragAndDropSwapHandler;
+import study.wia.common.CommonManager;
 
 /**
  *

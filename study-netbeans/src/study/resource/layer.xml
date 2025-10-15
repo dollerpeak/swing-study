@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+
+    <!-- 툴바, 보이지 않으면 툴바 빈 공간 우클릭 -->
+    <folder name="Toolbars">
+        <folder name="HDWIA_HVAC">
+            <file name="hdwia-hvac-AddOn.instance">
+                <attr name="position" intvalue="10"/>
+            </file>
+        </folder>
+    </folder>
+
+    <!-- Actions 카테고리에도 위치 생성(표지판 역할) -->
+    <folder name="Actions">
+        <folder name="HDWIA_HVAC">
+            <file name="hdwia-hvac-AddOn.instance"/>
+        </folder>
+    </folder>
+    
+</filesystem>

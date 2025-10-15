@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package study.netbeans.util;
+package hdwia.hvac.function;
 
+import study.wia.common.LoggerManager;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
@@ -12,18 +13,16 @@ import java.io.IOException;
 import javax.swing.JComponent;
 import javax.swing.JTable;
 import javax.swing.TransferHandler;
-import study.netbeans.common.LoggerManager;
 
 /**
  * Table 드래그 앤 드롭 기능
  */
 public class TableDragAndDropSwapHandler extends TransferHandler {
 
-    // private LoggerManager loggerMgr;
     private static LoggerManager loggerMgr;
 
     public TableDragAndDropSwapHandler(LoggerManager loggerMgr) {
-        this.loggerMgr = loggerMgr;
+        loggerMgr = loggerMgr;
     }
 
     @Override
@@ -78,7 +77,7 @@ public class TableDragAndDropSwapHandler extends TransferHandler {
             return true;
         //} catch (UnsupportedFlavorException | IOException e) {
         } catch (Exception e) {
-            loggerMgr.getLogger().severe(e.getMessage());
+            loggerMgr.error(e.getMessage());
             return false;
         }
     }
@@ -96,7 +95,7 @@ public class TableDragAndDropSwapHandler extends TransferHandler {
             //} catch (ClassNotFoundException e) {
             } catch (Exception e) {
                 //e.printStackTrace();
-                loggerMgr.getLogger().severe(e.getMessage());
+                loggerMgr.error(e.getMessage());
             }
         }
 

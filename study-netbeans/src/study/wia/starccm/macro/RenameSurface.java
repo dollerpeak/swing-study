@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package study.netbeans.starccm;
+package study.wia.starccm.macro;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,15 +10,12 @@ import java.util.List;
 import star.base.neo.NeoObjectVector;
 import star.common.CompositePart;
 import star.common.GeometryPart;
-import star.common.PartContact;
-import star.common.PartContactManager;
 import star.common.PartSurface;
 import star.common.PartSurfaceManager;
 import star.common.Simulation;
 import star.common.SimulationPartManager;
 import star.common.StarMacro;
 import star.meshing.CadPart;
-
 
 public class RenameSurface extends StarMacro {
 
@@ -55,6 +52,7 @@ public class RenameSurface extends StarMacro {
     /**
      * CadPart 내부 처리
      */
+    @SuppressWarnings("unchecked")
     private void handleCadPart(CadPart cadPart, Simulation sim) {
         PartSurfaceManager psm = cadPart.getPartSurfaceManager();
         Collection<PartSurface> allSurfs = psm.getPartSurfaces();
