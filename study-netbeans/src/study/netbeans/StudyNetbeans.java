@@ -48,8 +48,10 @@ public class StudyNetbeans {
         //TableListMulti frame = new TableListMulti();
         //PanelForm frame = new PanelForm();
         //UtilFrame frame = new UtilFrame();
-        TreeFrame frame = new TreeFrame();
         //TreeFrame frame = new TreeFrame();
+        //TreeFrame frame = new TreeFrame();
+        
+        MainFrame frame = new MainFrame();
         
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);

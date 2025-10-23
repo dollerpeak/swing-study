@@ -62,39 +62,43 @@ public class MainFrame extends javax.swing.JFrame {
     private Simulation simulation;
     private LoggerManager loggerMgr;
     
-    // sub프레임
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////
+    // sub frame
     private StartFrame startFrame;
     private RemeshFrame remeshFrame;
     private DoorInfoFrame doorInfoFrame;
     private ArtificaialFrame artificaialFrame;
     
-    // TAB_MESH
-    private DefaultListModel<String> deletePartListModel = new DefaultListModel<>(); 
-    private DefaultListModel<String> fluidPartListModel = new DefaultListModel<>(); 
-    private DefaultListModel<String> autoMeshActiveListModel1 = new DefaultListModel<>(); 
-    private DefaultListModel<String> autoMeshActiveListModel2 = new DefaultListModel<>(); 
-    private DefaultListModel<String> autoMeshActiveListModel3 = new DefaultListModel<>(); 
-    private DefaultListModel<String> autoMeshActiveListModel4 = new DefaultListModel<>(); 
-    private DefaultListModel<String> solidPartListModel = new DefaultListModel<>(); 
-    private DefaultListModel<String> autoMeshInActiveListModel1 = new DefaultListModel<>(); 
-    private DefaultListModel<String> autoMeshInActiveListModel2 = new DefaultListModel<>(); 
-    private DefaultListModel<String> autoMeshInActiveListModel3 = new DefaultListModel<>(); 
-    private DefaultListModel<String> autoMeshInActiveListModel4 = new DefaultListModel<>(); 
     
-    /**
-     * star-ccm
-     */    
+    /////////////////////////////////////////////////////////////////////////////////////////////
+    // tab mesh
+    private DefaultListModel<String> tabMeshDeletePartListModel = new DefaultListModel<>(); 
+    private DefaultListModel<String> tabMeshFluidPartListModel = new DefaultListModel<>(); 
+    private DefaultListModel<String> tabMeshAutoMeshActiveListModel1 = new DefaultListModel<>(); 
+    private DefaultListModel<String> tabMeshAutoMeshActiveListModel2 = new DefaultListModel<>(); 
+    private DefaultListModel<String> tabMeshAutoMeshActiveListModel3 = new DefaultListModel<>(); 
+    private DefaultListModel<String> tabMeshAutoMeshActiveListModel4 = new DefaultListModel<>(); 
+    private DefaultListModel<String> tabMeshSolidPartListModel = new DefaultListModel<>(); 
+    private DefaultListModel<String> tabMeshAutoMeshInActiveListModel1 = new DefaultListModel<>(); 
+    private DefaultListModel<String> tabMeshAutoMeshInActiveListModel2 = new DefaultListModel<>(); 
+    private DefaultListModel<String> tabMeshAutoMeshInActiveListModel3 = new DefaultListModel<>(); 
+    private DefaultListModel<String> tabMeshAutoMeshInActiveListModel4 = new DefaultListModel<>();     
+    // 엑셀데이터
+    Map<String, String> tabMeshExcelAutoMeshInActive1 = new HashMap<>();
+    Map<String, String> tabMeshExcelAutoMeshInActive2 = new HashMap<>();
+    Map<String, String> tabMeshExcelAutoMeshInActive3 = new HashMap<>();
+    Map<String, String> tabMeshExcelAutoMeshInActive4 = new HashMap<>();
+    
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////
+    // star-ccm
     // 동일파트 여부 확인
     Map<String, Integer> samePartMap = new HashMap<>();
     // 선택된 파트의 위치에 따라 composite의 이름을 모두 알아야 함
     // 선택 위치에 다라 composite가 없을 수도 잇음
     List<String> compositeNameList = new ArrayList<>();
     int MAX_COUNT_COMPOSITE = 20;
-    // 엑셀데이터
-    Map<String, String> excelAutoMeshInActive1 = new HashMap<>();
-    Map<String, String> excelAutoMeshInActive2 = new HashMap<>();
-    Map<String, String> excelAutoMeshInActive3 = new HashMap<>();
-    Map<String, String> excelAutoMeshInActive4 = new HashMap<>();
        
     
     /**
@@ -149,26 +153,26 @@ public class MainFrame extends javax.swing.JFrame {
     
     private void initListData() {
         // list, datamodel
-        deletePartList.setModel(deletePartListModel);
-        fluidPartList.setModel(fluidPartListModel);
-        solidPartList.setModel(solidPartListModel);
-        autoMeshActiveList1.setModel(autoMeshActiveListModel1);
-        autoMeshActiveList2.setModel(autoMeshActiveListModel2);
-        autoMeshActiveList3.setModel(autoMeshActiveListModel3);
-        autoMeshActiveList4.setModel(autoMeshActiveListModel4);        
-        autoMeshInActiveList1.setModel(autoMeshInActiveListModel1);
-        autoMeshInActiveList2.setModel(autoMeshInActiveListModel2);
-        autoMeshInActiveList3.setModel(autoMeshInActiveListModel3);
-        autoMeshInActiveList4.setModel(autoMeshInActiveListModel4);
+        tabMeshDeletePartList.setModel(tabMeshDeletePartListModel);
+        tabMeshFluidPartList.setModel(tabMeshFluidPartListModel);
+        tabMeshSolidPartList.setModel(tabMeshSolidPartListModel);
+        tabMeshAutoMeshActiveList1.setModel(tabMeshAutoMeshActiveListModel1);
+        tabMeshAutoMeshActiveList2.setModel(tabMeshAutoMeshActiveListModel2);
+        tabMeshAutoMeshActiveList3.setModel(tabMeshAutoMeshActiveListModel3);
+        tabMeshAutoMeshActiveList4.setModel(tabMeshAutoMeshActiveListModel4);        
+        tabMeshAutoMeshInActiveList1.setModel(tabMeshAutoMeshInActiveListModel1);
+        tabMeshAutoMeshInActiveList2.setModel(tabMeshAutoMeshInActiveListModel2);
+        tabMeshAutoMeshInActiveList3.setModel(tabMeshAutoMeshInActiveListModel3);
+        tabMeshAutoMeshInActiveList4.setModel(tabMeshAutoMeshInActiveListModel4);
         
         // list, handler
-        deletePartList.setTransferHandler(new ListToListMoveDragAndDropHandler(loggerMgr, "deletePartList"));
-        fluidPartList.setTransferHandler(new ListToListMoveDragAndDropHandler(loggerMgr, "fluidPartList"));
-        solidPartList.setTransferHandler(new ListToListMoveDragAndDropHandler(loggerMgr, "solidPartList"));
-        autoMeshActiveList1.setTransferHandler(new ListToListMoveDragAndDropHandler(loggerMgr, "autoMeshActiveList1"));
-        autoMeshActiveList2.setTransferHandler(new ListToListMoveDragAndDropHandler(loggerMgr, "autoMeshActiveList2"));
-        autoMeshActiveList3.setTransferHandler(new ListToListMoveDragAndDropHandler(loggerMgr, "autoMeshActiveList3"));
-        autoMeshActiveList4.setTransferHandler(new ListToListMoveDragAndDropHandler(loggerMgr, "autoMeshActiveList4"));
+        tabMeshDeletePartList.setTransferHandler(new ListToListMoveDragAndDropHandler(loggerMgr, "deletePartList"));
+        tabMeshFluidPartList.setTransferHandler(new ListToListMoveDragAndDropHandler(loggerMgr, "fluidPartList"));
+        tabMeshSolidPartList.setTransferHandler(new ListToListMoveDragAndDropHandler(loggerMgr, "solidPartList"));
+        tabMeshAutoMeshActiveList1.setTransferHandler(new ListToListMoveDragAndDropHandler(loggerMgr, "autoMeshActiveList1"));
+        tabMeshAutoMeshActiveList2.setTransferHandler(new ListToListMoveDragAndDropHandler(loggerMgr, "autoMeshActiveList2"));
+        tabMeshAutoMeshActiveList3.setTransferHandler(new ListToListMoveDragAndDropHandler(loggerMgr, "autoMeshActiveList3"));
+        tabMeshAutoMeshActiveList4.setTransferHandler(new ListToListMoveDragAndDropHandler(loggerMgr, "autoMeshActiveList4"));
 
         // list, 관계
         ListToListMoveDragAndDropHandler.allowPair("deletePartList", "fluidPartList", true);
@@ -177,55 +181,6 @@ public class MainFrame extends javax.swing.JFrame {
         ListToListMoveDragAndDropHandler.allowPair("solidPartList", "autoMeshActiveList2", true);
         ListToListMoveDragAndDropHandler.allowPair("solidPartList", "autoMeshActiveList3", true);
         ListToListMoveDragAndDropHandler.allowPair("solidPartList", "autoMeshActiveList4", true);
-    }
-    
-    private void setTestData() {
-        fluidPartListModel.addElement("fluid_Vent_0");
-        fluidPartListModel.addElement("fluid_Vent_1");
-        fluidPartListModel.addElement("fluid_Vent_2");
-        fluidPartListModel.addElement("fluid_Floor_0");
-        fluidPartListModel.addElement("fluid_Floor_1");
-        fluidPartListModel.addElement("fluid_Floor_2");
-        fluidPartListModel.addElement("fluid_Foot_0");
-        fluidPartListModel.addElement("fluid_Foot_1");
-        fluidPartListModel.addElement("fluid_Foot_2");        
-        fluidPartListModel.addElement("fluid_Blower_0");
-        fluidPartListModel.addElement("fluid_Blower_1");
-        fluidPartListModel.addElement("fluid_Blower_2");
-        fluidPartListModel.addElement("solid_Vent_0");
-        fluidPartListModel.addElement("solid_Vent_1");
-        fluidPartListModel.addElement("solid_Vent_2");
-        fluidPartListModel.addElement("solid_Floor_0");
-        fluidPartListModel.addElement("solid_Floor_1");
-        fluidPartListModel.addElement("solid_Floor_2");
-        fluidPartListModel.addElement("solid_Foot_0");
-        fluidPartListModel.addElement("solid_Foot_1");
-        fluidPartListModel.addElement("solid_Foot_2");        
-        fluidPartListModel.addElement("solid_Blower_0");
-        fluidPartListModel.addElement("solid_Blower_1");
-        fluidPartListModel.addElement("solid_Blower_2");
-        
-        autoMeshInActiveListModel1.addElement("mesh_0");
-        autoMeshInActiveListModel1.addElement("mesh_1");
-        autoMeshInActiveListModel1.addElement("mesh_2");
-        autoMeshInActiveListModel2.addElement("mesh_0");
-        autoMeshInActiveListModel2.addElement("mesh_1");
-        autoMeshInActiveListModel2.addElement("mesh_2");
-        autoMeshInActiveListModel3.addElement("mesh_0");
-        autoMeshInActiveListModel3.addElement("mesh_1");
-        autoMeshInActiveListModel3.addElement("mesh_2");
-        autoMeshInActiveListModel4.addElement("mesh_0");
-        autoMeshInActiveListModel4.addElement("mesh_1");
-        autoMeshInActiveListModel4.addElement("mesh_2");
-        
-        String temp = "Base size\n"
-                + "Minimum size\n"
-                + "Maximum size\n"
-                + "Prism Layer Thickness";
-        autoMeshInActiveTextArea1.setText(temp);
-        autoMeshInActiveTextArea2.setText(temp);
-        autoMeshInActiveTextArea3.setText(temp);
-        autoMeshInActiveTextArea4.setText(temp);
     }
 
     /****************************************************************************
@@ -317,9 +272,9 @@ public class MainFrame extends javax.swing.JFrame {
                     || lowerName.startsWith("outlet")
                     || lowerName.startsWith("inlet")
                     || lowerName.startsWith("wall")) {
-                deletePartListModel.addElement(cadPart.getPresentationName());
+                tabMeshDeletePartListModel.addElement(cadPart.getPresentationName());
             } else {
-                fluidPartListModel.addElement(cadPart.getPresentationName());
+                tabMeshFluidPartListModel.addElement(cadPart.getPresentationName());
             }
             
             // 동일 파트 이름 검사용
@@ -665,43 +620,43 @@ public class MainFrame extends javax.swing.JFrame {
     private void initAutoMeshList() {
         // 엑셀파일 기반으로 automesh에 포함된 part는 fluid 파트에서 빼서 옮겨두기
 
-        setAutoMeshActiveList(fluidPartListModel, autoMeshInActiveListModel1, autoMeshActiveListModel1);
-        setAutoMeshActiveList(fluidPartListModel, autoMeshInActiveListModel2, autoMeshActiveListModel2);
-        setAutoMeshActiveList(fluidPartListModel, autoMeshInActiveListModel3, autoMeshActiveListModel3);
-        setAutoMeshActiveList(fluidPartListModel, autoMeshInActiveListModel4, autoMeshActiveListModel4);        
+        setAutoMeshActiveList(tabMeshFluidPartListModel, tabMeshAutoMeshInActiveListModel1, tabMeshAutoMeshActiveListModel1);
+        setAutoMeshActiveList(tabMeshFluidPartListModel, tabMeshAutoMeshInActiveListModel2, tabMeshAutoMeshActiveListModel2);
+        setAutoMeshActiveList(tabMeshFluidPartListModel, tabMeshAutoMeshInActiveListModel3, tabMeshAutoMeshActiveListModel3);
+        setAutoMeshActiveList(tabMeshFluidPartListModel, tabMeshAutoMeshInActiveListModel4, tabMeshAutoMeshActiveListModel4);        
 
         // 데이터가 없는 리스트는 비활성화
-        if (autoMeshActiveListModel1.size() <= 0) {
-            autoMeshActiveList1.setEnabled(false);
+        if (tabMeshAutoMeshActiveListModel1.size() <= 0) {
+            tabMeshAutoMeshActiveList1.setEnabled(false);
             //autoMeshActiveList1.setDragEnabled(false);
-            autoMeshActiveList1.setBackground(new Color(235, 235, 235));
+            tabMeshAutoMeshActiveList1.setBackground(new Color(235, 235, 235));
             //
-            autoMeshInActiveList1.setBackground(new Color(235, 235, 235));
-            autoMeshInActiveTextArea1.setBackground(new Color(235, 235, 235));
+            tabMeshAutoMeshInActiveList1.setBackground(new Color(235, 235, 235));
+            tabMeshAutoMeshInActiveTextArea1.setBackground(new Color(235, 235, 235));
         }
-        if (autoMeshActiveListModel2.size() <= 0) {
-            autoMeshActiveList2.setEnabled(false);
+        if (tabMeshAutoMeshActiveListModel2.size() <= 0) {
+            tabMeshAutoMeshActiveList2.setEnabled(false);
             //autoMeshActiveList2.setDragEnabled(false);
-            autoMeshActiveList2.setBackground(new Color(235, 235, 235));
+            tabMeshAutoMeshActiveList2.setBackground(new Color(235, 235, 235));
             //
-            autoMeshInActiveList2.setBackground(new Color(235, 235, 235));
-            autoMeshInActiveTextArea2.setBackground(new Color(235, 235, 235));
+            tabMeshAutoMeshInActiveList2.setBackground(new Color(235, 235, 235));
+            tabMeshAutoMeshInActiveTextArea2.setBackground(new Color(235, 235, 235));
         }
-        if (autoMeshActiveListModel3.size() <= 0) {
-            autoMeshActiveList3.setEnabled(false);
+        if (tabMeshAutoMeshActiveListModel3.size() <= 0) {
+            tabMeshAutoMeshActiveList3.setEnabled(false);
             //autoMeshActiveList3.setDragEnabled(false);
-            autoMeshActiveList3.setBackground(new Color(235, 235, 235));
+            tabMeshAutoMeshActiveList3.setBackground(new Color(235, 235, 235));
             //
-            autoMeshInActiveList3.setBackground(new Color(235, 235, 235));
-            autoMeshInActiveTextArea3.setBackground(new Color(235, 235, 235));
+            tabMeshAutoMeshInActiveList3.setBackground(new Color(235, 235, 235));
+            tabMeshAutoMeshInActiveTextArea3.setBackground(new Color(235, 235, 235));
         }
-        if (autoMeshActiveListModel4.size() <= 0) {
-            autoMeshActiveList4.setEnabled(false);
+        if (tabMeshAutoMeshActiveListModel4.size() <= 0) {
+            tabMeshAutoMeshActiveList4.setEnabled(false);
             //autoMeshActiveList4.setDragEnabled(false);
-            autoMeshActiveList4.setBackground(new Color(235, 235, 235));
+            tabMeshAutoMeshActiveList4.setBackground(new Color(235, 235, 235));
             //
-            autoMeshInActiveList4.setBackground(new Color(235, 235, 235));
-            autoMeshInActiveTextArea4.setBackground(new Color(235, 235, 235));
+            tabMeshAutoMeshInActiveList4.setBackground(new Color(235, 235, 235));
+            tabMeshAutoMeshInActiveTextArea4.setBackground(new Color(235, 235, 235));
             
         }
     }
@@ -725,10 +680,10 @@ public class MainFrame extends javax.swing.JFrame {
         //loggerMgr.info("원본 = " + excelAutoMeshInActive1.get("Parts"));
         //loggerMgr.info("사본 = " + test.get("Parts"));
         
-        SC_makeAutoMesh(makeDetailAutoMesh(new HashMap<>(excelAutoMeshInActive1), autoMeshActiveListModel1));
-        SC_makeAutoMesh(makeDetailAutoMesh(new HashMap<>(excelAutoMeshInActive2), autoMeshActiveListModel2));
-        SC_makeAutoMesh(makeDetailAutoMesh(new HashMap<>(excelAutoMeshInActive3), autoMeshActiveListModel3));
-        SC_makeAutoMesh(makeDetailAutoMesh(new HashMap<>(excelAutoMeshInActive4), autoMeshActiveListModel4));
+        SC_makeAutoMesh(makeDetailAutoMesh(new HashMap<>(tabMeshExcelAutoMeshInActive1), tabMeshAutoMeshActiveListModel1));
+        SC_makeAutoMesh(makeDetailAutoMesh(new HashMap<>(tabMeshExcelAutoMeshInActive2), tabMeshAutoMeshActiveListModel2));
+        SC_makeAutoMesh(makeDetailAutoMesh(new HashMap<>(tabMeshExcelAutoMeshInActive3), tabMeshAutoMeshActiveListModel3));
+        SC_makeAutoMesh(makeDetailAutoMesh(new HashMap<>(tabMeshExcelAutoMeshInActive4), tabMeshAutoMeshActiveListModel4));
     }
     
     private Map<String, String> makeDetailAutoMesh(Map<String, String> excelAutoMeshInActive, DefaultListModel<String> autoMeshActiveListModel) {
@@ -769,140 +724,140 @@ public class MainFrame extends javax.swing.JFrame {
             // automesh
             if (allTab.contains(selectTab) == true) {
                 // - parts
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B4"), reader.get(selectTab, "B5"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G4"), reader.get(selectTab, "G5"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L4"), reader.get(selectTab, "L5"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B4"), reader.get(selectTab, "B5"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G4"), reader.get(selectTab, "G5"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L4"), reader.get(selectTab, "L5"));
 
                 // - meshers
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B7"), reader.get(selectTab, "B8") + "," + reader.get(selectTab, "B9") + "," + reader.get(selectTab, "B10"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G7"), reader.get(selectTab, "G8") + "," + reader.get(selectTab, "G9") + "," + reader.get(selectTab, "G10"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L7"), reader.get(selectTab, "L8") + "," + reader.get(selectTab, "L9") + "," + reader.get(selectTab, "L10"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B7"), reader.get(selectTab, "B8") + "," + reader.get(selectTab, "B9") + "," + reader.get(selectTab, "B10"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G7"), reader.get(selectTab, "G8") + "," + reader.get(selectTab, "G9") + "," + reader.get(selectTab, "G10"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L7"), reader.get(selectTab, "L8") + "," + reader.get(selectTab, "L9") + "," + reader.get(selectTab, "L10"));
 
                 // - Prism Layer Mesher	
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B15"), reader.get(selectTab, "C15"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G15"), reader.get(selectTab, "H15"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L15"), reader.get(selectTab, "M15"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B15"), reader.get(selectTab, "C15"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G15"), reader.get(selectTab, "H15"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L15"), reader.get(selectTab, "M15"));
 
                 // - Stretching Function
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B16"), reader.get(selectTab, "C16"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G16"), reader.get(selectTab, "H16"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L16"), reader.get(selectTab, "M16"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B16"), reader.get(selectTab, "C16"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G16"), reader.get(selectTab, "H16"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L16"), reader.get(selectTab, "M16"));
 
                 // - Distribution Mode
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B17"), reader.get(selectTab, "C17"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G17"), reader.get(selectTab, "H17"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L17"), reader.get(selectTab, "M17"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B17"), reader.get(selectTab, "C17"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G17"), reader.get(selectTab, "H17"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L17"), reader.get(selectTab, "M17"));
 
                 // - Gap Fill Percentage
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B18"), reader.get(selectTab, "C18"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G18"), reader.get(selectTab, "H18"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L18"), reader.get(selectTab, "M18"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B18"), reader.get(selectTab, "C18"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G18"), reader.get(selectTab, "H18"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L18"), reader.get(selectTab, "M18"));
 
                 // - Minimum Thickness Percentage
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B19"), reader.get(selectTab, "C19"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G19"), reader.get(selectTab, "H19"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L19"), reader.get(selectTab, "M19"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B19"), reader.get(selectTab, "C19"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G19"), reader.get(selectTab, "H19"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L19"), reader.get(selectTab, "M19"));
 
                 // - Layer Reduction Percentage
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B20"), reader.get(selectTab, "C20"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G20"), reader.get(selectTab, "H20"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L20"), reader.get(selectTab, "M20"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B20"), reader.get(selectTab, "C20"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G20"), reader.get(selectTab, "H20"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L20"), reader.get(selectTab, "M20"));
 
                 // - Boundary March Angle
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B21"), reader.get(selectTab, "C21"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G21"), reader.get(selectTab, "H21"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L21"), reader.get(selectTab, "M21"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B21"), reader.get(selectTab, "C21"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G21"), reader.get(selectTab, "H21"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L21"), reader.get(selectTab, "M21"));
 
                 // - Concave Angle Limit
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B22"), reader.get(selectTab, "C22"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G22"), reader.get(selectTab, "H22"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L22"), reader.get(selectTab, "M22"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B22"), reader.get(selectTab, "C22"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G22"), reader.get(selectTab, "H22"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L22"), reader.get(selectTab, "M22"));
 
                 // - Convex Angle Limit
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B23"), reader.get(selectTab, "C23"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G23"), reader.get(selectTab, "H23"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L23"), reader.get(selectTab, "M23"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B23"), reader.get(selectTab, "C23"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G23"), reader.get(selectTab, "H23"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L23"), reader.get(selectTab, "M23"));
 
                 // - Near Core Layer Aspect Ratio
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B24"), reader.get(selectTab, "C24"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G24"), reader.get(selectTab, "H24"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L24"), reader.get(selectTab, "M24"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B24"), reader.get(selectTab, "C24"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G24"), reader.get(selectTab, "H24"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L24"), reader.get(selectTab, "M24"));
 
                 // - Default Controls
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B26"), reader.get(selectTab, "C26"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G26"), reader.get(selectTab, "H26"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L26"), reader.get(selectTab, "M26"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B26"), reader.get(selectTab, "C26"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G26"), reader.get(selectTab, "H26"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L26"), reader.get(selectTab, "M26"));
 
                 // - Base Size
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B28"), reader.get(selectTab, "C28"));
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B28") + "-unit", reader.get(selectTab, "D28"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G28"), reader.get(selectTab, "H28"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G28") + "-unit", reader.get(selectTab, "I28"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L28"), reader.get(selectTab, "M28"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L28") + "-unit", reader.get(selectTab, "N28"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B28"), reader.get(selectTab, "C28"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B28") + "-unit", reader.get(selectTab, "D28"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G28"), reader.get(selectTab, "H28"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G28") + "-unit", reader.get(selectTab, "I28"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L28"), reader.get(selectTab, "M28"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L28") + "-unit", reader.get(selectTab, "N28"));
 
                 // - Target Surface Size
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B29"), reader.get(selectTab, "C29"));
-                excelAutoMeshInActive1.put(reader.get(selectTab, "D29"), reader.get(selectTab, "E29"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G29"), reader.get(selectTab, "H29"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "I29"), reader.get(selectTab, "J29"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L29"), reader.get(selectTab, "M29"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "N29"), reader.get(selectTab, "O29"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B29"), reader.get(selectTab, "C29"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "D29"), reader.get(selectTab, "E29"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G29"), reader.get(selectTab, "H29"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "I29"), reader.get(selectTab, "J29"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L29"), reader.get(selectTab, "M29"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "N29"), reader.get(selectTab, "O29"));
 
                 // - Minimum Surface Size
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B31"), reader.get(selectTab, "C31"));
-                excelAutoMeshInActive1.put(reader.get(selectTab, "D31"), reader.get(selectTab, "E31"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G31"), reader.get(selectTab, "H31"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "I31"), reader.get(selectTab, "J31"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L31"), reader.get(selectTab, "M31"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "N31"), reader.get(selectTab, "O31"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B31"), reader.get(selectTab, "C31"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "D31"), reader.get(selectTab, "E31"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G31"), reader.get(selectTab, "H31"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "I31"), reader.get(selectTab, "J31"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L31"), reader.get(selectTab, "M31"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "N31"), reader.get(selectTab, "O31"));
 
                 // - Surface Curvature
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B32"), reader.get(selectTab, "C32"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G32"), reader.get(selectTab, "H32"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L32"), reader.get(selectTab, "M32"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B32"), reader.get(selectTab, "C32"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G32"), reader.get(selectTab, "H32"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L32"), reader.get(selectTab, "M32"));
 
                 // - Surface Proximity
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B33"), reader.get(selectTab, "C33"));
-                excelAutoMeshInActive1.put(reader.get(selectTab, "D33"), reader.get(selectTab, "E33"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G33"), reader.get(selectTab, "H33"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "I33"), reader.get(selectTab, "J33"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L33"), reader.get(selectTab, "M33"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "N33"), reader.get(selectTab, "O33"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B33"), reader.get(selectTab, "C33"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "D33"), reader.get(selectTab, "E33"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G33"), reader.get(selectTab, "H33"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "I33"), reader.get(selectTab, "J33"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L33"), reader.get(selectTab, "M33"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "N33"), reader.get(selectTab, "O33"));
 
                 // - Number of Prism Layers
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B34"), reader.get(selectTab, "C34"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G34"), reader.get(selectTab, "H34"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L34"), reader.get(selectTab, "M34"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B34"), reader.get(selectTab, "C34"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G34"), reader.get(selectTab, "H34"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L34"), reader.get(selectTab, "M34"));
 
                 // - Prism Layer Stretching
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B35"), reader.get(selectTab, "C35"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G35"), reader.get(selectTab, "H35"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L35"), reader.get(selectTab, "M35"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B35"), reader.get(selectTab, "C35"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G35"), reader.get(selectTab, "H35"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L35"), reader.get(selectTab, "M35"));
 
                 // - Prism Layer Total Thickness
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B36"), reader.get(selectTab, "C36"));
-                excelAutoMeshInActive1.put(reader.get(selectTab, "D36"), reader.get(selectTab, "E36"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G36"), reader.get(selectTab, "H36"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "I36"), reader.get(selectTab, "J36"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L36"), reader.get(selectTab, "M36"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "N36"), reader.get(selectTab, "O36"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B36"), reader.get(selectTab, "C36"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "D36"), reader.get(selectTab, "E36"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G36"), reader.get(selectTab, "H36"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "I36"), reader.get(selectTab, "J36"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L36"), reader.get(selectTab, "M36"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "N36"), reader.get(selectTab, "O36"));
 
                 // - Volume Growth Rate
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B37"), reader.get(selectTab, "C37"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G37"), reader.get(selectTab, "H37"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L37"), reader.get(selectTab, "M37"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B37"), reader.get(selectTab, "C37"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G37"), reader.get(selectTab, "H37"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L37"), reader.get(selectTab, "M37"));
 
                 // - Maximum Tet Size
-                excelAutoMeshInActive1.put(reader.get(selectTab, "B38"), reader.get(selectTab, "C38"));
-                excelAutoMeshInActive2.put(reader.get(selectTab, "G38"), reader.get(selectTab, "H38"));
-                excelAutoMeshInActive3.put(reader.get(selectTab, "L38"), reader.get(selectTab, "M38"));
+                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B38"), reader.get(selectTab, "C38"));
+                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G38"), reader.get(selectTab, "H38"));
+                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L38"), reader.get(selectTab, "M38"));
 
                 // ui에 적용
-                setAutoMeshInActive(excelAutoMeshInActive1, autoMeshInActiveListModel1, autoMeshInActiveTextArea1);
-                setAutoMeshInActive(excelAutoMeshInActive2, autoMeshInActiveListModel2, autoMeshInActiveTextArea2);
-                setAutoMeshInActive(excelAutoMeshInActive3, autoMeshInActiveListModel3, autoMeshInActiveTextArea3);
-                setAutoMeshInActive(excelAutoMeshInActive4, autoMeshInActiveListModel4, autoMeshInActiveTextArea4);
+                setAutoMeshInActive(tabMeshExcelAutoMeshInActive1, tabMeshAutoMeshInActiveListModel1, tabMeshAutoMeshInActiveTextArea1);
+                setAutoMeshInActive(tabMeshExcelAutoMeshInActive2, tabMeshAutoMeshInActiveListModel2, tabMeshAutoMeshInActiveTextArea2);
+                setAutoMeshInActive(tabMeshExcelAutoMeshInActive3, tabMeshAutoMeshInActiveListModel3, tabMeshAutoMeshInActiveTextArea3);
+                setAutoMeshInActive(tabMeshExcelAutoMeshInActive4, tabMeshAutoMeshInActiveListModel4, tabMeshAutoMeshInActiveTextArea4);
 
 //                // 테스트
 //                // 데이터 확인 테스트
@@ -1060,60 +1015,60 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        deletePartList = new javax.swing.JList<>();
+        tabMeshDeletePartList = new javax.swing.JList<>();
         jPanel12 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        fluidPartList = new javax.swing.JList<>();
-        deleteAllButton1 = new javax.swing.JButton();
+        tabMeshFluidPartList = new javax.swing.JList<>();
+        tabMeshDeleteAllButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        autoMeshActiveList1 = new javax.swing.JList<>();
+        tabMeshAutoMeshActiveList1 = new javax.swing.JList<>();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        autoMeshActiveList2 = new javax.swing.JList<>();
+        tabMeshAutoMeshActiveList2 = new javax.swing.JList<>();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        autoMeshActiveList3 = new javax.swing.JList<>();
+        tabMeshAutoMeshActiveList3 = new javax.swing.JList<>();
         jPanel10 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        autoMeshActiveList4 = new javax.swing.JList<>();
+        tabMeshAutoMeshActiveList4 = new javax.swing.JList<>();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        solidPartList = new javax.swing.JList<>();
-        autoMeshConfirmButton = new javax.swing.JButton();
+        tabMeshSolidPartList = new javax.swing.JList<>();
+        tabMeshAutoMeshConfirmButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        tabMeshRadioButton2 = new javax.swing.JRadioButton();
+        tabMeshRadioButton3 = new javax.swing.JRadioButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        autoMeshInActiveList1 = new javax.swing.JList<>();
+        tabMeshAutoMeshInActiveList1 = new javax.swing.JList<>();
         jScrollPane9 = new javax.swing.JScrollPane();
-        autoMeshInActiveTextArea1 = new javax.swing.JTextArea();
+        tabMeshAutoMeshInActiveTextArea1 = new javax.swing.JTextArea();
         jPanel16 = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
-        autoMeshInActiveList2 = new javax.swing.JList<>();
+        tabMeshAutoMeshInActiveList2 = new javax.swing.JList<>();
         jScrollPane11 = new javax.swing.JScrollPane();
-        autoMeshInActiveTextArea2 = new javax.swing.JTextArea();
+        tabMeshAutoMeshInActiveTextArea2 = new javax.swing.JTextArea();
         jPanel17 = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
-        autoMeshInActiveList3 = new javax.swing.JList<>();
+        tabMeshAutoMeshInActiveList3 = new javax.swing.JList<>();
         jScrollPane13 = new javax.swing.JScrollPane();
-        autoMeshInActiveTextArea3 = new javax.swing.JTextArea();
+        tabMeshAutoMeshInActiveTextArea3 = new javax.swing.JTextArea();
         jPanel18 = new javax.swing.JPanel();
         jScrollPane14 = new javax.swing.JScrollPane();
-        autoMeshInActiveList4 = new javax.swing.JList<>();
+        tabMeshAutoMeshInActiveList4 = new javax.swing.JList<>();
         jScrollPane15 = new javax.swing.JScrollPane();
-        autoMeshInActiveTextArea4 = new javax.swing.JTextArea();
+        tabMeshAutoMeshInActiveTextArea4 = new javax.swing.JTextArea();
         jPanel20 = new javax.swing.JPanel();
-        artificialDuctSetupButton = new javax.swing.JButton();
-        doorInfoButton = new javax.swing.JButton();
-        remeshButton = new javax.swing.JButton();
-        skipButton = new javax.swing.JButton();
+        tabMeshArtificialDuctSetupButton = new javax.swing.JButton();
+        tabMeshDoorInfoButton = new javax.swing.JButton();
+        tabMeshRemeshButton = new javax.swing.JButton();
+        tabMeshSkipButton = new javax.swing.JButton();
         setup = new javax.swing.JPanel();
         post = new javax.swing.JPanel();
         solving = new javax.swing.JPanel();
@@ -1135,25 +1090,25 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Delete Part List"));
 
-        deletePartList.setModel(new javax.swing.AbstractListModel<String>() {
+        tabMeshDeletePartList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        deletePartList.setDragEnabled(true);
-        deletePartList.setDropMode(javax.swing.DropMode.INSERT);
-        deletePartList.setPrototypeCellValue("width");
-        deletePartList.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabMeshDeletePartList.setDragEnabled(true);
+        tabMeshDeletePartList.setDropMode(javax.swing.DropMode.INSERT);
+        tabMeshDeletePartList.setPrototypeCellValue("width");
+        tabMeshDeletePartList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                deletePartListMouseClicked(evt);
+                tabMeshDeletePartListMouseClicked(evt);
             }
         });
-        deletePartList.addKeyListener(new java.awt.event.KeyAdapter() {
+        tabMeshDeletePartList.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                deletePartListKeyPressed(evt);
+                tabMeshDeletePartListKeyPressed(evt);
             }
         });
-        jScrollPane1.setViewportView(deletePartList);
+        jScrollPane1.setViewportView(tabMeshDeletePartList);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1174,25 +1129,25 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder("Fluid Part List"));
 
-        fluidPartList.setModel(new javax.swing.AbstractListModel<String>() {
+        tabMeshFluidPartList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        fluidPartList.setDragEnabled(true);
-        fluidPartList.setDropMode(javax.swing.DropMode.INSERT);
-        fluidPartList.setPrototypeCellValue("width");
-        fluidPartList.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabMeshFluidPartList.setDragEnabled(true);
+        tabMeshFluidPartList.setDropMode(javax.swing.DropMode.INSERT);
+        tabMeshFluidPartList.setPrototypeCellValue("width");
+        tabMeshFluidPartList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fluidPartListMouseClicked(evt);
+                tabMeshFluidPartListMouseClicked(evt);
             }
         });
-        fluidPartList.addKeyListener(new java.awt.event.KeyAdapter() {
+        tabMeshFluidPartList.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                fluidPartListKeyPressed(evt);
+                tabMeshFluidPartListKeyPressed(evt);
             }
         });
-        jScrollPane7.setViewportView(fluidPartList);
+        jScrollPane7.setViewportView(tabMeshFluidPartList);
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -1211,10 +1166,10 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        deleteAllButton1.setText("전체삭제");
-        deleteAllButton1.addActionListener(new java.awt.event.ActionListener() {
+        tabMeshDeleteAllButton1.setText("전체삭제");
+        tabMeshDeleteAllButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteAllButton1ActionPerformed(evt);
+                tabMeshDeleteAllButton1ActionPerformed(evt);
             }
         });
 
@@ -1226,7 +1181,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(deleteAllButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(tabMeshDeleteAllButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -1240,7 +1195,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deleteAllButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tabMeshDeleteAllButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -1248,25 +1203,25 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Automated Mesh 1"));
 
-        autoMeshActiveList1.setModel(new javax.swing.AbstractListModel<String>() {
+        tabMeshAutoMeshActiveList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        autoMeshActiveList1.setDragEnabled(true);
-        autoMeshActiveList1.setDropMode(javax.swing.DropMode.INSERT);
-        autoMeshActiveList1.setPrototypeCellValue("width");
-        autoMeshActiveList1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabMeshAutoMeshActiveList1.setDragEnabled(true);
+        tabMeshAutoMeshActiveList1.setDropMode(javax.swing.DropMode.INSERT);
+        tabMeshAutoMeshActiveList1.setPrototypeCellValue("width");
+        tabMeshAutoMeshActiveList1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                autoMeshActiveList1MouseClicked(evt);
+                tabMeshAutoMeshActiveList1MouseClicked(evt);
             }
         });
-        autoMeshActiveList1.addKeyListener(new java.awt.event.KeyAdapter() {
+        tabMeshAutoMeshActiveList1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                autoMeshActiveList1KeyPressed(evt);
+                tabMeshAutoMeshActiveList1KeyPressed(evt);
             }
         });
-        jScrollPane2.setViewportView(autoMeshActiveList1);
+        jScrollPane2.setViewportView(tabMeshAutoMeshActiveList1);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1287,25 +1242,25 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Automated Mesh 2"));
 
-        autoMeshActiveList2.setModel(new javax.swing.AbstractListModel<String>() {
+        tabMeshAutoMeshActiveList2.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        autoMeshActiveList2.setDragEnabled(true);
-        autoMeshActiveList2.setDropMode(javax.swing.DropMode.INSERT);
-        autoMeshActiveList2.setPrototypeCellValue("width");
-        autoMeshActiveList2.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabMeshAutoMeshActiveList2.setDragEnabled(true);
+        tabMeshAutoMeshActiveList2.setDropMode(javax.swing.DropMode.INSERT);
+        tabMeshAutoMeshActiveList2.setPrototypeCellValue("width");
+        tabMeshAutoMeshActiveList2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                autoMeshActiveList2MouseClicked(evt);
+                tabMeshAutoMeshActiveList2MouseClicked(evt);
             }
         });
-        autoMeshActiveList2.addKeyListener(new java.awt.event.KeyAdapter() {
+        tabMeshAutoMeshActiveList2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                autoMeshActiveList2KeyPressed(evt);
+                tabMeshAutoMeshActiveList2KeyPressed(evt);
             }
         });
-        jScrollPane3.setViewportView(autoMeshActiveList2);
+        jScrollPane3.setViewportView(tabMeshAutoMeshActiveList2);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -1326,25 +1281,25 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Automated Mesh 3"));
 
-        autoMeshActiveList3.setModel(new javax.swing.AbstractListModel<String>() {
+        tabMeshAutoMeshActiveList3.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        autoMeshActiveList3.setDragEnabled(true);
-        autoMeshActiveList3.setDropMode(javax.swing.DropMode.INSERT);
-        autoMeshActiveList3.setPrototypeCellValue("width");
-        autoMeshActiveList3.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabMeshAutoMeshActiveList3.setDragEnabled(true);
+        tabMeshAutoMeshActiveList3.setDropMode(javax.swing.DropMode.INSERT);
+        tabMeshAutoMeshActiveList3.setPrototypeCellValue("width");
+        tabMeshAutoMeshActiveList3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                autoMeshActiveList3MouseClicked(evt);
+                tabMeshAutoMeshActiveList3MouseClicked(evt);
             }
         });
-        autoMeshActiveList3.addKeyListener(new java.awt.event.KeyAdapter() {
+        tabMeshAutoMeshActiveList3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                autoMeshActiveList3KeyPressed(evt);
+                tabMeshAutoMeshActiveList3KeyPressed(evt);
             }
         });
-        jScrollPane4.setViewportView(autoMeshActiveList3);
+        jScrollPane4.setViewportView(tabMeshAutoMeshActiveList3);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -1365,25 +1320,25 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Automated Mesh 4"));
 
-        autoMeshActiveList4.setModel(new javax.swing.AbstractListModel<String>() {
+        tabMeshAutoMeshActiveList4.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        autoMeshActiveList4.setDragEnabled(true);
-        autoMeshActiveList4.setDropMode(javax.swing.DropMode.INSERT);
-        autoMeshActiveList4.setPrototypeCellValue("width");
-        autoMeshActiveList4.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabMeshAutoMeshActiveList4.setDragEnabled(true);
+        tabMeshAutoMeshActiveList4.setDropMode(javax.swing.DropMode.INSERT);
+        tabMeshAutoMeshActiveList4.setPrototypeCellValue("width");
+        tabMeshAutoMeshActiveList4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                autoMeshActiveList4MouseClicked(evt);
+                tabMeshAutoMeshActiveList4MouseClicked(evt);
             }
         });
-        autoMeshActiveList4.addKeyListener(new java.awt.event.KeyAdapter() {
+        tabMeshAutoMeshActiveList4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                autoMeshActiveList4KeyPressed(evt);
+                tabMeshAutoMeshActiveList4KeyPressed(evt);
             }
         });
-        jScrollPane5.setViewportView(autoMeshActiveList4);
+        jScrollPane5.setViewportView(tabMeshAutoMeshActiveList4);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -1404,25 +1359,25 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("Solid Part List"));
 
-        solidPartList.setModel(new javax.swing.AbstractListModel<String>() {
+        tabMeshSolidPartList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        solidPartList.setDragEnabled(true);
-        solidPartList.setDropMode(javax.swing.DropMode.INSERT);
-        solidPartList.setPrototypeCellValue("width");
-        solidPartList.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabMeshSolidPartList.setDragEnabled(true);
+        tabMeshSolidPartList.setDropMode(javax.swing.DropMode.INSERT);
+        tabMeshSolidPartList.setPrototypeCellValue("width");
+        tabMeshSolidPartList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                solidPartListMouseClicked(evt);
+                tabMeshSolidPartListMouseClicked(evt);
             }
         });
-        solidPartList.addKeyListener(new java.awt.event.KeyAdapter() {
+        tabMeshSolidPartList.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                solidPartListKeyPressed(evt);
+                tabMeshSolidPartListKeyPressed(evt);
             }
         });
-        jScrollPane6.setViewportView(solidPartList);
+        jScrollPane6.setViewportView(tabMeshSolidPartList);
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1441,10 +1396,10 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        autoMeshConfirmButton.setText("Part 확인 완료");
-        autoMeshConfirmButton.addActionListener(new java.awt.event.ActionListener() {
+        tabMeshAutoMeshConfirmButton.setText("Part 확인 완료");
+        tabMeshAutoMeshConfirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                autoMeshConfirmButtonActionPerformed(evt);
+                tabMeshAutoMeshConfirmButtonActionPerformed(evt);
             }
         });
 
@@ -1462,7 +1417,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(autoMeshConfirmButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(tabMeshAutoMeshConfirmButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -1473,7 +1428,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(autoMeshConfirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tabMeshAutoMeshConfirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1504,12 +1459,12 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Automatic Surface Repair", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setSelected(true);
-        jRadioButton2.setText("ON");
+        buttonGroup1.add(tabMeshRadioButton2);
+        tabMeshRadioButton2.setSelected(true);
+        tabMeshRadioButton2.setText("ON");
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("OFF");
+        buttonGroup1.add(tabMeshRadioButton3);
+        tabMeshRadioButton3.setText("OFF");
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
@@ -1517,9 +1472,9 @@ public class MainFrame extends javax.swing.JFrame {
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRadioButton2)
+                .addComponent(tabMeshRadioButton2)
                 .addGap(52, 52, 52)
-                .addComponent(jRadioButton3)
+                .addComponent(tabMeshRadioButton3)
                 .addGap(258, 258, 258))
         );
         jPanel19Layout.setVerticalGroup(
@@ -1527,8 +1482,8 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(tabMeshRadioButton2)
+                    .addComponent(tabMeshRadioButton3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1553,19 +1508,19 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("Automated Mesh 1"));
 
-        autoMeshInActiveList1.setModel(new javax.swing.AbstractListModel<String>() {
+        tabMeshAutoMeshInActiveList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        autoMeshInActiveList1.setEnabled(false);
-        autoMeshInActiveList1.setPrototypeCellValue("width");
-        jScrollPane8.setViewportView(autoMeshInActiveList1);
+        tabMeshAutoMeshInActiveList1.setEnabled(false);
+        tabMeshAutoMeshInActiveList1.setPrototypeCellValue("width");
+        jScrollPane8.setViewportView(tabMeshAutoMeshInActiveList1);
 
-        autoMeshInActiveTextArea1.setColumns(20);
-        autoMeshInActiveTextArea1.setRows(5);
-        autoMeshInActiveTextArea1.setEnabled(false);
-        jScrollPane9.setViewportView(autoMeshInActiveTextArea1);
+        tabMeshAutoMeshInActiveTextArea1.setColumns(20);
+        tabMeshAutoMeshInActiveTextArea1.setRows(5);
+        tabMeshAutoMeshInActiveTextArea1.setEnabled(false);
+        jScrollPane9.setViewportView(tabMeshAutoMeshInActiveTextArea1);
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -1590,19 +1545,19 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("Automated Mesh 2"));
 
-        autoMeshInActiveList2.setModel(new javax.swing.AbstractListModel<String>() {
+        tabMeshAutoMeshInActiveList2.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        autoMeshInActiveList2.setEnabled(false);
-        autoMeshInActiveList2.setPrototypeCellValue("width");
-        jScrollPane10.setViewportView(autoMeshInActiveList2);
+        tabMeshAutoMeshInActiveList2.setEnabled(false);
+        tabMeshAutoMeshInActiveList2.setPrototypeCellValue("width");
+        jScrollPane10.setViewportView(tabMeshAutoMeshInActiveList2);
 
-        autoMeshInActiveTextArea2.setColumns(20);
-        autoMeshInActiveTextArea2.setRows(5);
-        autoMeshInActiveTextArea2.setEnabled(false);
-        jScrollPane11.setViewportView(autoMeshInActiveTextArea2);
+        tabMeshAutoMeshInActiveTextArea2.setColumns(20);
+        tabMeshAutoMeshInActiveTextArea2.setRows(5);
+        tabMeshAutoMeshInActiveTextArea2.setEnabled(false);
+        jScrollPane11.setViewportView(tabMeshAutoMeshInActiveTextArea2);
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -1627,19 +1582,19 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder("Automated Mesh 3"));
 
-        autoMeshInActiveList3.setModel(new javax.swing.AbstractListModel<String>() {
+        tabMeshAutoMeshInActiveList3.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        autoMeshInActiveList3.setEnabled(false);
-        autoMeshInActiveList3.setPrototypeCellValue("width");
-        jScrollPane12.setViewportView(autoMeshInActiveList3);
+        tabMeshAutoMeshInActiveList3.setEnabled(false);
+        tabMeshAutoMeshInActiveList3.setPrototypeCellValue("width");
+        jScrollPane12.setViewportView(tabMeshAutoMeshInActiveList3);
 
-        autoMeshInActiveTextArea3.setColumns(20);
-        autoMeshInActiveTextArea3.setRows(5);
-        autoMeshInActiveTextArea3.setEnabled(false);
-        jScrollPane13.setViewportView(autoMeshInActiveTextArea3);
+        tabMeshAutoMeshInActiveTextArea3.setColumns(20);
+        tabMeshAutoMeshInActiveTextArea3.setRows(5);
+        tabMeshAutoMeshInActiveTextArea3.setEnabled(false);
+        jScrollPane13.setViewportView(tabMeshAutoMeshInActiveTextArea3);
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -1664,19 +1619,19 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder("Automated Mesh 4"));
 
-        autoMeshInActiveList4.setModel(new javax.swing.AbstractListModel<String>() {
+        tabMeshAutoMeshInActiveList4.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        autoMeshInActiveList4.setEnabled(false);
-        autoMeshInActiveList4.setPrototypeCellValue("width");
-        jScrollPane14.setViewportView(autoMeshInActiveList4);
+        tabMeshAutoMeshInActiveList4.setEnabled(false);
+        tabMeshAutoMeshInActiveList4.setPrototypeCellValue("width");
+        jScrollPane14.setViewportView(tabMeshAutoMeshInActiveList4);
 
-        autoMeshInActiveTextArea4.setColumns(20);
-        autoMeshInActiveTextArea4.setRows(5);
-        autoMeshInActiveTextArea4.setEnabled(false);
-        jScrollPane15.setViewportView(autoMeshInActiveTextArea4);
+        tabMeshAutoMeshInActiveTextArea4.setColumns(20);
+        tabMeshAutoMeshInActiveTextArea4.setRows(5);
+        tabMeshAutoMeshInActiveTextArea4.setEnabled(false);
+        jScrollPane15.setViewportView(tabMeshAutoMeshInActiveTextArea4);
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -1743,28 +1698,28 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        artificialDuctSetupButton.setText("Artificial Duct Setup");
-        artificialDuctSetupButton.addActionListener(new java.awt.event.ActionListener() {
+        tabMeshArtificialDuctSetupButton.setText("Artificial Duct Setup");
+        tabMeshArtificialDuctSetupButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                artificialDuctSetupButtonActionPerformed(evt);
+                tabMeshArtificialDuctSetupButtonActionPerformed(evt);
             }
         });
 
-        doorInfoButton.setText("Door 정보 확인");
-        doorInfoButton.addActionListener(new java.awt.event.ActionListener() {
+        tabMeshDoorInfoButton.setText("Door 정보 확인");
+        tabMeshDoorInfoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                doorInfoButtonActionPerformed(evt);
+                tabMeshDoorInfoButtonActionPerformed(evt);
             }
         });
 
-        remeshButton.setText("Remesh (Surface Repair)");
-        remeshButton.addActionListener(new java.awt.event.ActionListener() {
+        tabMeshRemeshButton.setText("Remesh (Surface Repair)");
+        tabMeshRemeshButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                remeshButtonActionPerformed(evt);
+                tabMeshRemeshButtonActionPerformed(evt);
             }
         });
 
-        skipButton.setText("SKIP");
+        tabMeshSkipButton.setText("SKIP");
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -1772,13 +1727,13 @@ public class MainFrame extends javax.swing.JFrame {
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel20Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(artificialDuctSetupButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabMeshArtificialDuctSetupButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(doorInfoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabMeshDoorInfoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(skipButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(remeshButton, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+                    .addComponent(tabMeshSkipButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tabMeshRemeshButton, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel20Layout.setVerticalGroup(
@@ -1786,11 +1741,11 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanel20Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(remeshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(doorInfoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(artificialDuctSetupButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tabMeshRemeshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tabMeshDoorInfoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tabMeshArtificialDuctSetupButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(skipButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabMeshSkipButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1905,119 +1860,119 @@ public class MainFrame extends javax.swing.JFrame {
     
     
 
-    private void fluidPartListKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fluidPartListKeyPressed
+    private void tabMeshFluidPartListKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabMeshFluidPartListKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_DELETE) {
-            deleteListData(fluidPartList, fluidPartListModel, SelectJList.MAIN_FLUID, SelectKind.SELECT_ONE);
+            deleteListData(tabMeshFluidPartList, tabMeshFluidPartListModel, SelectJList.MAIN_FLUID, SelectKind.SELECT_ONE);
         }
-    }//GEN-LAST:event_fluidPartListKeyPressed
+    }//GEN-LAST:event_tabMeshFluidPartListKeyPressed
 
-    private void deletePartListKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_deletePartListKeyPressed
+    private void tabMeshDeletePartListKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabMeshDeletePartListKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_DELETE) {
-            deleteListData(deletePartList, deletePartListModel, SelectJList.MAIN_DELETE, SelectKind.SELECT_ONE);
+            deleteListData(tabMeshDeletePartList, tabMeshDeletePartListModel, SelectJList.MAIN_DELETE, SelectKind.SELECT_ONE);
         }
-    }//GEN-LAST:event_deletePartListKeyPressed
+    }//GEN-LAST:event_tabMeshDeletePartListKeyPressed
 
-    private void autoMeshActiveList1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_autoMeshActiveList1KeyPressed
+    private void tabMeshAutoMeshActiveList1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabMeshAutoMeshActiveList1KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_DELETE) {
-            deleteListData(autoMeshActiveList1, autoMeshActiveListModel1, SelectJList.MAIN_AUTOMATED_ACTIVE_1, SelectKind.SELECT_ONE);
+            deleteListData(tabMeshAutoMeshActiveList1, tabMeshAutoMeshActiveListModel1, SelectJList.MAIN_AUTOMATED_ACTIVE_1, SelectKind.SELECT_ONE);
         }
-    }//GEN-LAST:event_autoMeshActiveList1KeyPressed
+    }//GEN-LAST:event_tabMeshAutoMeshActiveList1KeyPressed
 
-    private void autoMeshActiveList2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_autoMeshActiveList2KeyPressed
+    private void tabMeshAutoMeshActiveList2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabMeshAutoMeshActiveList2KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_DELETE) {
-            deleteListData(autoMeshActiveList2, autoMeshActiveListModel2, SelectJList.MAIN_AUTOMATED_ACTIVE_2, SelectKind.SELECT_ONE);
+            deleteListData(tabMeshAutoMeshActiveList2, tabMeshAutoMeshActiveListModel2, SelectJList.MAIN_AUTOMATED_ACTIVE_2, SelectKind.SELECT_ONE);
         }
-    }//GEN-LAST:event_autoMeshActiveList2KeyPressed
+    }//GEN-LAST:event_tabMeshAutoMeshActiveList2KeyPressed
 
-    private void autoMeshActiveList3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_autoMeshActiveList3KeyPressed
+    private void tabMeshAutoMeshActiveList3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabMeshAutoMeshActiveList3KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_DELETE) {
-            deleteListData(autoMeshActiveList3, autoMeshActiveListModel3, SelectJList.MAIN_AUTOMATED_ACTIVE_3, SelectKind.SELECT_ONE);
+            deleteListData(tabMeshAutoMeshActiveList3, tabMeshAutoMeshActiveListModel3, SelectJList.MAIN_AUTOMATED_ACTIVE_3, SelectKind.SELECT_ONE);
         }
-    }//GEN-LAST:event_autoMeshActiveList3KeyPressed
+    }//GEN-LAST:event_tabMeshAutoMeshActiveList3KeyPressed
 
-    private void autoMeshActiveList4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_autoMeshActiveList4KeyPressed
+    private void tabMeshAutoMeshActiveList4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabMeshAutoMeshActiveList4KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_DELETE) {
-            deleteListData(autoMeshActiveList4, autoMeshActiveListModel4, SelectJList.MAIN_AUTOMATED_ACTIVE_4, SelectKind.SELECT_ONE);
+            deleteListData(tabMeshAutoMeshActiveList4, tabMeshAutoMeshActiveListModel4, SelectJList.MAIN_AUTOMATED_ACTIVE_4, SelectKind.SELECT_ONE);
         }
-    }//GEN-LAST:event_autoMeshActiveList4KeyPressed
+    }//GEN-LAST:event_tabMeshAutoMeshActiveList4KeyPressed
 
-    private void solidPartListKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_solidPartListKeyPressed
+    private void tabMeshSolidPartListKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabMeshSolidPartListKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_DELETE) {
-            deleteListData(solidPartList, solidPartListModel, SelectJList.MAIN_SOLID, SelectKind.SELECT_ONE);
+            deleteListData(tabMeshSolidPartList, tabMeshSolidPartListModel, SelectJList.MAIN_SOLID, SelectKind.SELECT_ONE);
         }
-    }//GEN-LAST:event_solidPartListKeyPressed
+    }//GEN-LAST:event_tabMeshSolidPartListKeyPressed
 
-    private void deletePartListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletePartListMouseClicked
+    private void tabMeshDeletePartListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabMeshDeletePartListMouseClicked
         // 더블 클릭
         if (evt.getClickCount() == 2) {
-            renameListData(deletePartList, deletePartListModel, SelectJList.MAIN_DELETE);
+            renameListData(tabMeshDeletePartList, tabMeshDeletePartListModel, SelectJList.MAIN_DELETE);
         }
-    }//GEN-LAST:event_deletePartListMouseClicked
+    }//GEN-LAST:event_tabMeshDeletePartListMouseClicked
 
-    private void fluidPartListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fluidPartListMouseClicked
+    private void tabMeshFluidPartListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabMeshFluidPartListMouseClicked
         // 더블 클릭
         if (evt.getClickCount() == 2) {
-            renameListData(fluidPartList, fluidPartListModel, SelectJList.MAIN_FLUID);
+            renameListData(tabMeshFluidPartList, tabMeshFluidPartListModel, SelectJList.MAIN_FLUID);
         }
-    }//GEN-LAST:event_fluidPartListMouseClicked
+    }//GEN-LAST:event_tabMeshFluidPartListMouseClicked
 
-    private void autoMeshActiveList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_autoMeshActiveList1MouseClicked
+    private void tabMeshAutoMeshActiveList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabMeshAutoMeshActiveList1MouseClicked
         // 더블 클릭
         if (evt.getClickCount() == 2) {
-            renameListData(autoMeshActiveList1, autoMeshActiveListModel1, SelectJList.MAIN_AUTOMATED_ACTIVE_1);
+            renameListData(tabMeshAutoMeshActiveList1, tabMeshAutoMeshActiveListModel1, SelectJList.MAIN_AUTOMATED_ACTIVE_1);
         }
-    }//GEN-LAST:event_autoMeshActiveList1MouseClicked
+    }//GEN-LAST:event_tabMeshAutoMeshActiveList1MouseClicked
 
-    private void autoMeshActiveList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_autoMeshActiveList2MouseClicked
+    private void tabMeshAutoMeshActiveList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabMeshAutoMeshActiveList2MouseClicked
         // 더블 클릭
         if (evt.getClickCount() == 2) {
-            renameListData(autoMeshActiveList2, autoMeshActiveListModel2, SelectJList.MAIN_AUTOMATED_ACTIVE_2);
+            renameListData(tabMeshAutoMeshActiveList2, tabMeshAutoMeshActiveListModel2, SelectJList.MAIN_AUTOMATED_ACTIVE_2);
         }
-    }//GEN-LAST:event_autoMeshActiveList2MouseClicked
+    }//GEN-LAST:event_tabMeshAutoMeshActiveList2MouseClicked
 
-    private void autoMeshActiveList3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_autoMeshActiveList3MouseClicked
+    private void tabMeshAutoMeshActiveList3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabMeshAutoMeshActiveList3MouseClicked
         // 더블 클릭
         if (evt.getClickCount() == 2) {
-            renameListData(autoMeshActiveList3, autoMeshActiveListModel3, SelectJList.MAIN_AUTOMATED_ACTIVE_3);
+            renameListData(tabMeshAutoMeshActiveList3, tabMeshAutoMeshActiveListModel3, SelectJList.MAIN_AUTOMATED_ACTIVE_3);
         }
-    }//GEN-LAST:event_autoMeshActiveList3MouseClicked
+    }//GEN-LAST:event_tabMeshAutoMeshActiveList3MouseClicked
 
-    private void autoMeshActiveList4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_autoMeshActiveList4MouseClicked
+    private void tabMeshAutoMeshActiveList4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabMeshAutoMeshActiveList4MouseClicked
         // 더블 클릭
         if (evt.getClickCount() == 2) {
-            renameListData(autoMeshActiveList4, autoMeshActiveListModel4, SelectJList.MAIN_AUTOMATED_ACTIVE_4);
+            renameListData(tabMeshAutoMeshActiveList4, tabMeshAutoMeshActiveListModel4, SelectJList.MAIN_AUTOMATED_ACTIVE_4);
         }
-    }//GEN-LAST:event_autoMeshActiveList4MouseClicked
+    }//GEN-LAST:event_tabMeshAutoMeshActiveList4MouseClicked
 
-    private void solidPartListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_solidPartListMouseClicked
+    private void tabMeshSolidPartListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabMeshSolidPartListMouseClicked
         // 더블 클릭
         if (evt.getClickCount() == 2) {
-            renameListData(solidPartList, solidPartListModel, SelectJList.MAIN_SOLID);
+            renameListData(tabMeshSolidPartList, tabMeshSolidPartListModel, SelectJList.MAIN_SOLID);
         }
-    }//GEN-LAST:event_solidPartListMouseClicked
+    }//GEN-LAST:event_tabMeshSolidPartListMouseClicked
 
-    private void remeshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remeshButtonActionPerformed
+    private void tabMeshRemeshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tabMeshRemeshButtonActionPerformed
         this.setVisible(false);
         remeshFrame.setVisible(true);
-    }//GEN-LAST:event_remeshButtonActionPerformed
+    }//GEN-LAST:event_tabMeshRemeshButtonActionPerformed
 
-    private void doorInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doorInfoButtonActionPerformed
+    private void tabMeshDoorInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tabMeshDoorInfoButtonActionPerformed
         this.setVisible(false);
         doorInfoFrame.setVisible(true);
-    }//GEN-LAST:event_doorInfoButtonActionPerformed
+    }//GEN-LAST:event_tabMeshDoorInfoButtonActionPerformed
 
-    private void artificialDuctSetupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_artificialDuctSetupButtonActionPerformed
+    private void tabMeshArtificialDuctSetupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tabMeshArtificialDuctSetupButtonActionPerformed
         this.setVisible(false);
         artificaialFrame.setVisible(true);
-    }//GEN-LAST:event_artificialDuctSetupButtonActionPerformed
+    }//GEN-LAST:event_tabMeshArtificialDuctSetupButtonActionPerformed
 
-    private void autoMeshConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autoMeshConfirmButtonActionPerformed
+    private void tabMeshAutoMeshConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tabMeshAutoMeshConfirmButtonActionPerformed
         makeAutoMesh();
-    }//GEN-LAST:event_autoMeshConfirmButtonActionPerformed
+    }//GEN-LAST:event_tabMeshAutoMeshConfirmButtonActionPerformed
 
-    private void deleteAllButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAllButton1ActionPerformed
-        deleteListData(deletePartList, deletePartListModel, SelectJList.MAIN_DELETE, SelectKind.SELECT_ALL);
-    }//GEN-LAST:event_deleteAllButton1ActionPerformed
+    private void tabMeshDeleteAllButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tabMeshDeleteAllButton1ActionPerformed
+        deleteListData(tabMeshDeletePartList, tabMeshDeletePartListModel, SelectJList.MAIN_DELETE, SelectKind.SELECT_ALL);
+    }//GEN-LAST:event_tabMeshDeleteAllButton1ActionPerformed
 
     
     
@@ -2060,25 +2015,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton artificialDuctSetupButton;
-    private javax.swing.JList<String> autoMeshActiveList1;
-    private javax.swing.JList<String> autoMeshActiveList2;
-    private javax.swing.JList<String> autoMeshActiveList3;
-    private javax.swing.JList<String> autoMeshActiveList4;
-    private javax.swing.JButton autoMeshConfirmButton;
-    private javax.swing.JList<String> autoMeshInActiveList1;
-    private javax.swing.JList<String> autoMeshInActiveList2;
-    private javax.swing.JList<String> autoMeshInActiveList3;
-    private javax.swing.JList<String> autoMeshInActiveList4;
-    private javax.swing.JTextArea autoMeshInActiveTextArea1;
-    private javax.swing.JTextArea autoMeshInActiveTextArea2;
-    private javax.swing.JTextArea autoMeshInActiveTextArea3;
-    private javax.swing.JTextArea autoMeshInActiveTextArea4;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton deleteAllButton1;
-    private javax.swing.JList<String> deletePartList;
-    private javax.swing.JButton doorInfoButton;
-    private javax.swing.JList<String> fluidPartList;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -2099,8 +2036,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -2119,11 +2054,31 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPanel mesh;
     private javax.swing.JPanel post;
-    private javax.swing.JButton remeshButton;
     private javax.swing.JPanel report;
     private javax.swing.JPanel setup;
-    private javax.swing.JButton skipButton;
-    private javax.swing.JList<String> solidPartList;
     private javax.swing.JPanel solving;
+    private javax.swing.JButton tabMeshArtificialDuctSetupButton;
+    private javax.swing.JList<String> tabMeshAutoMeshActiveList1;
+    private javax.swing.JList<String> tabMeshAutoMeshActiveList2;
+    private javax.swing.JList<String> tabMeshAutoMeshActiveList3;
+    private javax.swing.JList<String> tabMeshAutoMeshActiveList4;
+    private javax.swing.JButton tabMeshAutoMeshConfirmButton;
+    private javax.swing.JList<String> tabMeshAutoMeshInActiveList1;
+    private javax.swing.JList<String> tabMeshAutoMeshInActiveList2;
+    private javax.swing.JList<String> tabMeshAutoMeshInActiveList3;
+    private javax.swing.JList<String> tabMeshAutoMeshInActiveList4;
+    private javax.swing.JTextArea tabMeshAutoMeshInActiveTextArea1;
+    private javax.swing.JTextArea tabMeshAutoMeshInActiveTextArea2;
+    private javax.swing.JTextArea tabMeshAutoMeshInActiveTextArea3;
+    private javax.swing.JTextArea tabMeshAutoMeshInActiveTextArea4;
+    private javax.swing.JButton tabMeshDeleteAllButton1;
+    private javax.swing.JList<String> tabMeshDeletePartList;
+    private javax.swing.JButton tabMeshDoorInfoButton;
+    private javax.swing.JList<String> tabMeshFluidPartList;
+    private javax.swing.JRadioButton tabMeshRadioButton2;
+    private javax.swing.JRadioButton tabMeshRadioButton3;
+    private javax.swing.JButton tabMeshRemeshButton;
+    private javax.swing.JButton tabMeshSkipButton;
+    private javax.swing.JList<String> tabMeshSolidPartList;
     // End of variables declaration//GEN-END:variables
 }
