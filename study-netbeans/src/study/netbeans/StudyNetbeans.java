@@ -13,6 +13,7 @@ import study.netbeans.controls.FramePanelControls;
 import study.netbeans.controls.ImageControls;
 import study.netbeans.controls.PanelForm;
 import study.netbeans.controls.TableControls;
+import study.netbeans.controls.TableSwap;
 import study.netbeans.controls.TreeFrame;
 import study.netbeans.controls.UtilFrame;
 import study.netbeans.newframe.MainFrame;
@@ -50,8 +51,9 @@ public class StudyNetbeans {
         //UtilFrame frame = new UtilFrame();
         //TreeFrame frame = new TreeFrame();
         //TreeFrame frame = new TreeFrame();
+        //TableSwap frame = new TableSwap();
         
-        MainFrame frame = new MainFrame();
+        TableSwap frame = new TableSwap();
         
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);

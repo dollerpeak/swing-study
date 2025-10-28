@@ -4,6 +4,7 @@
  */
 package study.wia.common;
 
+import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JOptionPane;
 
@@ -38,4 +39,14 @@ public class CommonManager {
         //        JOptionPane.WARNING_MESSAGE
         //);
     }
+    
+    static public Color setColorGray() {
+        //return new Color(235, 235, 235);
+        return new Color(242, 242, 242);
+    }
+    
+    
 }
+
+
+

@@ -52,8 +52,7 @@ public class TableControls extends javax.swing.JFrame {
 //                if (column == 0) {
 //                    return false;
 //                }
-//                return true;
-                
+//                return true;                
                 return false;
             }
         };

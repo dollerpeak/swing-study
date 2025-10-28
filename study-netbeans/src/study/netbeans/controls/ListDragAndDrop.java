@@ -52,7 +52,7 @@ public class ListDragAndDrop extends javax.swing.JFrame {
 //        list4.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "45"));
 //        list5.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "45"));
 //        list6.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr, "all"));
-        mainList.setTransferHandler(new ListToListMoveDragAndDropHandler(loggerMgr, "main"));
+        mainList.setTransferHandler(new ListToListSwapDragAndDropHandler(loggerMgr, "main"));
         
 //        mainlistModel.addElement("slot_0");
 //        mainlistModel.addElement("slot_1");
@@ -70,13 +70,15 @@ public class ListDragAndDrop extends javax.swing.JFrame {
         
         list1.setTransferHandler(new ListToListSwapDragAndDropHandler(loggerMgr, "1"));
         list2.setTransferHandler(new ListToListSwapDragAndDropHandler(loggerMgr, "2"));
+        list3.setTransferHandler(new ListToListSwapDragAndDropHandler(loggerMgr, "3"));
         list4.setTransferHandler(new ListToListSwapDragAndDropHandler(loggerMgr, "4"));
         list5.setTransferHandler(new ListToListSwapDragAndDropHandler(loggerMgr, "5"));
+        list6.setTransferHandler(new ListToListSwapDragAndDropHandler(loggerMgr, "6"));
         
         ListToListSwapDragAndDropHandler.allowPair("1", "2", false);  // 1 <-> 2 (양방향)
         ListToListSwapDragAndDropHandler.allowPair("2", "5", true); // 4 <-> 5 (양방향)        
         ListToListSwapDragAndDropHandler.allowPair("1", "5", false);  // 1 -> 2 (단방향)
-//        ListDragAndDropMoveHandler.allowPair("4", "5", false); // 4 -> 5 (단방향)
+        ListToListSwapDragAndDropHandler.allowPair("main", "3", true); // 4 -> 5 (단방향)
         
 //        ListDragAndDropMoveHandler.allowPair("1", "2", ListDragAndDropMoveHandler.Mode.MOVE, false);
 //        ListDragAndDropMoveHandler.allowPair("2", "1", ListDragAndDropMoveHandler.Mode.SWAP, false);
@@ -90,6 +92,9 @@ public class ListDragAndDrop extends javax.swing.JFrame {
         list2Model.addElement("list2_0");
         list2Model.addElement("list2_1");
         
+        list3Model.addElement("list3_0");
+        list3Model.addElement("list3_1");
+        
         list4Model.addElement("list4_0");
         list4Model.addElement("list4_1");
         list4Model.addElement("list4_2");
@@ -97,6 +102,12 @@ public class ListDragAndDrop extends javax.swing.JFrame {
         
         list5Model.addElement("list5_0");
         list5Model.addElement("list5_1");
+        
+        list6Model.addElement("list6_0");
+        list6Model.addElement("list6_1");
+        
+        mainlistModel.addElement("listM_0");
+        mainlistModel.addElement("listM_1");
         
         
         

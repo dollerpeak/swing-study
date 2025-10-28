@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
+import study.wia.common.CommonManager;
 
 /**
  * table
@@ -21,9 +22,12 @@ public class TableCellRenderer extends DefaultTableCellRenderer {
         Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 
         if (column == 0) {
-            component.setBackground(Color.LIGHT_GRAY);
+            // 음영을 적용하고 싶은 컬럼
+            //component.setBackground(Color.LIGHT_GRAY);
+            component.setBackground(CommonManager.setColorGray());
             component.setForeground(Color.BLACK);
         } else {
+            // 기존 그대로 유지
             if (isSelected) {
                 component.setBackground(table.getSelectionBackground());
                 component.setForeground(table.getSelectionForeground());
