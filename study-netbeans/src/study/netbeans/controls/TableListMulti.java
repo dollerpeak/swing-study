@@ -6,9 +6,9 @@ import java.util.logging.Level;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import study.netbeans.common.LoggerManager;
-import study.netbeans.util.MultiTableListDragAndDropSwapHandler;
+//import study.netbeans.util.MultiTableListDragAndDropSwapHandler;
 import study.netbeans.util.TableCellRenderer;
-import study.netbeans.util.TableDragAndDropSwapHandler;
+//import study.netbeans.util.TableDragAndDropSwapHandler;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -46,68 +46,68 @@ public class TableListMulti extends javax.swing.JFrame {
     }
     
     private void init() {
-        table1Model = new DefaultTableModel(new String[]{"왼쪽", "컬럼타이틀", "컬럼타이틀"}, 0) {
-            // 전체 수정금지, 포커스만 유지할 수 있게
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };        
-        // 타이틀바 색상변경
-        table1.getTableHeader().setBackground(Color.LIGHT_GRAY);
-        // 맨 왼쪽 색상변경
-        table1.setDefaultRenderer(Object.class, new TableCellRenderer());
-        table1.setTransferHandler(new TableDragAndDropSwapHandler(loggerMgr));
-        // 핸들러
-        table1.setTransferHandler(new MultiTableListDragAndDropSwapHandler(loggerMgr));
-        
-        table1.setModel(table1Model);
-        table1Model.addRow(new String[]{"왼쪽1", "table1_11", "table1_12"});
-        table1Model.addRow(new String[]{"왼쪽1", "", "table1_22"});
-        table1Model.addRow(new String[]{"왼쪽1", "table1_31", "table1_32"});
-        
-        table2Model = new DefaultTableModel(new String[]{"왼쪽", "컬럼타이틀", "컬럼타이틀"}, 0) {
-            // 전체 수정금지, 포커스만 유지할 수 있게
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };        
-        // 타이틀바 색상변경
-        table2.getTableHeader().setBackground(Color.LIGHT_GRAY);
-        // 맨 왼쪽 색상변경
-        table2.setDefaultRenderer(Object.class, new TableCellRenderer());
-        table2.setTransferHandler(new TableDragAndDropSwapHandler(loggerMgr));
-        // 핸들러
-        table2.setTransferHandler(new MultiTableListDragAndDropSwapHandler(loggerMgr));
-        
-        table2.setModel(table2Model);
-        table2Model.addRow(new String[]{"왼쪽1", "table2_11", "table2_12"});
-        table2Model.addRow(new String[]{"왼쪽1", "", "table2_22"});
-        table2Model.addRow(new String[]{"왼쪽1", "table2_31", "table2_32"});
-        
-        //loggerMgr.getLogger().info("row count = " + table2.getRowCount());
-        //loggerMgr.getLogger().info("col count = " + table2.getColumnCount());        
-        //table2Model.insertRow(1, new String[] {"test","test","test"});
-        
-        
-        // list
-        list1Model = new DefaultListModel<>();
-        list2Model = new DefaultListModel<>();        
-        
-        list1.setModel(list1Model);
-        list2.setModel(list2Model);
-        // 핸들러
-        list1.setTransferHandler(new MultiTableListDragAndDropSwapHandler(loggerMgr));
-        list2.setTransferHandler(new MultiTableListDragAndDropSwapHandler(loggerMgr));
-        
-        list1Model.addElement("list1_0");
-        list1Model.addElement("list1_1");
-        list1Model.addElement("list1_2");
-        
-        list2Model.addElement("list2_0");
-        list2Model.addElement("list2_1");
-        list2Model.addElement("list2_2");
+//        table1Model = new DefaultTableModel(new String[]{"왼쪽", "컬럼타이틀", "컬럼타이틀"}, 0) {
+//            // 전체 수정금지, 포커스만 유지할 수 있게
+//            @Override
+//            public boolean isCellEditable(int row, int column) {
+//                return false;
+//            }
+//        };        
+//        // 타이틀바 색상변경
+//        table1.getTableHeader().setBackground(Color.LIGHT_GRAY);
+//        // 맨 왼쪽 색상변경
+//        table1.setDefaultRenderer(Object.class, new TableCellRenderer());
+//        table1.setTransferHandler(new TableDragAndDropSwapHandler(loggerMgr));
+//        // 핸들러
+//        table1.setTransferHandler(new MultiTableListDragAndDropSwapHandler(loggerMgr));
+//        
+//        table1.setModel(table1Model);
+//        table1Model.addRow(new String[]{"왼쪽1", "table1_11", "table1_12"});
+//        table1Model.addRow(new String[]{"왼쪽1", "", "table1_22"});
+//        table1Model.addRow(new String[]{"왼쪽1", "table1_31", "table1_32"});
+//        
+//        table2Model = new DefaultTableModel(new String[]{"왼쪽", "컬럼타이틀", "컬럼타이틀"}, 0) {
+//            // 전체 수정금지, 포커스만 유지할 수 있게
+//            @Override
+//            public boolean isCellEditable(int row, int column) {
+//                return false;
+//            }
+//        };        
+//        // 타이틀바 색상변경
+//        table2.getTableHeader().setBackground(Color.LIGHT_GRAY);
+//        // 맨 왼쪽 색상변경
+//        table2.setDefaultRenderer(Object.class, new TableCellRenderer());
+//        table2.setTransferHandler(new TableDragAndDropSwapHandler(loggerMgr));
+//        // 핸들러
+//        table2.setTransferHandler(new MultiTableListDragAndDropSwapHandler(loggerMgr));
+//        
+//        table2.setModel(table2Model);
+//        table2Model.addRow(new String[]{"왼쪽1", "table2_11", "table2_12"});
+//        table2Model.addRow(new String[]{"왼쪽1", "", "table2_22"});
+//        table2Model.addRow(new String[]{"왼쪽1", "table2_31", "table2_32"});
+//        
+//        //loggerMgr.getLogger().info("row count = " + table2.getRowCount());
+//        //loggerMgr.getLogger().info("col count = " + table2.getColumnCount());        
+//        //table2Model.insertRow(1, new String[] {"test","test","test"});
+//        
+//        
+//        // list
+//        list1Model = new DefaultListModel<>();
+//        list2Model = new DefaultListModel<>();        
+//        
+//        list1.setModel(list1Model);
+//        list2.setModel(list2Model);
+//        // 핸들러
+//        list1.setTransferHandler(new MultiTableListDragAndDropSwapHandler(loggerMgr));
+//        list2.setTransferHandler(new MultiTableListDragAndDropSwapHandler(loggerMgr));
+//        
+//        list1Model.addElement("list1_0");
+//        list1Model.addElement("list1_1");
+//        list1Model.addElement("list1_2");
+//        
+//        list2Model.addElement("list2_0");
+//        list2Model.addElement("list2_1");
+//        list2Model.addElement("list2_2");
     }
 
     /**

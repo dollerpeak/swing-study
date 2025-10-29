@@ -5,14 +5,13 @@
 package study.netbeans.controls;
 
 import java.awt.Color;
-import java.lang.reflect.Array;
 import java.util.logging.Level;
 import javax.swing.DefaultListModel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import study.netbeans.common.LoggerManager;
+import study.netbeans.util.MultiTableToListCopyDragAndDropHandler;
 import study.netbeans.util.TableCellRenderer;
-import study.netbeans.util.TableDragAndDropSwapHandler;
 import study.netbeans.util.TableToTableMoveDragAndDropHandler;
 import study.netbeans.util.TableToTableSwapDragAndDropHandler;
 
@@ -130,7 +129,7 @@ public class TableSwap extends javax.swing.JFrame {
         table5.setModel(table5Model);
         table5Model.addRow(new String[]{"왼쪽5", "table5_11", "table5_12"});
         table5Model.addRow(new String[]{"왼쪽5", "table5_21", "table5_22"});
-//        table5.setTransferHandler(new TableToListSwapDragAndDropHandler(loggerMgr, "table5", null));
+        table5.setTransferHandler(new MultiTableToListCopyDragAndDropHandler(loggerMgr, "table5", new int[]{0}));
         
         
         
@@ -138,7 +137,7 @@ public class TableSwap extends javax.swing.JFrame {
         list1.setModel(list1Model);
         list1Model.addElement("list1_0");
         list1Model.addElement("list1_1");
-//        list1.setTransferHandler(new TableToListSwapDragAndDropHandler(loggerMgr, "list1", null));
+        list1.setTransferHandler(new MultiTableToListCopyDragAndDropHandler(loggerMgr, "list1", null));
         
         list2.setModel(list2Model);
         list2Model.addElement("list2_0");
@@ -318,6 +317,7 @@ public class TableSwap extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        list1.setDropMode(javax.swing.DropMode.INSERT);
         jScrollPane4.setViewportView(list1);
 
         list2.setModel(new javax.swing.AbstractListModel<String>() {
@@ -325,6 +325,7 @@ public class TableSwap extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        list2.setDropMode(javax.swing.DropMode.INSERT);
         jScrollPane5.setViewportView(list2);
 
         list3.setModel(new javax.swing.AbstractListModel<String>() {
@@ -332,6 +333,7 @@ public class TableSwap extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        list3.setDropMode(javax.swing.DropMode.INSERT);
         jScrollPane6.setViewportView(list3);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

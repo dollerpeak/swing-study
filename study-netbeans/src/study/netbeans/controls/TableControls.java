@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import study.netbeans.common.LoggerManager;
-import study.netbeans.util.TableDragAndDropSwapHandler;
+//import study.netbeans.util.TableDragAndDropSwapHandler;
 import study.wia.common.CommonManager;
 
 /**
@@ -45,73 +45,73 @@ public class TableControls extends javax.swing.JFrame {
     }
     
     private void initTable() {
-        table1Model = new DefaultTableModel(new String[]{"왼쪽", "컬럼타이틀", "컬럼타이틀"}, 0) {
-            // 맨 왼쪽 수정금지
-            @Override
-            public boolean isCellEditable(int row, int column) {
-//                if (column == 0) {
-//                    return false;
-//                }
-//                return true;                
-                return false;
-            }
-        };
-        // 타이틀바 색상변경
-        table1.getTableHeader().setBackground(Color.LIGHT_GRAY);
-        // 맨 왼쪽 색상변경
-        table1.setDefaultRenderer(Object.class, new TableCellRenderer());
-        table1.setTransferHandler(new TableDragAndDropSwapHandler(loggerMgr));
-        
-        table1.setModel(table1Model);
-        table1Model.addRow(new String[]{"왼쪽1", "table1_11", "table1_12"});
-        table1Model.addRow(new String[]{"왼쪽1", "table1_21", "table1_22"});
-        table1Model.addRow(new String[]{"왼쪽1", "table1_31", "table1_32"});
-                
-        table2Model = new DefaultTableModel(new String[]{"왼쪽", "컬럼타이틀", "컬럼타이틀"}, 0) {
-            // 맨 왼쪽 수정금지
-            @Override
-            public boolean isCellEditable(int row, int column) {
-//                if (column == 0) {
-//                    return false;
-//                }
-//                return true;
-                
-                return false;
-            }
-        };
-        // 타이틀바 색상변경
-        table2.getTableHeader().setBackground(Color.LIGHT_GRAY);
-        // 맨 왼쪽 색상변경
-        table2.setDefaultRenderer(Object.class, new TableCellRenderer());
-        table2.setTransferHandler(new TableDragAndDropSwapHandler(loggerMgr));
-        
-        table2.setModel(table2Model);
-        table2Model.addRow(new String[]{"왼쪽2", "table2_11", "table2_12"});
-        table2Model.addRow(new String[]{"왼쪽2", "table2_21", "table2_22"});
-        table2Model.addRow(new String[]{"왼쪽2", "table2_31", "table2_32"});
-        
-        table3Model = new DefaultTableModel(new String[]{"왼쪽", "컬럼타이틀", "컬럼타이틀"}, 0) {
-            // 맨 왼쪽 수정금지
-            @Override
-            public boolean isCellEditable(int row, int column) {
-//                if (column == 0) {
-//                    return false;
-//                }
-//                return true;
-                
-                return false;
-            }
-        };
-        // 타이틀바 색상변경
-        table3.getTableHeader().setBackground(Color.LIGHT_GRAY);
-        // 맨 왼쪽 색상변경
-        table3.setDefaultRenderer(Object.class, new TableCellRenderer());
-        table3.setTransferHandler(new TableDragAndDropSwapHandler(loggerMgr));
-        
-        table3.setModel(table3Model);
-        table3Model.addRow(new String[]{"왼쪽3", "table3_11", "table3_12"});
-        table3Model.addRow(new String[]{"왼쪽3", "table3_21", "table3_22"});
-        table3Model.addRow(new String[]{"왼쪽3", "table3_31", "table3_32"});
+//        table1Model = new DefaultTableModel(new String[]{"왼쪽", "컬럼타이틀", "컬럼타이틀"}, 0) {
+//            // 맨 왼쪽 수정금지
+//            @Override
+//            public boolean isCellEditable(int row, int column) {
+////                if (column == 0) {
+////                    return false;
+////                }
+////                return true;                
+//                return false;
+//            }
+//        };
+//        // 타이틀바 색상변경
+//        table1.getTableHeader().setBackground(Color.LIGHT_GRAY);
+//        // 맨 왼쪽 색상변경
+//        table1.setDefaultRenderer(Object.class, new TableCellRenderer());
+//        table1.setTransferHandler(new TableDragAndDropSwapHandler(loggerMgr));
+//        
+//        table1.setModel(table1Model);
+//        table1Model.addRow(new String[]{"왼쪽1", "table1_11", "table1_12"});
+//        table1Model.addRow(new String[]{"왼쪽1", "table1_21", "table1_22"});
+//        table1Model.addRow(new String[]{"왼쪽1", "table1_31", "table1_32"});
+//                
+//        table2Model = new DefaultTableModel(new String[]{"왼쪽", "컬럼타이틀", "컬럼타이틀"}, 0) {
+//            // 맨 왼쪽 수정금지
+//            @Override
+//            public boolean isCellEditable(int row, int column) {
+////                if (column == 0) {
+////                    return false;
+////                }
+////                return true;
+//                
+//                return false;
+//            }
+//        };
+//        // 타이틀바 색상변경
+//        table2.getTableHeader().setBackground(Color.LIGHT_GRAY);
+//        // 맨 왼쪽 색상변경
+//        table2.setDefaultRenderer(Object.class, new TableCellRenderer());
+//        table2.setTransferHandler(new TableDragAndDropSwapHandler(loggerMgr));
+//        
+//        table2.setModel(table2Model);
+//        table2Model.addRow(new String[]{"왼쪽2", "table2_11", "table2_12"});
+//        table2Model.addRow(new String[]{"왼쪽2", "table2_21", "table2_22"});
+//        table2Model.addRow(new String[]{"왼쪽2", "table2_31", "table2_32"});
+//        
+//        table3Model = new DefaultTableModel(new String[]{"왼쪽", "컬럼타이틀", "컬럼타이틀"}, 0) {
+//            // 맨 왼쪽 수정금지
+//            @Override
+//            public boolean isCellEditable(int row, int column) {
+////                if (column == 0) {
+////                    return false;
+////                }
+////                return true;
+//                
+//                return false;
+//            }
+//        };
+//        // 타이틀바 색상변경
+//        table3.getTableHeader().setBackground(Color.LIGHT_GRAY);
+//        // 맨 왼쪽 색상변경
+//        table3.setDefaultRenderer(Object.class, new TableCellRenderer());
+//        table3.setTransferHandler(new TableDragAndDropSwapHandler(loggerMgr));
+//        
+//        table3.setModel(table3Model);
+//        table3Model.addRow(new String[]{"왼쪽3", "table3_11", "table3_12"});
+//        table3Model.addRow(new String[]{"왼쪽3", "table3_21", "table3_22"});
+//        table3Model.addRow(new String[]{"왼쪽3", "table3_31", "table3_32"});
     }
     
 //    private void init() {
