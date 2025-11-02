@@ -4,7 +4,6 @@
  */
 package study.wia.function;
 
-import study.wia.common.LoggerManager;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
@@ -14,6 +13,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JComponent;
 import javax.swing.JList;
 import javax.swing.TransferHandler;
+import static javax.swing.TransferHandler.MOVE;
+import study.wia.common.LoggerManager;
 
 /**
  * 리스트간 DragAndDrop방식으로 데이터 교환(SWAP) 
@@ -112,7 +113,7 @@ public class ListToListSwapDragAndDropHandler extends TransferHandler {
     }
 
     @Override
-    public boolean canImport(TransferSupport support) {
+    public boolean canImport(TransferHandler.TransferSupport support) {
         if (!support.isDrop()) {
             return false;
         }
@@ -158,7 +159,7 @@ public class ListToListSwapDragAndDropHandler extends TransferHandler {
     }
 
     @Override
-    public boolean importData(TransferSupport support) {
+    public boolean importData(TransferHandler.TransferSupport support) {
         if (!canImport(support)) {
             return false;
         }
@@ -213,6 +214,7 @@ public class ListToListSwapDragAndDropHandler extends TransferHandler {
             return true;
 
         } catch (Exception e) {
+            //loggerMgr.getLogger().severe(e.toString());
             loggerMgr.error(e.toString());
             return false;
         }
@@ -224,4 +226,3 @@ public class ListToListSwapDragAndDropHandler extends TransferHandler {
         TL_CTX.remove();
     }
 }
-

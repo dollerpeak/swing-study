@@ -10,9 +10,8 @@ import java.util.logging.Level;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.TransferHandler;
-import study.netbeans.common.LoggerManager;
-import study.netbeans.util.ListToListMoveDragAndDropHandler;
-import study.netbeans.util.ListToListSwapDragAndDropHandler;
+import study.wia.common.LoggerManager;
+import study.wia.function.ListToListSwapDragAndDropHandler;
 
 /**
  *
@@ -117,8 +116,8 @@ public class ListDragAndDrop extends javax.swing.JFrame {
     }
 
     private void initLoggerManager() {
-        loggerMgr = new LoggerManager(this.getClass().getName(), Level.INFO);
-        loggerMgr.getLogger().info("===> initLoggerManager()");  
+//        loggerMgr = new LoggerManager(this.getClass().getName(), Level.INFO);
+//        loggerMgr.getLogger().info("===> initLoggerManager()");  
     }
 
     /**

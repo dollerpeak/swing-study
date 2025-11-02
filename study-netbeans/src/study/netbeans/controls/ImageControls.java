@@ -58,7 +58,7 @@ public class ImageControls extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        imageOriginPanel = new study.netbeans.util.ImagePanel("/study/resource/icon/instagram.png");
+        imageOriginPanel = new study.wia.function.ImagePanel("/study/resource/instagram.png");
         imageLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
