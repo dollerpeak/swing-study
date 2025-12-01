@@ -5,8 +5,11 @@
 package study.netbeans.controls;
 
 import java.awt.Color;
+import java.nio.file.Path;
+import java.util.List;
 import java.util.logging.Level;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import study.netbeans.common.LoggerManager;
@@ -14,6 +17,8 @@ import study.netbeans.util.MultiTableToListCopyDragAndDropHandler;
 import study.netbeans.util.TableCellRenderer;
 import study.netbeans.util.TableToTableMoveDragAndDropHandler;
 import study.netbeans.util.TableToTableSwapDragAndDropHandler;
+import study.wia.common.CommonManager;
+import study.wia.common.ReadExcel;
 
 /**
  *
@@ -41,6 +46,7 @@ public class TableSwap extends javax.swing.JFrame {
         initComponents();
         
         init();
+        loadExcel();
     }
 
     private void initLoggerManager() {
@@ -151,6 +157,52 @@ public class TableSwap extends javax.swing.JFrame {
         
         
         
+    }
+    
+    private void loadExcel() {
+        loggerMgr.getLogger().info(">>>> START");
+        
+        try {
+            // 읽을 엑셀 파일 경로
+            //Path excelFile = Path.of("C:\\Users\\cadit\\OneDrive\\바탕 화면\\kht\\doc\\automesh관련_20250919\\porous_media_macro_R2_automation.xlsm"); 
+            
+            String excelPath = "C:\\Users\\P088454\\Downloads\\111\\porous_media_macro_R2_automation_V5_20251125.xlsm";
+            Path excelFile = Path.of(excelPath);
+            ReadExcel reader = ReadExcel.open(excelFile);
+
+            // 모든 시트명 출력
+            List<String> allTab = reader.getSheetNames();
+            loggerMgr.getLogger().info("allTab = " + allTab.toString());
+
+            String selectTab = "AutomatedMesh";
+
+            // automesh
+            if (allTab.contains(selectTab) == true) {
+                
+                loggerMgr.getLogger().info(
+                        "B2 = " + reader.getCell(selectTab, "B2")
+                );
+
+                loggerMgr.getLogger().info(
+                        "AutoMesh_name1 = " + reader.getName("AutoMesh_name1")
+                );
+                
+                loggerMgr.getLogger().info(
+                        "partlist = " + reader.getNameRange("partlist").toString()
+                );
+                
+                
+                // - parts
+//                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B4"), reader.get(selectTab, "B5"));
+            } else {
+                CommonManager.showMessageDialog(this, "알림", "파일에 " + selectTab + " 탭이 존재하지 않습니다.", JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (Exception e) {
+            loggerMgr.getLogger().info("e = " + e.toString());
+            //CommonManager.showMessageDialog(this, "알림", "파일을 읽는 중 문제가 발생했습니다.", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        loggerMgr.getLogger().info(">>>> END");
     }
 
     /**

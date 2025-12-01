@@ -19,10 +19,13 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.FormulaEvaluator;
+import org.apache.poi.ss.usermodel.Name;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.ss.util.AreaReference;
+import org.apache.poi.ss.util.CellReference;
 
 
 public class ReadExcel implements Closeable {
@@ -77,7 +80,7 @@ public class ReadExcel implements Closeable {
     // 시트명, 열행
     // ex) String v2 = reader.get("AutomatedMesh", "B5");
     // 열과 행을 붙여서 보이는대로 적용
-    public String get(String sheetName, String a1Address) {
+    public String getCell(String sheetName, String a1Address) {
         int[] rc = parseA1(a1Address);
         return get(sheetName, rc[0], rc[1]);
     }
@@ -111,5 +114,77 @@ public class ReadExcel implements Closeable {
     @Override
     public void close() throws IOException {
         wb.close();
+    }
+    
+    // ================================
+    // 1) 이름상자: 단일 셀 읽기
+    // ================================
+    public String getName(String definedName) {
+        Name name = wb.getName(definedName);
+        if (name == null) {
+            throw new IllegalArgumentException("정의된 이름이 존재하지 않습니다: " + definedName);
+        }
+
+        String refersTo = name.getRefersToFormula();
+        if (refersTo == null) {
+            return "";
+        }
+
+        AreaReference area = new AreaReference(refersTo, wb.getSpreadsheetVersion());
+        CellReference firstCell = area.getFirstCell();
+
+        Sheet sheet = wb.getSheet(firstCell.getSheetName());
+        if (sheet == null) {
+            return "";
+        }
+
+        Row row = sheet.getRow(firstCell.getRow());
+        if (row == null) {
+            return "";
+        }
+
+        Cell cell = row.getCell(firstCell.getCol(), Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
+        return format(cell);
+    }
+
+
+    // ================================
+    // 2) 이름상자: 범위 전체 읽기
+    //    (B2:D20 같이 여러 셀인 경우)
+    // ================================
+    public List<String> getNameRange(String definedName) {
+        Name name = wb.getName(definedName);
+        if (name == null) {
+            throw new IllegalArgumentException("정의된 이름이 존재하지 않습니다: " + definedName);
+        }
+
+        String refersTo = name.getRefersToFormula();
+        if (refersTo == null) {
+            return List.of();
+        }
+
+        AreaReference area = new AreaReference(refersTo, wb.getSpreadsheetVersion());
+        CellReference[] refs = area.getAllReferencedCells();
+
+        List<String> result = new ArrayList<>();
+
+        for (CellReference ref : refs) {
+            Sheet sheet = wb.getSheet(ref.getSheetName());
+            if (sheet == null) {
+                result.add("");
+                continue;
+            }
+
+            Row row = sheet.getRow(ref.getRow());
+            if (row == null) {
+                result.add("");
+                continue;
+            }
+
+            Cell cell = row.getCell(ref.getCol(), Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
+            result.add(format(cell));
+        }
+
+        return result;
     }
 }
