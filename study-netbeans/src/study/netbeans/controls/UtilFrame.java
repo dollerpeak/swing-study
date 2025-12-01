@@ -82,7 +82,7 @@ public class UtilFrame extends javax.swing.JFrame {
             loggerMgr.getLogger().info("v1 = " + v1);
             
             // 2) A1 주소 방식
-            String v2 = reader.get("AutomatedMesh", "B5");
+            String v2 = reader.getCell("AutomatedMesh", "B5");
             loggerMgr.getLogger().info("v2 = " + v2);
             
 //        try (ReadExcel reader = ReadExcel.open(excelFile)) {

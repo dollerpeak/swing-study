@@ -9,7 +9,6 @@ import study.wia.common.LoggerManager;
 import study.wia.common.ReadExcel;
 import hdwia.hvac.enums.SelectKind;
 import hdwia.hvac.enums.SelectJList;
-import hdwia.hvac.function.ListToListMoveDragAndDropHandler;
 import study.wia.sub.mesh.ArtificaialFrame;
 import study.wia.sub.mesh.DoorInfoFrame;
 import study.wia.sub.mesh.RemeshFrame;
@@ -56,6 +55,7 @@ import star.meshing.RelativeOrAbsoluteOption;
 import star.meshing.SurfaceCurvature;
 import star.prismmesher.NumPrismLayers;
 import star.prismmesher.PrismThickness;
+import study.wia.function.ListToListMoveDragAndDropHandler;
 
 @SuppressWarnings("this-escape")
 public class MainFrame extends javax.swing.JFrame {
@@ -724,134 +724,134 @@ public class MainFrame extends javax.swing.JFrame {
             // automesh
             if (allTab.contains(selectTab) == true) {
                 // - parts
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B4"), reader.get(selectTab, "B5"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G4"), reader.get(selectTab, "G5"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L4"), reader.get(selectTab, "L5"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B4"), reader.getCell(selectTab, "B5"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G4"), reader.getCell(selectTab, "G5"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L4"), reader.getCell(selectTab, "L5"));
 
                 // - meshers
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B7"), reader.get(selectTab, "B8") + "," + reader.get(selectTab, "B9") + "," + reader.get(selectTab, "B10"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G7"), reader.get(selectTab, "G8") + "," + reader.get(selectTab, "G9") + "," + reader.get(selectTab, "G10"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L7"), reader.get(selectTab, "L8") + "," + reader.get(selectTab, "L9") + "," + reader.get(selectTab, "L10"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B7"), reader.getCell(selectTab, "B8") + "," + reader.getCell(selectTab, "B9") + "," + reader.getCell(selectTab, "B10"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G7"), reader.getCell(selectTab, "G8") + "," + reader.getCell(selectTab, "G9") + "," + reader.getCell(selectTab, "G10"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L7"), reader.getCell(selectTab, "L8") + "," + reader.getCell(selectTab, "L9") + "," + reader.getCell(selectTab, "L10"));
 
                 // - Prism Layer Mesher	
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B15"), reader.get(selectTab, "C15"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G15"), reader.get(selectTab, "H15"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L15"), reader.get(selectTab, "M15"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B15"), reader.getCell(selectTab, "C15"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G15"), reader.getCell(selectTab, "H15"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L15"), reader.getCell(selectTab, "M15"));
 
                 // - Stretching Function
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B16"), reader.get(selectTab, "C16"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G16"), reader.get(selectTab, "H16"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L16"), reader.get(selectTab, "M16"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B16"), reader.getCell(selectTab, "C16"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G16"), reader.getCell(selectTab, "H16"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L16"), reader.getCell(selectTab, "M16"));
 
                 // - Distribution Mode
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B17"), reader.get(selectTab, "C17"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G17"), reader.get(selectTab, "H17"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L17"), reader.get(selectTab, "M17"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B17"), reader.getCell(selectTab, "C17"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G17"), reader.getCell(selectTab, "H17"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L17"), reader.getCell(selectTab, "M17"));
 
                 // - Gap Fill Percentage
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B18"), reader.get(selectTab, "C18"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G18"), reader.get(selectTab, "H18"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L18"), reader.get(selectTab, "M18"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B18"), reader.getCell(selectTab, "C18"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G18"), reader.getCell(selectTab, "H18"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L18"), reader.getCell(selectTab, "M18"));
 
                 // - Minimum Thickness Percentage
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B19"), reader.get(selectTab, "C19"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G19"), reader.get(selectTab, "H19"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L19"), reader.get(selectTab, "M19"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B19"), reader.getCell(selectTab, "C19"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G19"), reader.getCell(selectTab, "H19"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L19"), reader.getCell(selectTab, "M19"));
 
                 // - Layer Reduction Percentage
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B20"), reader.get(selectTab, "C20"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G20"), reader.get(selectTab, "H20"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L20"), reader.get(selectTab, "M20"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B20"), reader.getCell(selectTab, "C20"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G20"), reader.getCell(selectTab, "H20"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L20"), reader.getCell(selectTab, "M20"));
 
                 // - Boundary March Angle
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B21"), reader.get(selectTab, "C21"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G21"), reader.get(selectTab, "H21"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L21"), reader.get(selectTab, "M21"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B21"), reader.getCell(selectTab, "C21"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G21"), reader.getCell(selectTab, "H21"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L21"), reader.getCell(selectTab, "M21"));
 
                 // - Concave Angle Limit
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B22"), reader.get(selectTab, "C22"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G22"), reader.get(selectTab, "H22"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L22"), reader.get(selectTab, "M22"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B22"), reader.getCell(selectTab, "C22"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G22"), reader.getCell(selectTab, "H22"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L22"), reader.getCell(selectTab, "M22"));
 
                 // - Convex Angle Limit
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B23"), reader.get(selectTab, "C23"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G23"), reader.get(selectTab, "H23"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L23"), reader.get(selectTab, "M23"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B23"), reader.getCell(selectTab, "C23"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G23"), reader.getCell(selectTab, "H23"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L23"), reader.getCell(selectTab, "M23"));
 
                 // - Near Core Layer Aspect Ratio
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B24"), reader.get(selectTab, "C24"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G24"), reader.get(selectTab, "H24"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L24"), reader.get(selectTab, "M24"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B24"), reader.getCell(selectTab, "C24"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G24"), reader.getCell(selectTab, "H24"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L24"), reader.getCell(selectTab, "M24"));
 
                 // - Default Controls
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B26"), reader.get(selectTab, "C26"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G26"), reader.get(selectTab, "H26"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L26"), reader.get(selectTab, "M26"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B26"), reader.getCell(selectTab, "C26"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G26"), reader.getCell(selectTab, "H26"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L26"), reader.getCell(selectTab, "M26"));
 
                 // - Base Size
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B28"), reader.get(selectTab, "C28"));
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B28") + "-unit", reader.get(selectTab, "D28"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G28"), reader.get(selectTab, "H28"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G28") + "-unit", reader.get(selectTab, "I28"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L28"), reader.get(selectTab, "M28"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L28") + "-unit", reader.get(selectTab, "N28"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B28"), reader.getCell(selectTab, "C28"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B28") + "-unit", reader.getCell(selectTab, "D28"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G28"), reader.getCell(selectTab, "H28"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G28") + "-unit", reader.getCell(selectTab, "I28"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L28"), reader.getCell(selectTab, "M28"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L28") + "-unit", reader.getCell(selectTab, "N28"));
 
                 // - Target Surface Size
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B29"), reader.get(selectTab, "C29"));
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "D29"), reader.get(selectTab, "E29"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G29"), reader.get(selectTab, "H29"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "I29"), reader.get(selectTab, "J29"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L29"), reader.get(selectTab, "M29"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "N29"), reader.get(selectTab, "O29"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B29"), reader.getCell(selectTab, "C29"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "D29"), reader.getCell(selectTab, "E29"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G29"), reader.getCell(selectTab, "H29"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "I29"), reader.getCell(selectTab, "J29"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L29"), reader.getCell(selectTab, "M29"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "N29"), reader.getCell(selectTab, "O29"));
 
                 // - Minimum Surface Size
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B31"), reader.get(selectTab, "C31"));
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "D31"), reader.get(selectTab, "E31"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G31"), reader.get(selectTab, "H31"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "I31"), reader.get(selectTab, "J31"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L31"), reader.get(selectTab, "M31"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "N31"), reader.get(selectTab, "O31"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B31"), reader.getCell(selectTab, "C31"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "D31"), reader.getCell(selectTab, "E31"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G31"), reader.getCell(selectTab, "H31"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "I31"), reader.getCell(selectTab, "J31"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L31"), reader.getCell(selectTab, "M31"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "N31"), reader.getCell(selectTab, "O31"));
 
                 // - Surface Curvature
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B32"), reader.get(selectTab, "C32"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G32"), reader.get(selectTab, "H32"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L32"), reader.get(selectTab, "M32"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B32"), reader.getCell(selectTab, "C32"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G32"), reader.getCell(selectTab, "H32"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L32"), reader.getCell(selectTab, "M32"));
 
                 // - Surface Proximity
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B33"), reader.get(selectTab, "C33"));
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "D33"), reader.get(selectTab, "E33"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G33"), reader.get(selectTab, "H33"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "I33"), reader.get(selectTab, "J33"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L33"), reader.get(selectTab, "M33"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "N33"), reader.get(selectTab, "O33"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B33"), reader.getCell(selectTab, "C33"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "D33"), reader.getCell(selectTab, "E33"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G33"), reader.getCell(selectTab, "H33"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "I33"), reader.getCell(selectTab, "J33"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L33"), reader.getCell(selectTab, "M33"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "N33"), reader.getCell(selectTab, "O33"));
 
                 // - Number of Prism Layers
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B34"), reader.get(selectTab, "C34"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G34"), reader.get(selectTab, "H34"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L34"), reader.get(selectTab, "M34"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B34"), reader.getCell(selectTab, "C34"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G34"), reader.getCell(selectTab, "H34"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L34"), reader.getCell(selectTab, "M34"));
 
                 // - Prism Layer Stretching
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B35"), reader.get(selectTab, "C35"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G35"), reader.get(selectTab, "H35"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L35"), reader.get(selectTab, "M35"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B35"), reader.getCell(selectTab, "C35"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G35"), reader.getCell(selectTab, "H35"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L35"), reader.getCell(selectTab, "M35"));
 
                 // - Prism Layer Total Thickness
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B36"), reader.get(selectTab, "C36"));
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "D36"), reader.get(selectTab, "E36"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G36"), reader.get(selectTab, "H36"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "I36"), reader.get(selectTab, "J36"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L36"), reader.get(selectTab, "M36"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "N36"), reader.get(selectTab, "O36"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B36"), reader.getCell(selectTab, "C36"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "D36"), reader.getCell(selectTab, "E36"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G36"), reader.getCell(selectTab, "H36"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "I36"), reader.getCell(selectTab, "J36"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L36"), reader.getCell(selectTab, "M36"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "N36"), reader.getCell(selectTab, "O36"));
 
                 // - Volume Growth Rate
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B37"), reader.get(selectTab, "C37"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G37"), reader.get(selectTab, "H37"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L37"), reader.get(selectTab, "M37"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B37"), reader.getCell(selectTab, "C37"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G37"), reader.getCell(selectTab, "H37"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L37"), reader.getCell(selectTab, "M37"));
 
                 // - Maximum Tet Size
-                tabMeshExcelAutoMeshInActive1.put(reader.get(selectTab, "B38"), reader.get(selectTab, "C38"));
-                tabMeshExcelAutoMeshInActive2.put(reader.get(selectTab, "G38"), reader.get(selectTab, "H38"));
-                tabMeshExcelAutoMeshInActive3.put(reader.get(selectTab, "L38"), reader.get(selectTab, "M38"));
+                tabMeshExcelAutoMeshInActive1.put(reader.getCell(selectTab, "B38"), reader.getCell(selectTab, "C38"));
+                tabMeshExcelAutoMeshInActive2.put(reader.getCell(selectTab, "G38"), reader.getCell(selectTab, "H38"));
+                tabMeshExcelAutoMeshInActive3.put(reader.getCell(selectTab, "L38"), reader.getCell(selectTab, "M38"));
 
                 // ui에 적용
                 setAutoMeshInActive(tabMeshExcelAutoMeshInActive1, tabMeshAutoMeshInActiveListModel1, tabMeshAutoMeshInActiveTextArea1);

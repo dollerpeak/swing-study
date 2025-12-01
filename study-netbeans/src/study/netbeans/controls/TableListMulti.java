@@ -6,9 +6,6 @@ import java.util.logging.Level;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 import study.netbeans.common.LoggerManager;
-//import study.netbeans.util.MultiTableListDragAndDropSwapHandler;
-import study.netbeans.util.TableCellRenderer;
-//import study.netbeans.util.TableDragAndDropSwapHandler;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

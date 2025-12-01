@@ -4,7 +4,6 @@
  */
 package study.netbeans.controls;
 
-import study.netbeans.util.TableCellRenderer;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;

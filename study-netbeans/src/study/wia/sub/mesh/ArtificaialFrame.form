@@ -356,7 +356,7 @@
       <SubComponents>
         <Container class="javax.swing.JPanel" name="imagePanel">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new hdwia.hvac.function.ImagePanel(&quot;/hdwia/hvac/resources/view.png&quot;)&#xd;&#xa;"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new study.wia.function.ImagePanel(&quot;/study/resources/view.png&quot;)&#xd;&#xa;"/>
           </AuxValues>
 
           <Layout>

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package study.netbeans.util;
+package study.wia.function;
 
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
@@ -13,8 +13,9 @@ import java.util.Set;
 import javax.swing.JTable;
 import javax.swing.JComponent;
 import javax.swing.TransferHandler;
+import static javax.swing.TransferHandler.MOVE;
 import javax.swing.table.DefaultTableModel;
-import study.netbeans.common.LoggerManager;
+import study.wia.common.LoggerManager;
 
 /**
  * JTable 간 DragAndDrop 방식으로 셀 단위 데이터 이동(MOVE)
@@ -106,7 +107,7 @@ public class TableToTableMoveDragAndDropHandler extends TransferHandler {
     }
 
     @Override
-    public boolean canImport(TransferSupport support) {
+    public boolean canImport(TransferHandler.TransferSupport support) {
         if (!support.isDrop()) return false;
         if (!support.isDataFlavorSupported(DataFlavor.stringFlavor)) return false;
         if (!(support.getComponent() instanceof JTable)) return false;
@@ -126,7 +127,7 @@ public class TableToTableMoveDragAndDropHandler extends TransferHandler {
     }
 
     @Override
-    public boolean importData(TransferSupport support) {
+    public boolean importData(TransferHandler.TransferSupport support) {
         if (!canImport(support)) return false;
 
         try {
@@ -164,7 +165,8 @@ public class TableToTableMoveDragAndDropHandler extends TransferHandler {
             return true;
 
         } catch (Exception e) {
-            loggerMgr.getLogger().severe(e.toString());
+            //loggerMgr.getLogger().severe(e.toString());
+            loggerMgr.error(e.toString());
             return false;
         }
     }

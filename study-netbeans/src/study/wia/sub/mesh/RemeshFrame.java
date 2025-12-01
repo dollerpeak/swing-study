@@ -6,7 +6,6 @@ package study.wia.sub.mesh;
 
 import study.wia.common.CommonManager;
 import study.wia.common.LoggerManager;
-import hdwia.hvac.function.ListDragAndDropMoveHandler;
 import study.wia.main.MainFrame;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -58,9 +57,9 @@ public class RemeshFrame extends javax.swing.JFrame {
         successPartList.setModel(successPartListModel);
         failPartList.setModel(failPartListModel);
         
-        // set handler
-        expectPartList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
-        exceptPartList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+//        // set handler
+//        expectPartList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+//        exceptPartList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
     }
     
     private void setTestData() {

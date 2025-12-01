@@ -12,13 +12,14 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import study.netbeans.common.LoggerManager;
-import study.netbeans.util.MultiTableToListCopyDragAndDropHandler;
-import study.netbeans.util.TableCellRenderer;
-import study.netbeans.util.TableToTableMoveDragAndDropHandler;
-import study.netbeans.util.TableToTableSwapDragAndDropHandler;
 import study.wia.common.CommonManager;
 import study.wia.common.ReadExcel;
+import study.wia.common.LoggerManager;
+import study.wia.function.MultiTableToListCopyDragAndDropHandler;
+import study.wia.function.TableCellRenderer;
+import study.wia.function.TableToTableMoveDragAndDropHandler;
+import study.wia.function.TableToTableSwapDragAndDropHandler;
+
 
 /**
  *
@@ -50,32 +51,32 @@ public class TableSwap extends javax.swing.JFrame {
     }
 
     private void initLoggerManager() {
-        loggerMgr = new LoggerManager(this.getClass().getName(), Level.INFO);
-        loggerMgr.getLogger().info("===> initLoggerManager()");  
+//        loggerMgr = new LoggerManager(this.getClass().getName(), Level.INFO);
+//        loggerMgr.getLogger().info("===> initLoggerManager()");  
     }
     
-    private void setTable(JTable table, DefaultTableModel tableModel, String[] columArray, int dataCount, int[] inActiveEditColume) {
-        tableModel = new DefaultTableModel(columArray, dataCount) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                if (inActiveEditColume != null) {
-                    for (int i = 0; i < inActiveEditColume.length; i += 1) {
-                        // edit기능 제거
-                        if (inActiveEditColume[i] == column) {
-                            return false;
-                        }
-                    }
-                    return true;
-                } else {
-                    return true;
-                }
-            }
-        };
-        // 타이틀바 색상변경
-        table.getTableHeader().setBackground(Color.LIGHT_GRAY);
-        // 맨 왼쪽 색상변경
-        table.setDefaultRenderer(Object.class, new TableCellRenderer());
-    }
+//    private void setTable(JTable table, DefaultTableModel tableModel, String[] columArray, int dataCount, int[] inActiveEditColume) {
+//        tableModel = new DefaultTableModel(columArray, dataCount) {
+//            @Override
+//            public boolean isCellEditable(int row, int column) {
+//                if (inActiveEditColume != null) {
+//                    for (int i = 0; i < inActiveEditColume.length; i += 1) {
+//                        // edit기능 제거
+//                        if (inActiveEditColume[i] == column) {
+//                            return false;
+//                        }
+//                    }
+//                    return true;
+//                } else {
+//                    return true;
+//                }
+//            }
+//        };
+//        // 타이틀바 색상변경
+//        table.getTableHeader().setBackground(Color.LIGHT_GRAY);
+//        // 맨 왼쪽 색상변경
+//        table.setDefaultRenderer(Object.class, new TableCellRenderer());
+//    }
     
     private void init() {
         
@@ -160,7 +161,7 @@ public class TableSwap extends javax.swing.JFrame {
     }
     
     private void loadExcel() {
-        loggerMgr.getLogger().info(">>>> START");
+        loggerMgr.info(">>>> START");
         
         try {
             // 읽을 엑셀 파일 경로
@@ -172,22 +173,22 @@ public class TableSwap extends javax.swing.JFrame {
 
             // 모든 시트명 출력
             List<String> allTab = reader.getSheetNames();
-            loggerMgr.getLogger().info("allTab = " + allTab.toString());
+            loggerMgr.info("allTab = " + allTab.toString());
 
             String selectTab = "AutomatedMesh";
 
             // automesh
             if (allTab.contains(selectTab) == true) {
                 
-                loggerMgr.getLogger().info(
+                loggerMgr.info(
                         "B2 = " + reader.getCell(selectTab, "B2")
                 );
 
-                loggerMgr.getLogger().info(
+                loggerMgr.info(
                         "AutoMesh_name1 = " + reader.getName("AutoMesh_name1")
                 );
                 
-                loggerMgr.getLogger().info(
+                loggerMgr.info(
                         "partlist = " + reader.getNameRange("partlist").toString()
                 );
                 
@@ -198,11 +199,11 @@ public class TableSwap extends javax.swing.JFrame {
                 CommonManager.showMessageDialog(this, "알림", "파일에 " + selectTab + " 탭이 존재하지 않습니다.", JOptionPane.WARNING_MESSAGE);
             }
         } catch (Exception e) {
-            loggerMgr.getLogger().info("e = " + e.toString());
+            loggerMgr.info("e = " + e.toString());
             //CommonManager.showMessageDialog(this, "알림", "파일을 읽는 중 문제가 발생했습니다.", JOptionPane.WARNING_MESSAGE);
         }
         
-        loggerMgr.getLogger().info(">>>> END");
+        loggerMgr.info(">>>> END");
     }
 
     /**

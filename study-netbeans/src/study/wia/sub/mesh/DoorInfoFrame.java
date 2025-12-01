@@ -6,7 +6,6 @@ package study.wia.sub.mesh;
 
 import study.wia.common.CommonManager;
 import study.wia.common.LoggerManager;
-import hdwia.hvac.function.ListDragAndDropMoveHandler;
 import study.wia.main.MainFrame;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -65,13 +64,13 @@ public class DoorInfoFrame extends javax.swing.JFrame {
         partList.setModel(partListModel);
         
         // set handler
-        bodyIntakeList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
-        bodyTemperatureList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
-        bodyModeList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
-        doorIntakeList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
-        doorTemperatureList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
-        doorModeList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
-        partList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+//        bodyIntakeList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+//        bodyTemperatureList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+//        bodyModeList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+//        doorIntakeList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+//        doorTemperatureList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+//        doorModeList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+//        partList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
     }
     
     private void setTestData() {

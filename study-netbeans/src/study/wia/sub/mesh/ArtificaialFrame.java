@@ -6,7 +6,6 @@ package study.wia.sub.mesh;
 
 import study.wia.common.CommonManager;
 import study.wia.common.LoggerManager;
-import hdwia.hvac.function.ListDragAndDropMoveHandler;
 import study.wia.main.MainFrame;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
@@ -55,7 +54,7 @@ public class ArtificaialFrame extends javax.swing.JFrame {
         surfacePartList.setModel(surfacePartListModel);
         
         // set handler
-        surfacePartList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
+        //surfacePartList.setTransferHandler(new ListDragAndDropMoveHandler(loggerMgr));
     }
     
 //    private void changePanel() {
@@ -149,12 +148,12 @@ public class ArtificaialFrame extends javax.swing.JFrame {
         sizeActiveTextField = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        surfacePartList = new javax.swing.JList<String>();
+        surfacePartList = new javax.swing.JList<>();
         jPanel3 = new javax.swing.JPanel();
         createButton = new javax.swing.JButton();
         resetButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        imagePanel = new hdwia.hvac.function.ImagePanel("/hdwia/hvac/resources/view.png")
+        imagePanel = new study.wia.function.ImagePanel("/study/resources/view.png")
         ;
         jPanel6 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();

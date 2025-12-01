@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package study.netbeans.util;
+package study.wia.function;
 
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
@@ -15,9 +15,10 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.TransferHandler;
+import static javax.swing.TransferHandler.COPY;
 import javax.swing.table.DefaultTableModel;
-import study.netbeans.common.LoggerManager;
 import study.wia.common.CommonManager;
+import study.wia.common.LoggerManager;
 
 /**
  * MultiTableToListCopyDragAndDropHandler
@@ -111,14 +112,14 @@ public class MultiTableToListCopyDragAndDropHandler extends TransferHandler {
     }
 
     @Override
-    public boolean canImport(TransferSupport support) {
+    public boolean canImport(TransferHandler.TransferSupport support) {
         if (!(support.getComponent() instanceof JList)) return false;
         if (!support.isDrop()) return false;
         return support.isDataFlavorSupported(DataFlavor.stringFlavor);
     }
 
     @Override
-    public boolean importData(TransferSupport support) {
+    public boolean importData(TransferHandler.TransferSupport support) {
         if (!(support.getComponent() instanceof JList)) return false;
 
         JList<?> targetList = (JList<?>) support.getComponent();
