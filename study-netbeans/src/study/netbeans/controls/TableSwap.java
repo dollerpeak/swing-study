@@ -12,9 +12,9 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import study.netbeans.common.LoggerManager;
 import study.wia.common.CommonManager;
 import study.wia.common.ReadExcel;
-import study.wia.common.LoggerManager;
 import study.wia.function.MultiTableToListCopyDragAndDropHandler;
 import study.wia.function.TableCellRenderer;
 import study.wia.function.TableToTableMoveDragAndDropHandler;
@@ -47,12 +47,12 @@ public class TableSwap extends javax.swing.JFrame {
         initComponents();
         
         init();
-        //loadExcel();
+        loadExcel();
     }
 
     private void initLoggerManager() {
-//        loggerMgr = new LoggerManager(this.getClass().getName(), Level.INFO);
-//        loggerMgr.getLogger().info("===> initLoggerManager()");  
+        loggerMgr = new LoggerManager(this.getClass().getName(), Level.INFO);
+        loggerMgr.getLogger().info("===> initLoggerManager()");  
     }
     
 //    private void setTable(JTable table, DefaultTableModel tableModel, String[] columArray, int dataCount, int[] inActiveEditColume) {
@@ -108,13 +108,13 @@ public class TableSwap extends javax.swing.JFrame {
         table1.setModel(table1Model);
         table1Model.addRow(new String[]{"왼쪽1", "table1_11", "table1_12"});
         table1Model.addRow(new String[]{"왼쪽1", "table1_21", "table1_22"});
-        table1.setTransferHandler(new TableToTableSwapDragAndDropHandler(loggerMgr, "table1", new int[]{0}));
+//        table1.setTransferHandler(new TableToTableSwapDragAndDropHandler(loggerMgr, "table1", new int[]{0}));
         
         table2Model = new DefaultTableModel(new String[]{"col0", "col1", "col2"}, 0);
         table2.setModel(table2Model);
         table2Model.addRow(new String[]{"왼쪽2", "table2_11", "table2_12"});
         table2Model.addRow(new String[]{"왼쪽2", "table2_21", "table2_22"});
-        table2.setTransferHandler(new TableToTableSwapDragAndDropHandler(loggerMgr, "table2", null));
+//        table2.setTransferHandler(new TableToTableSwapDragAndDropHandler(loggerMgr, "table2", null));
         
         TableToTableSwapDragAndDropHandler.allowPair("table1", "table2", true);
         
@@ -122,13 +122,13 @@ public class TableSwap extends javax.swing.JFrame {
         table3.setModel(table3Model);
         table3Model.addRow(new String[]{"왼쪽3", "table3_11", "table3_12"});
         table3Model.addRow(new String[]{"왼쪽3", "table3_21", "table3_22"});
-        table3.setTransferHandler(new TableToTableMoveDragAndDropHandler(loggerMgr, "table3", null));
+//        table3.setTransferHandler(new TableToTableMoveDragAndDropHandler(loggerMgr, "table3", null));
         
         table4Model = new DefaultTableModel(new String[]{"col0", "col1", "col2"}, 0);
         table4.setModel(table4Model);
         table4Model.addRow(new String[]{"왼쪽4", "table4_11", "table4_12"});
         table4Model.addRow(new String[]{"왼쪽4", "table4_21", "table4_22"});
-        table4.setTransferHandler(new TableToTableMoveDragAndDropHandler(loggerMgr, "table4", null));
+//        table4.setTransferHandler(new TableToTableMoveDragAndDropHandler(loggerMgr, "table4", null));
         
         TableToTableMoveDragAndDropHandler.allowPair("table3", "table4", true);
         
@@ -136,7 +136,7 @@ public class TableSwap extends javax.swing.JFrame {
         table5.setModel(table5Model);
         table5Model.addRow(new String[]{"왼쪽5", "table5_11", "table5_12"});
         table5Model.addRow(new String[]{"왼쪽5", "table5_21", "table5_22"});
-        table5.setTransferHandler(new MultiTableToListCopyDragAndDropHandler(loggerMgr, "table5", new int[]{0}));
+//        table5.setTransferHandler(new MultiTableToListCopyDragAndDropHandler(loggerMgr, "table5", new int[]{0}));
         
         
         
@@ -144,7 +144,7 @@ public class TableSwap extends javax.swing.JFrame {
         list1.setModel(list1Model);
         list1Model.addElement("list1_0");
         list1Model.addElement("list1_1");
-        list1.setTransferHandler(new MultiTableToListCopyDragAndDropHandler(loggerMgr, "list1", null));
+//        list1.setTransferHandler(new MultiTableToListCopyDragAndDropHandler(loggerMgr, "list1", null));
         
         list2.setModel(list2Model);
         list2Model.addElement("list2_0");
@@ -161,7 +161,7 @@ public class TableSwap extends javax.swing.JFrame {
     }
     
     private void loadExcel() {
-        loggerMgr.info(">>>> START");
+        loggerMgr.getLogger().info(">>>> START");
         
         try {
             // 읽을 엑셀 파일 경로
@@ -173,24 +173,32 @@ public class TableSwap extends javax.swing.JFrame {
 
             // 모든 시트명 출력
             List<String> allTab = reader.getSheetNames();
-            loggerMgr.info("allTab = " + allTab.toString());
+            loggerMgr.getLogger().info("allTab = " + allTab.toString());
 
             String selectTab = "AutomatedMesh";
 
             // automesh
             if (allTab.contains(selectTab) == true) {
                 
-                loggerMgr.info(
-                        "B2 = " + reader.getCell(selectTab, "B2")
-                );
-
-                loggerMgr.info(
-                        "AutoMesh_name1 = " + reader.getName("AutoMesh_name1")
+                loggerMgr.getLogger().info(
+                        "test_range = " + reader.getNameRange("test_range")
                 );
                 
-                loggerMgr.info(
-                        "partlist = " + reader.getNameRange("partlist").toString()
+                loggerMgr.getLogger().info(
+                        "test_range = " + reader.getName("test_one")
                 );
+                
+//                loggerMgr.getLogger().info(
+//                        "B2 = " + reader.getCell(selectTab, "B2")
+//                );
+//
+//                loggerMgr.getLogger().info(
+//                        "AutoMesh_name1 = " + reader.getName("AutoMesh_name1")
+//                );
+//                
+//                loggerMgr.getLogger().info(
+//                        "partlist = " + reader.getNameRange("partlist").toString()
+//                );
                 
                 
                 // - parts
@@ -199,11 +207,11 @@ public class TableSwap extends javax.swing.JFrame {
                 CommonManager.showMessageDialog(this, "알림", "파일에 " + selectTab + " 탭이 존재하지 않습니다.", JOptionPane.WARNING_MESSAGE);
             }
         } catch (Exception e) {
-            loggerMgr.info("e = " + e.toString());
+            loggerMgr.getLogger().info("e = " + e.toString());
             //CommonManager.showMessageDialog(this, "알림", "파일을 읽는 중 문제가 발생했습니다.", JOptionPane.WARNING_MESSAGE);
         }
         
-        loggerMgr.info(">>>> END");
+        loggerMgr.getLogger().info(">>>> END");
     }
 
     /**
