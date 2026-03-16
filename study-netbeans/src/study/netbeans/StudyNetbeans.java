@@ -53,7 +53,7 @@ public class StudyNetbeans {
         //TreeFrame frame = new TreeFrame();
         //TableSwap frame = new TableSwap();
         
-        TableSwap frame = new TableSwap();
+        FramePanelControls frame = new FramePanelControls();
         
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
