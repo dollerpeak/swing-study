@@ -543,9 +543,8 @@ public class FramePanelControls extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("nine"));
 
-        nineSlider.setMajorTickSpacing(10);
-        nineSlider.setMaximum(10);
-        nineSlider.setMinorTickSpacing(1);
+        nineSlider.setMaximum(500);
+        nineSlider.setMinimum(-500);
         nineSlider.setPaintLabels(true);
         nineSlider.setValue(3);
         nineSlider.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -888,7 +887,7 @@ public class FramePanelControls extends javax.swing.JFrame {
     private void eightSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_eightSliderStateChanged
         loggerMgr.getLogger().info("===> oneTextArea1MouseClicked()");
         
-        eightSlider.setMinorTickSpacing(2);
+        //eightSlider.setMinorTickSpacing(2);
         
         loggerMgr.getLogger().info("eightSlider value = " + eightSlider.getValue());
         
